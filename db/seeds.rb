@@ -24,6 +24,9 @@ EOF
     command = m["command"].strip
     desc = m["desc"].strip
     desc = desc.sub(/^\d +/, "")
+    if desc.strip.empty? || /^未使用/ =~ desc
+      next
+    end
     puts "Mode: #{@mode.label} Create Command:#{command} - #{desc}"
     @mode.vim_commands.create! command: command, description: desc
   end

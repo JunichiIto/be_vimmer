@@ -1,4 +1,6 @@
 BeVimmer::Application.routes.draw do
+  get "vim_command/index"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -48,7 +50,7 @@ BeVimmer::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root :to => 'vim_command#index'
 
   # See how all your routes lay out with "rake routes"
 
