@@ -74,6 +74,7 @@ GEM
     mime-types (1.18)
     multi_json (1.2.0)
     multipart-post (1.1.5)
+    pg (0.12.2)
     pit (0.0.6)
     polyglot (0.3.3)
     rack (1.4.1)
@@ -154,6 +155,7 @@ DEPENDENCIES
   haml (>= 3.0.0)
   haml-rails
   jquery-rails
+  pg
   pit
   rails (= 3.2.3)
   rspec-rails (>= 2.0.1)
