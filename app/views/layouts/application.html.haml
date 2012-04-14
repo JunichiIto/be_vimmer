@@ -3,7 +3,7 @@
   %head
     %meta(charset="utf-8")
     %meta(name="viewport" content="width=device-width, initial-scale=1.0")
-    %title= content_for?(:title) ? yield(:title) : "BeVimmer"
+    %title= content_for?(:title) ? yield(:title) : "Be Vimmer"
     = csrf_meta_tags
     / Le HTML5 shim, for IE6-8 support of HTML elements
     /[if lt IE 9]
@@ -22,12 +22,12 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          %a.brand(href="#") BeVimmer
+          %a.brand(href="#") Be Vimmer
           .container.nav-collapse
             %ul.nav
-              -#%li= link_to "Link 1", "/path1"
-              -#%li= link_to "Link 2", "/path2"
-              -#%li= link_to "Link 3", "/path3"
+              %li= link_to "Japanese", "/"
+              %li= link_to "English", "/?lang=en"
+              %li= link_to "Chinese", "/?lang=cn"
 
     .container
 
@@ -39,15 +39,18 @@
             .well.sidebar-nav
               %h3 Links
               %ul.nav.nav-list
-                -#%li.nav-header Links
-                %li= link_to "Vim documentation", "http://vim-jp.org/vimdoc-ja/vimindex.html"
-                %li= link_to "Author", "https://twitter.com/#!/junichiito77"
-                -#%li= link_to "Link 3", "/path3"
+                %li.nav-header Twitter
+                %li= link_to "Japanese", "https://twitter.com/#!/be_vimmer_jp"
+                %li= link_to "English", "https://twitter.com/#!/be_vimmer_en"
+                %li= link_to "Chinese", "https://twitter.com/#!/be_vimmer_cn"
+                %li.nav-header Resources
+                %li= link_to "Japanese", "http://vim-jp.org/vimdoc-ja/vimindex.html"
+                %li= link_to "English", "http://code.google.com/p/vim/source/browse/runtime/doc/index.txt"
+                %li= link_to "Chinese", "http://sourceforge.net/projects/vimcdoc/files/vimcdoc/1.8.0/"
+                %li.nav-header Developer
+                %li= link_to "@JunichiIto77", "https://twitter.com/#!/junichiito77"
     
       %footer
-        %p 
-          &copy; 
-          = link_to "Junichi Ito", "https://twitter.com/#!/junichiito77"
     /
       Javascripts
       \==================================================
