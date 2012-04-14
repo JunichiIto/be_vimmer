@@ -4,13 +4,14 @@ require 'pit'
 desc "Random tweets"
 task :cron => :environment do
   configure
-  count = VimCommand.count
+  commands = VimCommand.where("language='jp'").select('id')
+  count = commands.count
   3.times do 
-    id = rand(count)
-    command = VimCommand.find id
+    idx = rand(count)
+    command = VimCommand.find commands[idx].id
     tweet = build_tweet command
     puts tweet
-    update tweet
+    #update tweet
   end
 end
 
