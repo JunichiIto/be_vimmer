@@ -3,25 +3,7 @@ require 'twitter'
 require 'pit'
 desc "Random tweets"
 task :cron => :environment do
-  pit = Pit.get(
-    'be_vimmer_jp',
-    :require => {
-      'twitter.consumer_key'       => ENV["twitter.consumer_key"],
-      'twitter.consumer_secret'    => ENV["twitter.consumer_secret"],
-      'twitter.oauth_token'        => ENV["twitter.oauth_token"],
-      'twitter.oauth_token_secret' => ENV["twitter.oauth_token_secret"],
-  })
-  pit["twitter.consumer_key"] ||= ENV["twitter.consumer_key"]
-  pit["twitter.consumer_secret"] ||= ENV["twitter.consumer_secret"]
-  pit["twitter.oauth_token"] ||= ENV["twitter.oauth_token"]
-  pit["twitter.oauth_token_secret"] ||= ENV["twitter.oauth_token_secret"]
-  p pit
-  Twitter.configure do |config|
-    config.consumer_key       = pit["twitter.consumer_key"]
-    config.consumer_secret    = pit["twitter.consumer_secret"]
-    config.oauth_token        = pit["twitter.oauth_token"]
-    config.oauth_token_secret = pit["twitter.oauth_token_secret"]
-  end
+  configure
   count = VimCommand.count
   3.times do 
     id = rand(count)
@@ -29,6 +11,28 @@ task :cron => :environment do
     tweet = build_tweet command
     puts tweet
     update tweet
+  end
+end
+
+def configure
+  pit = Pit.get(
+    'be_vimmer_jp',
+    :require => {
+      'twitter.consumer_key'       => '', 
+      'twitter.consumer_secret'    => '', 
+      'twitter.oauth_token'        => '', 
+      'twitter.oauth_token_secret' => '', 
+  })
+  pit["twitter.consumer_key"] ||= ENV["twitter.consumer_key"]
+  pit["twitter.consumer_secret"] ||= ENV["twitter.consumer_secret"]
+  pit["twitter.oauth_token"] ||= ENV["twitter.oauth_token"]
+  pit["twitter.oauth_token_secret"] ||= ENV["twitter.oauth_token_secret"]
+
+  Twitter.configure do |config|
+    config.consumer_key       = pit["twitter.consumer_key"]
+    config.consumer_secret    = pit["twitter.consumer_secret"]
+    config.oauth_token        = pit["twitter.oauth_token"]
+    config.oauth_token_secret = pit["twitter.oauth_token_secret"]
   end
 end
 
