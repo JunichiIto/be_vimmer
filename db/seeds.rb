@@ -1227,6 +1227,6 @@ EOF
       next
     end
     puts "Mode: #{@mode.label} Create Command:#{command} - #{desc}"
-    @mode.vim_commands.create! command: command, description: desc
+    @mode.vim_commands.create! command: command, description: desc, language: 'jp'
   end
 end
