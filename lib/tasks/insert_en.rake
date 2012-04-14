@@ -4,13 +4,13 @@ namespace :seed do
   task :insert_en => :environment do
     @lines = <<-EOF.split "\n"
 ###Insert mode
-CTRL-@          insert previously inserted text and stopinsert
+CTRL-@          insert previously inserted text and stop insert
 CTRL-A          insert previously inserted text
 CTRL-B          not used |i_CTRL-B-gone|
-CTRL-C          quit insert mode, without checking forabbreviation, unless 'insertmode' set.
-CTRL-D          delete one shiftwidth of indent in the currentline
+CTRL-C          quit insert mode, without checking for abbreviation, unless 'insertmode' set.
+CTRL-D          delete one shiftwidth of indent in the current line
 CTRL-E          insert the character which is below the cursor
-CTRL-F          not used (but by default it's in 'cinkeys' tore-indent the current line)
+CTRL-F          not used (but by default it's in 'cinkeys' to re-indent the current line)
 CTRL-G CTRL-J   line down, to column where inserting started
 CTRL-G j        line down, to column where inserting started
 CTRL-G <Down>   line down, to column where inserting started
@@ -19,29 +19,29 @@ CTRL-G k        line up, to column where inserting started
 CTRL-G <Up>     line up, to column where inserting started
 CTRL-G u        start new undoable edit
 <BS>            delete character before the cursor
-{char1}<BS>{char2}  enter digraph (only when 'digraph' option set)
+{char1}<BS>{char2}    enter digraph (only when 'digraph' option set)
 CTRL-H          same as <BS>
 <Tab>           insert a <Tab> character
 CTRL-I          same as <Tab>
 <NL>            same as <CR>
 CTRL-J          same as <CR>
-CTRL-K {char1} {char2}i  enter digraph
+CTRL-K {char1} {char2}    enter digraph
 CTRL-L          when 'insertmode' set: Leave Insert mode
 <CR>            begin new line
 CTRL-M          same as <CR>
-CTRL-N          find next match for keyword in front of thecursor
-CTRL-O          execute a single command and return to insertmode
-CTRL-P          find previous match for keyword in front ofthe cursor
-CTRL-Q          same as CTRL-V, unless used for terminalcontrol flow
-CTRL-R {0-9a-z"%#*:=}   insert the contents of a register
+CTRL-N          find next match for keyword in front of the cursor
+CTRL-O          execute a single command and return to insert mode
+CTRL-P          find previous match for keyword in front of the cursor
+CTRL-Q          same as CTRL-V, unless used for terminal control flow
+CTRL-R {0-9a-z"%#*:=}    insert the contents of a register
 CTRL-R CTRL-R {0-9a-z"%#*:=}   insert the contents of a register literally
-CTRL-R CTRL-O {0-9a-z"%#*:=}   insert the contents of a register literallyand don't auto-indent
-CTRL-R CTRL-P {0-9a-z"%#*:=}   insert the contents of a register literallyand fix indent.
+CTRL-R CTRL-O {0-9a-z"%#*:=}   insert the contents of a register literally and don't auto-indent
+CTRL-R CTRL-P {0-9a-z"%#*:=}   insert the contents of a register literally and fix indent.
 CTRL-S          (used for terminal control flow)
-CTRL-T          insert one shiftwidth of indent in currentline
-CTRL-U          delete all entered characters in the currentline
+CTRL-T          insert one shiftwidth of indent in current line
+CTRL-U          delete all entered characters in the current line
 CTRL-V {char}   insert next non-digit literally
-CTRL-V {number}   insert three digit decimal number as a singlebyte.
+CTRL-V {number}   insert three digit decimal number as a single byte.
 CTRL-W          delete word before the cursor
 CTRL-X {mode}   enter CTRL-X sub mode, see |i_CTRL-X_index|
 CTRL-Y          insert the character which is above the cursor
@@ -54,10 +54,9 @@ CTRL-\ a - z    reserved for extensions
 CTRL-\ others   not used
 CTRL-]          trigger abbreviation
 CTRL-^          toggle use of |:lmap| mappings
-CTRL-_          When 'allowrevins' set: change language(Hebrew, Farsi) {only when compiled withthe |+rightleft| feature}
+CTRL-_          When 'allowrevins' set: change language (Hebrew, Farsi) {only when compiled with the |+rightleft| feature}
 0 CTRL-D        delete all indent in the current line
-^ CTRL-D        delete all indent in the current line, restoreit in the next line
-<Del>           delete character under the cursor
+^ CTRL-D        delete all indent in the current line, restore it in the next line
 <Left>          cursor one character left
 <S-Left>        cursor one word left
 <C-Left>        cursor one word left
@@ -86,7 +85,7 @@ CTRL-_          When 'allowrevins' set: change language(Hebrew, Farsi) {only whe
 <S-ScrollWheelLeft>     move window one page left
 <ScrollWheelRight>      move window six columns right
 <S-ScrollWheelRight>   move window one page right
-###CTRL-X submode
+###submode
 CTRL-X CTRL-D   complete defined identifiers
 CTRL-X CTRL-E   scroll up
 CTRL-X CTRL-F   complete file names
@@ -129,7 +128,7 @@ CTRL-Q             (used for terminal control flow)
 CTRL-R          2  redo changes which were undone with 'u'
 CTRL-S             (used for terminal control flow)
 CTRL-T             jump to N older Tag in tag list
-CTRL-U             scroll N lines Upwards (default: half ascreen)
+CTRL-U             scroll N lines Upwards (default: half a screen)
 CTRL-V             start blockwise Visual mode
 CTRL-W {char}      window commands, see |CTRL-W|
 CTRL-X          2  subtract N from number at/after cursor
@@ -141,78 +140,78 @@ CTRL-\ CTRL-G      go to mode specified with 'insertmode'
 CTRL-\ a - z       reserved for extensions
 CTRL-\ others      not used
 CTRL-]             :ta to ident under cursor
-CTRL-^             edit Nth alternate file (equivalent to":e #N")
+CTRL-^             edit Nth alternate file (equivalent to ":e #N")
 CTRL-_             not used
 
 <Space>         1  same as "l"
-!{motion}{filter}2  filter Nmove text through the {filter}command
+!{motion}{filter}    2  filter Nmove text through the {filter} command
 !!{filter}      2  filter N lines through the {filter} command
-"{a-zA-Z0-9.%#:-"}  use register {a-zA-Z0-9.%#:-"} for nextdelete, yank or put (uppercase to append)({.%#:} only work with put)
-#               1  search backward for the Nth occurrence ofthe ident under the cursor
+"{a-zA-Z0-9.%#:-"}  use register {a-zA-Z0-9.%#:-"} for next delete, yank or put (uppercase to append) ({.%#:} only work with put)
+#               1  search backward for the Nth occurrence of the ident under the cursor
 $               1  cursor to the end of Nth next line
-%               1  find the next (curly/square) bracket onthis line and go to its match, or go tomatching comment bracket, or go to matchingpreprocessor directive.
+%               1  find the next (curly/square) bracket on this line and go to its match, or go to matching comment bracket, or go to matching preprocessor directive.
 {count}%        1  go to N percentage in the file
 &               2  repeat last :s
-'{a-zA-Z0-9}    1  cursor to the first CHAR on the line withmark {a-zA-Z0-9}
-''              1  cursor to the first CHAR of the line wherethe cursor was before the latest jump.
-'(              1  cursor to the first CHAR on the line of thestart of the current sentence
-')              1  cursor to the first CHAR on the line of theend of the current sentence
-'<              1  cursor to the first CHAR of the line wherehighlighted area starts/started in thecurrent buffer.
-'>              1  cursor to the first CHAR of the line wherehighlighted area ends/ended in the currentbuffer.
-'[              1  cursor to the first CHAR on the line of thestart of last operated text or start of puttext
-']              1  cursor to the first CHAR on the line of theend of last operated text or end of puttext
-'{              1  cursor to the first CHAR on the line of thestart of the current paragraph
-'}              1  cursor to the first CHAR on the line of theend of the current paragraph
+'{a-zA-Z0-9}    1  cursor to the first CHAR on the line with mark {a-zA-Z0-9}
+''              1  cursor to the first CHAR of the line where the cursor was before the latest jump.
+'(              1  cursor to the first CHAR on the line of the start of the current sentence
+')              1  cursor to the first CHAR on the line of the end of the current sentence
+'<              1  cursor to the first CHAR of the line where highlighted area starts/started in the current buffer.
+'>              1  cursor to the first CHAR of the line where highlighted area ends/ended in the current buffer.
+'[              1  cursor to the first CHAR on the line of the start of last operated text or start of put text
+']              1  cursor to the first CHAR on the line of the end of last operated text or end of put text
+'{              1  cursor to the first CHAR on the line of the start of the current paragraph
+'}              1  cursor to the first CHAR on the line of the end of the current paragraph
 (               1  cursor N sentences backward
 )               1  cursor N sentences forward
-*               1  search forward for the Nth occurrence ofthe ident under the cursor
+*               1  search forward for the Nth occurrence of the ident under the cursor
 +               1  same as <CR>
-,               1  repeat latest f, t, F or T in oppositedirection N times
+,               1  repeat latest f, t, F or T in opposite direction N times
 -               1  cursor to the first CHAR N lines higher
-.               2  repeat last change with count replaced withN
-/{pattern}<CR>  1  search forward for the Nth occurrence of{pattern}
+.               2  repeat last change with count replaced with N
+/{pattern}<CR>  1  search forward for the Nth occurrence of {pattern}
 /<CR>           1  search forward for {pattern} of last search
 0               1  cursor to the first char of the line
 1,2,3,4,5,6,7,8,9                  prepend to command to give a count
 :               1  start entering an Ex command
-{count}:           start entering an Ex command with rangefrom current line to N-1 lines down
+{count}:           start entering an Ex command with range from current line to N-1 lines down
 ;               1  repeat latest f, t, F or T N times
-<{motion}       2  shift Nmove lines one 'shiftwidth'leftwards
+<{motion}       2  shift Nmove lines one 'shiftwidth' leftwards
 <<              2  shift N lines one 'shiftwidth' leftwards
 ={motion}       2  filter Nmove lines through "indent"
 ==              2  filter N lines through "indent"
->{motion}       2  shift Nmove lines one 'shiftwidth'rightwards
+>{motion}       2  shift Nmove lines one 'shiftwidth' rightwards
 >>              2  shift N lines one 'shiftwidth' rightwards
-?{pattern}<CR>  1  search backward for the Nth previousoccurrence of {pattern}
+?{pattern}<CR>  1  search backward for the Nth previous occurrence of {pattern}
 ?<CR>           1  search backward for {pattern} of last search
-@{a-z}          2  execute the contents of register {a-z}N times
+@{a-z}          2  execute the contents of register {a-z} N times
 @:                 repeat the previous ":" command N times
 @@              2  repeat the previous @{a-z} N times
 A               2  append text after the end of the line N times
 B               1  cursor N WORDS backward
-["x]C           2  change from the cursor position to the endof the line, and N-1 more lines [intobuffer x]; synonym for "c$"
-["x]D           2  delete the characters under the cursoruntil the end of the line and N-1 morelines [into buffer x]; synonym for "d$"
+["x]C           2  change from the cursor position to the end of the line, and N-1 more lines [into buffer x]; synonym for "c$"
+["x]D           2  delete the characters under the cursor until the end of the line and N-1 more lines [into buffer x]; synonym for "d$"
 E               1  cursor forward to the end of WORD N
-F{char}         1  cursor to the Nth occurrence of {char} tothe left
+F{char}         1  cursor to the Nth occurrence of {char} to the left
 G               1  cursor to line N, default last line
 H               1  cursor to line N from top of screen
-I               2  insert text before the first CHAR on theline N times
+I               2  insert text before the first CHAR on the line N times
 J               2  Join N lines; default is 2
-K                  lookup Keyword under the cursor with'keywordprg'
+K                  lookup Keyword under the cursor with 'keywordprg'
 L               1  cursor to line N from bottom of screen
 M               1  cursor to middle line of screen
-N               1  repeat the latest '/' or '?' N times inopposite direction
-O               2  begin a new line above the cursor andinsert text, repeat N times
-["x]P           2  put the text [from buffer x] before thecursor N times
+N               1  repeat the latest '/' or '?' N times in opposite direction
+O               2  begin a new line above the cursor and insert text, repeat N times
+["x]P           2  put the text [from buffer x] before the cursor N times
 Q                  switch to "Ex" mode
-R               2  enter replace mode: overtype existingcharacters, repeat the entered text N-1times
-["x]S           2  delete N lines [into buffer x] and startinsert; synonym for "cc".
-T{char}         1  cursor till after Nth occurrence of {char}to the left
+R               2  enter replace mode: overtype existing characters, repeat the entered text N-1 times
+["x]S           2  delete N lines [into buffer x] and start insert; synonym for "cc".
+T{char}         1  cursor till after Nth occurrence of {char} to the left
 U               2  undo all latest changes on one line
 V                  start linewise Visual mode
 W               1  cursor N WORDS forward
-["x]X           2  delete N characters before the cursor [intobuffer x]
-["x]Y              yank N lines [into buffer x]; synonym for"yy"
+["x]X           2  delete N characters before the cursor [into buffer x]
+["x]Y              yank N lines [into buffer x]; synonym for "yy"
 ZZ                 store current file if modified, and exit
 ZQ                 exit current file always
 [{char}            square bracket command (see |[| below)
@@ -225,21 +224,21 @@ _               1  cursor to the first CHAR N - 1 lines lower
 `)              1  cursor to the end of the current sentence
 `<              1  cursor to the start of the highlighted area
 `>              1  cursor to the end of the highlighted area
-`[              1  cursor to the start of last operated textor start of putted text
-`]              1  cursor to the end of last operated text orend of putted text
+`[              1  cursor to the start of last operated text or start of putted text
+`]              1  cursor to the end of last operated text or end of putted text
 ``              1  cursor to the position before latest jump
 `{              1  cursor to the start of the current paragraph
 `}              1  cursor to the end of the current paragraph
 a               2  append text after the cursor N times
 b               1  cursor N words backward
-["x]c{motion}   2  delete Nmove text [into buffer x] and startinsert
-["x]cc          2  delete N lines [into buffer x] and startinsert
+["x]c{motion}   2  delete Nmove text [into buffer x] and start insert
+["x]cc          2  delete N lines [into buffer x] and start insert
 ["x]d{motion}   2  delete Nmove text [into buffer x]
 ["x]dd          2  delete N lines [into buffer x]
 do              2  same as ":diffget"
 dp              2  same as ":diffput"
 e               1  cursor forward to the end of word N
-f{char}         1  cursor to Nth occurrence of {char} to theright
+f{char}         1  cursor to Nth occurrence of {char} to the right
 g{char}            extended commands, see |g| below
 h               1  cursor N chars to the left
 i               2  insert text before the cursor N times
@@ -248,27 +247,27 @@ k               1  cursor N lines upward
 l               1  cursor N chars to the right
 m{A-Za-z}          set mark {A-Za-z} at cursor position
 n               1  repeat the latest '/' or '?' N times
-o               2  begin a new line below the cursor andinsert text, repeat N times
-["x]p           2  put the text [from register x] after thecursor N times
-q{0-9a-zA-Z"}      record typed characters into named register{0-9a-zA-Z"} (uppercase to append)
+o               2  begin a new line below the cursor and insert text, repeat N times
+["x]p           2  put the text [from register x] after the cursor N times
+q{0-9a-zA-Z"}      record typed characters into named register {0-9a-zA-Z"} (uppercase to append)
 q                  (while recording) stops recording
 q:                 edit : command-line in command-line window
 q/                 edit / command-line in command-line window
 q?                 edit ? command-line in command-line window
 r{char}         2  replace N chars with {char}
-["x]s           2  (substitute) delete N characters [intobuffer x] and start insert
-t{char}         1  cursor till before Nth occurrence of {char}to the right
+["x]s           2  (substitute) delete N characters [into buffer x] and start insert
+t{char}         1  cursor till before Nth occurrence of {char} to the right
 u               2  undo changes
 v                  start characterwise Visual mode
 w               1  cursor N words forward
-["x]x           2  delete N characters under and after thecursor [into buffer x]
+["x]x           2  delete N characters under and after the cursor [into buffer x]
 ["x]y{motion}      yank Nmove text [into buffer x]
 ["x]yy             yank N lines [into buffer x]
 z{char}            commands starting with 'z', see |z| below
 {               1  cursor N paragraphs backward
 |               1  cursor to column N
 }               1  cursor N paragraphs forward
-~               2  'tildeop' off: switch case of N charactersunder cursor and move the cursor Ncharacters to the right
+~               2  'tildeop' off: switch case of N characters under cursor and move the cursor N characters to the right
 ~{motion}          'tildeop' on: switch case of Nmove text
 <C-End>         1  same as "G"
 <C-Home>        1  same as "gg"
@@ -290,7 +289,7 @@ z{char}            commands starting with 'z', see |z| below
 <PageDown>         same as CTRL-F
 <PageUp>           same as CTRL-B
 <Right>         1  same as "l"
-<RightMouse>       start Visual mode, move cursor to the mouseclick position
+<RightMouse>       start Visual mode, move cursor to the mouse click position
 <S-Down>        1  same as CTRL-F
 <S-Left>        1  same as "b"
 <S-LeftMouse>      same as "*" at the mouse click position
@@ -384,20 +383,20 @@ CTRL-W S           same as "CTRL-W s"
 CTRL-W T           move current window to a new tab page
 CTRL-W W           go to N previous window (wrap around)
 CTRL-W ]           split window and jump to tag under cursor
-CTRL-W ^           split current window and edit alternatefile N
-CTRL-W _           set current window height to N (default:very high)
+CTRL-W ^           split current window and edit alternate file N
+CTRL-W _           set current window height to N (default: very high)
 CTRL-W b           go to bottom window
 CTRL-W c           close current window (like |:close|)
-CTRL-W d           split window and jump to definition underthe cursor
-CTRL-W f           split window and edit file name under thecursor
-CTRL-W F           split window and edit file name under thecursor and jump to the line numberfollowing the file name.
-CTRL-W g CTRL-]  split window and do |:tjump| to tag undercursor
-CTRL-W g ]         split window and do |:tselect| for tagunder cursor
+CTRL-W d           split window and jump to definition under the cursor
+CTRL-W f           split window and edit file name under the cursor
+CTRL-W F           split window and edit file name under the cursor and jump to the line number following the file name.
+CTRL-W g CTRL-]  split window and do |:tjump| to tag under cursor
+CTRL-W g ]         split window and do |:tselect| for tag under cursor
 CTRL-W g }         do a |:ptjump| to the tag under the cursor
-CTRL-W g f         edit file name under the cursor in a newtab page
-CTRL-W g F         edit file name under the cursor in a newtab page and jump to the line numberfollowing the file name.
+CTRL-W g f         edit file name under the cursor in a new tab page
+CTRL-W g F         edit file name under the cursor in a new tab page and jump to the line number following the file name.
 CTRL-W h           go to Nth left window (stop at first window)
-CTRL-W i           split window and jump to declaration ofidentifier under the cursor
+CTRL-W i           split window and jump to declaration of identifier under the cursor
 CTRL-W j           go N windows down (stop at last window)
 CTRL-W k           go N windows up (stop at first window)
 CTRL-W l           go to Nth right window (stop at last window)
@@ -406,11 +405,11 @@ CTRL-W o           close all but current window (like |:only|)
 CTRL-W p           go to previous (last accessed) window
 CTRL-W q           quit current window (like |:quit|)
 CTRL-W r           rotate windows downwards N times
-CTRL-W s           split current window in two parts, newwindow N lines high
+CTRL-W s           split current window in two parts, new window N lines high
 CTRL-W t           go to top window
-CTRL-W v           split current window vertically, new windowN columns wide
+CTRL-W v           split current window vertically, new window N columns wide
 CTRL-W w           go to N next window (wrap around)
-CTRL-W x           exchange current window with window N(default: next window)
+CTRL-W x           exchange current window with window N (default: next window)
 CTRL-W z           close preview window
 CTRL-W |           set window width to N columns
 CTRL-W }           show tag under cursor in preview window
@@ -419,101 +418,101 @@ CTRL-W <Up>        same as "CTRL-W k"
 CTRL-W <Left>      same as "CTRL-W h"
 CTRL-W <Right>    same as "CTRL-W l"
 ###Normal mode
-[ CTRL-D           jump to first #define found in current andincluded files matching the word under thecursor, start searching at beginning ofcurrent file
-[ CTRL-I           jump to first line in current and includedfiles that contains the word under thecursor, start searching at beginning ofcurrent file
-[#              1  cursor to N previous unmatched #if, #elseor #ifdef
-['              1  cursor to previous lowercase mark, on firstnon-blank
+[ CTRL-D           jump to first #define found in current and included files matching the word under the cursor, start searching at beginning of current file
+[ CTRL-I           jump to first line in current and included files that contains the word under the cursor, start searching at beginning of current file
+[#              1  cursor to N previous unmatched #if, #else or #ifdef
+['              1  cursor to previous lowercase mark, on first non-blank
 [(              1  cursor N times back to unmatched '('
 [*              1  same as "[/"
 [`              1  cursor to previous lowercase mark
 [/              1  cursor to N previous start of a C comment
-[D                 list all defines found in current andincluded files matching the word under thecursor, start searching at beginning ofcurrent file
-[I                 list all lines found in current andincluded files that contain the word underthe cursor, start searching at beginning ofcurrent file
+[D                 list all defines found in current and included files matching the word under the cursor, start searching at beginning of current file
+[I                 list all lines found in current and included files that contain the word under the cursor, start searching at beginning of current file
 [P              2  same as "[p"
 [[              1  cursor N sections backward
 []              1  cursor N SECTIONS backward
 [c              1  cursor N times backwards to start of change
-[d                 show first #define found in current andincluded files matching the word under thecursor, start searching at beginning ofcurrent file
+[d                 show first #define found in current and included files matching the word under the cursor, start searching at beginning of current file
 [f                 same as "gf"
-[i                 show first line found in current andincluded files that contains the word underthe cursor, start searching at beginning ofcurrent file
-[m              1  cursor N times back to start of memberfunction
+[i                 show first line found in current and included files that contains the word under the cursor, start searching at beginning of current file
+[m              1  cursor N times back to start of member function
 [p              2  like "P", but adjust indent to current line
 [s              1  move to the previous misspelled word
 [z              1  move to start of open fold
 [{              1  cursor N times back to unmatched '{'
 [<MiddleMouse>  2  same as "[p"
-] CTRL-D           jump to first #define found in current andincluded files matching the word under thecursor, start searching at cursor position
-] CTRL-I           jump to first line in current and includedfiles that contains the word under thecursor, start searching at cursor position
+] CTRL-D           jump to first #define found in current and included files matching the word under the cursor, start searching at cursor position
+] CTRL-I           jump to first line in current and included files that contains the word under the cursor, start searching at cursor position
 ]#              1  cursor to N next unmatched #endif or #else
-]'              1  cursor to next lowercase mark, on firstnon-blank
+]'              1  cursor to next lowercase mark, on first non-blank
 ])              1  cursor N times forward to unmatched ')'
 ]*              1  same as "]/"
 ]`              1  cursor to next lowercase mark
 ]/              1  cursor to N next end of a C comment
-]D                 list all #defines found in current andincluded files matching the word under thecursor, start searching at cursor position
-]I                 list all lines found in current andincluded files that contain the word underthe cursor, start searching at cursorposition
+]D                 list all #defines found in current and included files matching the word under the cursor, start searching at cursor position
+]I                 list all lines found in current and included files that contain the word under the cursor, start searching at cursor position
 ]P              2  same as "[p"
 ][              1  cursor N SECTIONS forward
 ]]              1  cursor N sections forward
 ]c              1  cursor N times forward to start of change
-]d                 show first #define found in current andincluded files matching the word under thecursor, start searching at cursor position
+]d                 show first #define found in current and included files matching the word under the cursor, start searching at cursor position
 ]f                 same as "gf"
-]i                 show first line found in current andincluded files that contains the word underthe cursor, start searching at cursorposition
-]m              1  cursor N times forward to end of memberfunction
+]i                 show first line found in current and included files that contains the word under the cursor, start searching at cursor position
+]m              1  cursor N times forward to end of member function
 ]p              2  like "p", but adjust indent to current line
 ]s              1  move to next misspelled word
 ]z              1  move to end of open fold
 ]}              1  cursor N times forward to unmatched '}'
 ]<MiddleMouse>  2  same as "]p"
 ###Normal mode
-g CTRL-A           only when compiled with MEM_PROFILEdefined: dump a memory profile
-g CTRL-G           show information about current cursorposition
+g CTRL-A           only when compiled with MEM_PROFILE defined: dump a memory profile
+g CTRL-G           show information about current cursor position
 g CTRL-H           start Select block mode
 g CTRL-]           |:tjump| to the tag under the cursor
 g#              1  like "#", but without using "\<" and "\>"
-g$              1  when 'wrap' off go to rightmost character ofthe current line that is on the screen;when 'wrap' on go to the rightmost characterof the current screen line
+g$              1  when 'wrap' off go to rightmost character of the current line that is on the screen; when 'wrap' on go to the rightmost character of the current screen line
 g&              2  repeat last ":s" on all lines
 g'{mark}        1  like |'| but without changing the jumplist
 g`{mark}        1  like |`| but without changing the jumplist
 g*              1  like "*", but without using "\<" and "\>"
-g0              1  when 'wrap' off go to leftmost character ofthe current line that is on the screen;when 'wrap' on go to the leftmost characterof the current screen line
-g8                 print hex value of bytes used in UTF-8character under the cursor
+g0              1  when 'wrap' off go to leftmost character of the current line that is on the screen; when 'wrap' on go to the leftmost character of the current screen line
+g8                 print hex value of bytes used in UTF-8 character under the cursor
 g<                 display previous command output
 g?              2  Rot13 encoding operator
 g??             2  Rot13 encode current line
 g?g?            2  Rot13 encode current line
-gD              1  go to definition of word under the cursorin current file
-gE              1  go backwards to the end of the previousWORD
+gD              1  go to definition of word under the cursor in current file
+gE              1  go backwards to the end of the previous WORD
 gH                 start Select line mode
 gI              2  like "I", but always start in column 1
 gJ              2  join lines without inserting space
-["x]gP          2  put the text [from register x] before thecursor N times, leave the cursor after it
+["x]gP          2  put the text [from register x] before the cursor N times, leave the cursor after it
 gQ                  switch to "Ex" mode with Vim editing
 gR              2  enter Virtual Replace mode
 gU{motion}      2  make Nmove text uppercase
-gV                 don't reselect the previous Visual areawhen executing a mapping or menu in Selectmode
+gV                 don't reselect the previous Visual area when executing a mapping or menu in Select mode
 g]                 :tselect on the tag under the cursor
-g^              1  when 'wrap' off go to leftmost non-whitecharacter of the current line that is onthe screen; when 'wrap' on go to theleftmost non-white character of the currentscreen line
-ga                 print ascii value of character under thecursor
-gd              1  go to definition of word under the cursorin current function
-ge              1  go backwards to the end of the previousword
-gf                 start editing the file whose name is underthe cursor
-gF                 start editing the file whose name is underthe cursor and jump to the line numberfollowing the filename.
+g^              1  when 'wrap' off go to leftmost non-white character of the current line that is on the screen; when 'wrap' on go to the leftmost non-white character of the current screen line
+ga                 print ascii value of character under the cursor
+gd              1  go to definition of word under the cursor in current function
+ge              1  go backwards to the end of the previous word
+gf                 start editing the file whose name is under the cursor
+gF                 start editing the file whose name is under the cursor and jump to the line number following the filename.
 gg              1  cursor to line N, default first line
 gh                 start Select mode
 gi              2  like "i", but first move to the |'^| mark
-gj              1  like "j", but when 'wrap' on go N screenlines down
-gk              1  like "k", but when 'wrap' on go N screenlines up
+gj              1  like "j", but when 'wrap' on go N screen lines down
+gk              1  like "k", but when 'wrap' on go N screen lines up
 gm              1  go to character at middle of the screenline
 go              1  cursor to byte N in the buffer
-["x]gp          2  put the text [from register x] after thecursor N times, leave the cursor after it
+["x]gp          2  put the text [from register x] after the cursor N times, leave the cursor after it
 gq{motion}      2  format Nmove text
 gr{char}        2  virtual replace N chars with {char}
 gs                 go to sleep for N seconds (default 1)
 gu{motion}      2  make Nmove text lowercase
 gv                 reselect the previous Visual area
 gw{motion}      2  format Nmove text and keep cursor
-gx                 execute application for file name under thecursor (only with |netrw| plugin)
+gx                 execute application for file name under the cursor (only with |netrw| plugin)
 g@{motion}         call 'operatorfunc'
 g~{motion}      2  swap case for Nmove text
 g<Down>         1  same as "gj"
@@ -524,13 +523,13 @@ g<MiddleMouse>     same as <C-MiddleMouse>
 g<RightMouse>      same as <C-RightMouse>
 g<Up>           1  same as "gk"
 ###Normal mode
-z<CR>              redraw, cursor line to top of window,cursor on first non-blank
+z<CR>              redraw, cursor line to top of window, cursor on first non-blank
 z{height}<CR>      redraw, make window {height} lines high
-z+                 cursor on line N (default line belowwindow), otherwise like "z<CR>"
-z-                 redraw, cursor line at bottom of window,cursor on first non-blank
-z.                 redraw, cursor line to center of window,cursor on first non-blank
+z+                 cursor on line N (default line below window), otherwise like "z<CR>"
+z-                 redraw, cursor line at bottom of window, cursor on first non-blank
+z.                 redraw, cursor line to center of window, cursor on first non-blank
 z=                 give spelling suggestions
-zA                 open a closed fold or close an open foldrecursively
+zA                 open a closed fold or close an open fold recursively
 zC                 close folds recursively
 zD                 delete folds recursively
 zE                 eliminate all folds
@@ -542,24 +541,24 @@ zO                 open folds recursively
 zR                 set 'foldlevel' to the deepest fold
 zW                 mark word as wrong (bad) spelled word
 zX                 re-apply 'foldlevel'
-z^                 cursor on line N (default line abovewindow), otherwise like "z-"
+z^                 cursor on line N (default line above window), otherwise like "z-"
 za                 open a closed fold, close an open fold
 zb                 redraw, cursor line at bottom of window
 zc                 close a fold
 zd                 delete a fold
-ze                 when 'wrap' off scroll horizontally toposition the cursor at the end (right side)of the screen
+ze                 when 'wrap' off scroll horizontally to position the cursor at the end (right side) of the screen
 zf{motion}         create a fold for Nmove text
 zg                 mark word as good spelled word
-zh                 when 'wrap' off scroll screen N charactersto the right
+zh                 when 'wrap' off scroll screen N characters to the right
 zi                 toggle 'foldenable'
 zj              1  move to the start of the next fold
 zk              1  move to the end of the previous fold
-zl                 when 'wrap' off scroll screen N charactersto the left
+zl                 when 'wrap' off scroll screen N characters to the left
 zm                 subtract one from 'foldlevel'
 zn                 reset 'foldenable'
 zo                 open fold
 zr                 add one to 'foldlevel'
-zs                 when 'wrap' off scroll horizontally toposition the cursor at the start (leftside) of the screen
+zs                 when 'wrap' off scroll horizontally to position the cursor at the start (left side) of the screen
 zt                 redraw, cursor line at top of window
 zv                 open enough folds to view the cursor line
 zw                 mark word as wrong (bad) spelled word
@@ -574,31 +573,31 @@ CTRL-C             stop Visual mode
 CTRL-G             toggle between Visual mode and Select mode
 <BS>            2  Select mode: delete highlighted area
 CTRL-H          2  same as <BS>
-CTRL-O             switch from Select to Visual mode for onecommand
-CTRL-V             make Visual mode blockwise or stop Visualmode
+CTRL-O             switch from Select to Visual mode for one command
+CTRL-V             make Visual mode blockwise or stop Visual mode
 <Esc>              stop Visual mode
 CTRL-]             jump to highlighted tag
-!{filter}       2  filter the highlighted lines through theexternal command {filter}
-:                  start a command-line with the highlightedlines as a range
-<               2  shift the highlighted lines one'shiftwidth' left
-=               2  filter the highlighted lines through theexternal program given with the 'equalprg'option
->               2  shift the highlighted lines one'shiftwidth' right
-A               2  block mode: append same text in all lines,after the highlighted area
-C               2  delete the highlighted lines and startinsert
+!{filter}       2  filter the highlighted lines through the external command {filter}
+:                  start a command-line with the highlighted lines as a range
+<               2  shift the highlighted lines one 'shiftwidth' left
+=               2  filter the highlighted lines through the external program given with the 'equalprg' option
+>               2  shift the highlighted lines one 'shiftwidth' right
+A               2  block mode: append same text in all lines, after the highlighted area
+C               2  delete the highlighted lines and start insert
 D               2  delete the highlighted lines
-I               2  block mode: insert same text in all lines,before the highlighted area
+I               2  block mode: insert same text in all lines, before the highlighted area
 J               2  join the highlighted lines
 K                  run 'keywordprg' on the highlighted area
 O                  Move horizontally to other corner of area.
 Q                  does not start Ex mode
-R               2  delete the highlighted lines and startinsert
-S               2  delete the highlighted lines and startinsert
+R               2  delete the highlighted lines and start insert
+S               2  delete the highlighted lines and start insert
 U               2  make highlighted area uppercase
-V                  make Visual mode linewise or stop Visualmode
+V                  make Visual mode linewise or stop Visual mode
 X               2  delete the highlighted lines
 Y                  yank the highlighted lines
-a"                 extend highlighted area with a doublequoted string
-a'                 extend highlighted area with a singlequoted string
+a"                 extend highlighted area with a double quoted string
+a'                 extend highlighted area with a single quoted string
 a(                 same as ab
 a)                 same as ab
 a<                 extend highlighted area with a <> block
@@ -607,7 +606,7 @@ aB                 extend highlighted area with a {} block
 aW                 extend highlighted area with "a WORD"
 a[                 extend highlighted area with a [] block
 a]                 same as a[
-a`                 extend highlighted area with a backtickquoted string
+a`                 extend highlighted area with a backtick quoted string
 ab                 extend highlighted area with a () block
 ap                 extend highlighted area with a paragraph
 as                 extend highlighted area with a sentence
@@ -617,11 +616,11 @@ a{                 same as aB
 a}                 same as aB
 c               2  delete highlighted area and start insert
 d               2  delete highlighted area
-gJ              2  join the highlighted lines withoutinserting spaces
+gJ              2  join the highlighted lines without inserting spaces
 gq              2  format the highlighted lines
-gv                 exchange current and previous highlightedarea
-i"                 extend highlighted area with a doublequoted string (without quotes)
-i'                 extend highlighted area with a singlequoted string (without quotes)
+gv                 exchange current and previous highlighted area
+i"                 extend highlighted area with a double quoted string (without quotes)
+i'                 extend highlighted area with a single quoted string (without quotes)
 i(                 same as ib
 i)                 same as ib
 i<                 extend highlighted area with inner <> block
@@ -630,7 +629,7 @@ iB                 extend highlighted area with inner {} block
 iW                 extend highlighted area with "inner WORD"
 i[                 extend highlighted area with inner [] block
 i]                 same as i[
-i`                 extend highlighted area with a backtickquoted string (without the backticks)
+i`                 extend highlighted area with a backtick quoted string (without the backticks)
 ib                 extend highlighted area with inner () block
 ip                 extend highlighted area with inner paragraph
 is                 extend highlighted area with inner sentence
@@ -642,42 +641,42 @@ o                  move cursor to other corner of area
 r               2  delete highlighted area and start insert
 s               2  delete highlighted area and start insert
 u               2  make highlighted area lowercase
-v                  make Visual mode characterwise or stopVisual mode
+v                  make Visual mode characterwise or stop Visual mode
 x               2  delete the highlighted area
 y                  yank the highlighted area
 ~               2  swap case for the highlighted area
 ###Command-line editing
 CTRL-@          not used
-CTRL-A          do completion on the pattern in front of thecursor and insert all matches
+CTRL-A          do completion on the pattern in front of the cursor and insert all matches
 CTRL-B          cursor to begin of command-line
 CTRL-C          same as <Esc>
-CTRL-D          list completions that match the pattern infront of the cursor
+CTRL-D          list completions that match the pattern in front of the cursor
 CTRL-E          cursor to end of command-line
-CTRL-F          default value for 'cedit': opens thecommand-line window; otherwise not used
+CTRL-F          default value for 'cedit': opens the command-line window; otherwise not used
 CTRL-G          not used
 <BS>            delete the character in front of the cursor
-{char1} <BS> {char2}   enter digraph when 'digraph' is on
+{char1} <BS> {char2}    enter digraph when 'digraph' is on
 CTRL-H          same as <BS>
-<Tab>           if 'wildchar' is <Tab>: Do completion onthe pattern in front of the cursor
+<Tab>           if 'wildchar' is <Tab>: Do completion on the pattern in front of the cursor
 <S-Tab>         same as CTRL-P
-'wildchar'      Do completion on the pattern in front of thecursor (default: <Tab>)
+'wildchar'      Do completion on the pattern in front of the cursor (default: <Tab>)
 CTRL-I          same as <Tab>
 <NL>            same as <CR>
 CTRL-J          same as <CR>
 CTRL-K {char1} {char2}   enter digraph
-CTRL-L          do completion on the pattern in front of thecursor and insert the longest common part
+CTRL-L          do completion on the pattern in front of the cursor and insert the longest common part
 <CR>            execute entered command
 CTRL-M          same as <CR>
-CTRL-N          after using 'wildchar' with multiple matches:go to next match, otherwise: same as <Down>
+CTRL-N          after using 'wildchar' with multiple matches: go to next match, otherwise: same as <Down>
 CTRL-O          not used
-CTRL-P          after using 'wildchar' with multiple matches:go to previous match, otherwise: same as <Up>
-CTRL-Q          same as CTRL-V, unless it's used for terminalcontrol flow
-CTRL-R {0-9a-z"%#*:= CTRL-F CTRL-P CTRL-W CTRL-A}   insert the contents of a register or objectunder the cursor as if typed
-CTRL-R CTRL-R {0-9a-z"%#*:= CTRL-F CTRL-P CTRL-W CTRL-A}   insert the contents of a register or objectunder the cursor literally
+CTRL-P          after using 'wildchar' with multiple matches: go to previous match, otherwise: same as <Up>
+CTRL-Q          same as CTRL-V, unless it's used for terminal control flow
+CTRL-R {0-9a-z"%#*:= CTRL-F CTRL-P CTRL-W CTRL-A}   insert the contents of a register or object under the cursor as if typed
+CTRL-R CTRL-R {0-9a-z"%#*:= CTRL-F CTRL-P CTRL-W CTRL-A}   insert the contents of a register or object under the cursor literally
 CTRL-S          (used for terminal control flow)
 CTRL-T          not used
 CTRL-U          remove all characters
-CTRL-V          insert next non-digit literally, insert threedigit decimal number as a single byte.
+CTRL-V          insert next non-digit literally, insert three digit decimal number as a single byte.
 CTRL-W          delete the word in front of the cursor
 CTRL-X          not used (reserved for completion)
 CTRL-Y          copy (yank) modeless selection
@@ -685,14 +684,14 @@ CTRL-Z          not used (reserved for suspend)
 <Esc>           abandon command-line without executing it
 CTRL-[          same as <Esc>
 CTRL-\ CTRL-N  go to Normal mode, abandon command-line
-CTRL-\ CTRL-G  go to mode specified with 'insertmode',abandon command-line
+CTRL-\ CTRL-G  go to mode specified with 'insertmode', abandon command-line
 CTRL-\ a - d    reserved for extensions
-CTRL-\ e {expr}   replace the command line with the result of{expr}
+CTRL-\ e {expr}   replace the command line with the result of {expr}
 CTRL-\ f - z    reserved for extensions
 CTRL-\ others   not used
 CTRL-]          trigger abbreviation
 CTRL-^          toggle use of |:lmap| mappings
-CTRL-_          when 'allowrevins' set: change language(Hebrew, Farsi)
+CTRL-_          when 'allowrevins' set: change language (Hebrew, Farsi)
 <Del>           delete the character under the cursor
 
 <Left>          cursor left
@@ -701,9 +700,9 @@ CTRL-_          when 'allowrevins' set: change language(Hebrew, Farsi)
 <Right>         cursor right
 <S-Right>       cursor one word right
 <C-Right>       cursor one word right
-<Up>            recall previous command-line from history thatmatches pattern in front of the cursor
+<Up>            recall previous command-line from history that matches pattern in front of the cursor
 <S-Up>          recall previous command-line from history
-<Down>          recall next command-line from history thatmatches pattern in front of the cursor
+<Down>          recall next command-line from history that matches pattern in front of the cursor
 <S-Down>        recall next command-line from history
 <Home>          cursor to start of command-line
 <End>           cursor to end of command-line
@@ -729,9 +728,9 @@ CTRL-_          when 'allowrevins' set: change language(Hebrew, Farsi)
 :ab[breviate]   enter abbreviation
 :abc[lear]      remove all abbreviations
 :abo[veleft]    make split window appear left or above
-:al[l]          open a window for each file in the argumentlist
+:al[l]          open a window for each file in the argument list
 :am[enu]        enter new menu item for all modes
-:an[oremenu]    enter a new menu for all modes that will notbe remapped
+:an[oremenu]    enter a new menu for all modes that will not be remapped
 :ar[gs]         print the argument list
 :arga[dd]       add items to the argument list
 :argd[elete]    delete items from the argument list
@@ -753,7 +752,7 @@ CTRL-_          when 'allowrevins' set: change language(Hebrew, Farsi)
 :bel[owright]   make split window appear right or below
 :bf[irst]       go to first buffer in the buffer list
 :bl[ast]        go to last buffer in the buffer list
-:bm[odified]    go to next buffer in the buffer list that hasbeen modified
+:bm[odified]    go to next buffer in the buffer list that has been modified
 :bn[ext]        go to next buffer in the buffer list
 :bo[tright]     make split window appear at bottom or far right
 :bp[revious]    go to previous buffer in the buffer list
@@ -842,7 +841,7 @@ CTRL-_          when 'allowrevins' set: change language(Hebrew, Farsi)
 :dl[ist]        list #defines
 :do[autocmd]    apply autocommands to current buffer
 :doautoa[ll]    apply autocommands for all loaded buffers
-:dr[op]         jump to window editing file or edit file incurrent window
+:dr[op]         jump to window editing file or edit file in current window
 :ds[earch]      list one #define
 :dsp[lit]       split window and jump to #define
 :e[dit]         edit a file
@@ -908,7 +907,7 @@ CTRL-_          when 'allowrevins' set: change language(Hebrew, Farsi)
 :inoreme[nu]    like ":noremenu" but for Insert mode
 :int[ro]        print the introductory message
 :is[earch]      list one line where identifier matches
-:isp[lit]       split window and jump to definition ofidentifier
+:isp[lit]       split window and jump to definition of identifier
 :iu[nmap]       like ":unmap" but for Insert mode
 :iuna[bbrev]    like ":unabbrev" but for Insert mode
 :iunme[nu]      remove menu for Insert mode
@@ -947,7 +946,7 @@ CTRL-_          when 'allowrevins' set: change language(Hebrew, Farsi)
 :ll             go to specific location
 :lla[st]        go to the specified location, default last one
 :lli[st]        list all locations
-:lmak[e]        execute external command 'makeprg' and parseerror messages
+:lmak[e]        execute external command 'makeprg' and parse error messages
 :lm[ap]         like ":map!" but includes Lang-Arg mode
 :lmapc[lear]    like ":mapclear!" but includes Lang-Arg mode
 :lne[xt]        go to next location
@@ -964,7 +963,7 @@ CTRL-_          when 'allowrevins' set: change language(Hebrew, Farsi)
 :lpf[ile]       go to last location in previous file
 :lr[ewind]      go to the specified location, default first one
 :ls             list all buffers
-:lt[ag]         jump to tag and add matching tags to thelocation list
+:lt[ag]         jump to tag and add matching tags to the location list
 :lu[nmap]       like ":unmap!" but includes Lang-Arg mode
 :lua            execute |Lua| command
 :luad[o]        execute Lua command for each line
@@ -974,13 +973,13 @@ CTRL-_          when 'allowrevins' set: change language(Hebrew, Farsi)
 :lw[indow]      open or close location window
 :m[ove]         move lines
 :ma[rk]         set a mark
-:mak[e]         execute external command 'makeprg' and parseerror messages
+:mak[e]         execute external command 'makeprg' and parse error messages
 :map            show or enter a mapping
 :mapc[lear]     clear all mappings for Normal and Visual mode
 :marks          list all marks
 :mat[ch]        define a match to highlight
 :me[nu]         enter a new menu item
-:menut[ranslate]    add a menu translation item
+:menut[ranslate]   add a menu translation item
 :mes[sages]     view previously displayed messages
 :mk[exrc]       write current mappings and settings to a file
 :mks[ession]    write session info to a file
@@ -1003,7 +1002,7 @@ CTRL-_          when 'allowrevins' set: change language(Hebrew, Farsi)
 :noa[utocmd]    following command don't trigger autocommands
 :no[remap]      enter a mapping that will not be remapped
 :noh[lsearch]   suspend 'hlsearch' highlighting
-:norea[bbrev]   enter an abbreviation that will not beremapped
+:norea[bbrev]   enter an abbreviation that will not be remapped
 :noreme[nu]     enter a menu that will not be remapped
 :norm[al]       execute Normal mode commands
 :nu[mber]       print lines with line number
@@ -1060,7 +1059,7 @@ CTRL-_          when 'allowrevins' set: change language(Hebrew, Farsi)
 :red[o]         redo one undone change
 :redi[r]        redirect messages to a file or register
 :redr[aw]       force a redraw of the display
-:redraws[tatus]    force a redraw of the status line(s)
+:redraws[tatus]   force a redraw of the status line(s)
 :reg[isters]    display the contents of registers
 :res[ize]       change current window height
 :ret[ab]        change tab size
@@ -1075,20 +1074,20 @@ CTRL-_          when 'allowrevins' set: change language(Hebrew, Farsi)
 :ru[ntime]      source vim scripts in 'runtimepath'
 :rv[iminfo]     read from viminfo file
 :s[ubstitute]   find and replace text
-:sN[ext]        split window and go to previous file inargument list
+:sN[ext]        split window and go to previous file in argument list
 :san[dbox]      execute a command in the sandbox
-:sa[rgument]    split window and go to specific file inargument list
+:sa[rgument]    split window and go to specific file in argument list
 :sal[l]         open a window for each file in argument list
 :sav[eas]       save file under another name.
-:sb[uffer]      split window and go to specific file in thebuffer list
-:sbN[ext]       split window and go to previous file in thebuffer list
+:sb[uffer]      split window and go to specific file in the buffer list
+:sbN[ext]       split window and go to previous file in the buffer list
 :sba[ll]        open a window for each file in the buffer list
-:sbf[irst]      split window and go to first file in thebuffer list
-:sbl[ast]       split window and go to last file in bufferlist
-:sbm[odified]   split window and go to modified file in thebuffer list
-:sbn[ext]       split window and go to next file in the bufferlist
-:sbp[revious]   split window and go to previous file in thebuffer list
-:sbr[ewind]     split window and go to first file in thebuffer list
+:sbf[irst]      split window and go to first file in the buffer list
+:sbl[ast]       split window and go to last file in buffer list
+:sbm[odified]   split window and go to modified file in the buffer list
+:sbn[ext]       split window and go to next file in the buffer list
+:sbp[revious]   split window and go to previous file in the buffer list
+:sbr[ewind]     split window and go to first file in the buffer list
 :scrip[tnames]  list names of all sourced Vim scripts
 :scripte[ncoding]     encoding used in sourced Vim script
 :scs[cope]      split window and execute cscope command
@@ -1097,18 +1096,18 @@ CTRL-_          when 'allowrevins' set: change language(Hebrew, Farsi)
 :setg[lobal]    show global values of options
 :setl[ocal]     show or set options locally
 :sf[ind]        split current window and edit file in 'path'
-:sfir[st]       split window and go to first file in theargument list
+:sfir[st]       split window and go to first file in the argument list
 :sh[ell]        escape to a shell
 :sim[alt]       Win32 GUI: simulate Windows ALT key
 :sig[n]         manipulate signs
 :sil[ent]       run a command silently
 :sl[eep]        do nothing for a few seconds
-:sla[st]        split window and go to last file in theargument list
+:sla[st]        split window and go to last file in the argument list
 :sm[agic]       :substitute with 'magic'
 :sma[p]         like ":map" but for Select mode
 :smapc[lear]    remove all mappings for Select mode
 :sme[nu]        add menu for Select mode
-:sn[ext]        split window and go to next file in theargument list
+:sn[ext]        split window and go to next file in the argument list
 :sni[ff]        send request to sniff
 :sno[magic]     :substitute with 'nomagic'
 :snor[emap]     like ":noremap" but for Select mode
@@ -1122,13 +1121,13 @@ CTRL-_          when 'allowrevins' set: change language(Hebrew, Farsi)
 :spellu[ndo]    remove good or bad word
 :spellw[rong]   add spelling mistake
 :sp[lit]        split current window
-:spr[evious]    split window and go to previous file in theargument list
-:sre[wind]      split window and go to first file in theargument list
+:spr[evious]    split window and go to previous file in the argument list
+:sre[wind]      split window and go to first file in the argument list
 :st[op]         suspend the editor or escape to a shell
 :sta[g]         split window and jump to a tag
 :star[tinsert]  start Insert mode
 :startg[replace]   start Virtual Replace mode
-:startr[eplace]    start Replace mode
+:startr[eplace]   start Replace mode
 :stopi[nsert]   stop Insert mode
 :stj[ump]       do ":tjump" and split window
 :sts[elect]     do ":tselect" and split window
@@ -1165,7 +1164,7 @@ CTRL-_          when 'allowrevins' set: change language(Hebrew, Farsi)
 :te[aroff]      tear-off a menu
 :tf[irst]       jump to first matching tag
 :th[row]        throw an exception
-:tj[ump]        like ":tselect", but jump directly when thereis only one match
+:tj[ump]        like ":tselect", but jump directly when there is only one match
 :tl[ast]        jump to last matching tag
 :tm[enu]        define menu tooltip
 :tn[ext]        jump to next matching tag
@@ -1179,7 +1178,7 @@ CTRL-_          when 'allowrevins' set: change language(Hebrew, Farsi)
 :undoj[oin]     join next change with previous undo block
 :undol[ist]     list leafs of the undo tree
 :una[bbreviate]   remove abbreviation
-:unh[ide]       open a window for each loaded file in thebuffer list
+:unh[ide]       open a window for each loaded file in the buffer list
 :unl[et]        delete variable
 :unlo[ckvar]    unlock variables
 :unm[ap]        remove mapping
@@ -1206,14 +1205,14 @@ CTRL-_          when 'allowrevins' set: change language(Hebrew, Farsi)
 :vunme[nu]      remove menu for Visual+Select mode
 :windo          execute command in each window
 :w[rite]        write to a file
-:wN[ext]        write to a file and go to previous file inargument list
+:wN[ext]        write to a file and go to previous file in argument list
 :wa[ll]         write all (changed) buffers
 :wh[ile]        execute loop for as long as condition met
 :wi[nsize]      get or set window size (obsolete)
 :winc[md]       execute a Window (CTRL-W) command
 :winp[os]       get or set window position
-:wn[ext]        write to a file and go to next file inargument list
-:wp[revious]    write to a file and go to previous file inargument list
+:wn[ext]        write to a file and go to next file in argument list
+:wp[revious]    write to a file and go to previous file in argument list
 :wq             write to a file and quit window or Vim
 :wqa[ll]        write all changed buffers and quit Vim
 :ws[verb]       pass the verb to workshop over IPC
