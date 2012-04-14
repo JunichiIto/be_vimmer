@@ -1,6 +1,7 @@
 # encoding: UTF-8
 require 'twitter'
 require 'pit'
+include ActionView::Helpers::TextHelper
 desc "Random tweets"
 task :cron, "lang"
 task :cron => :environment do |x, args|
@@ -40,7 +41,8 @@ def configure(lang)
 end
 
 def build_tweet(command)
-  "#{command.command} → #{command.description} [#{command.mode.label}] #Vim"
+  tweet = "#{command.command} → #{command.description} [#{command.mode.label}]"
+  truncate(tweet, length: 140-" #Vim".size-1) + " #Vim"
 end
 
 def update(tweet)
