@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120413195006) do
+ActiveRecord::Schema.define(:version => 20120414051201) do
 
   create_table "modes", :force => true do |t|
     t.string   "label"
@@ -25,8 +25,9 @@ ActiveRecord::Schema.define(:version => 20120413195006) do
     t.string   "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.string   "language"
   end
 
-  add_index "vim_commands", ["mode_id", "command"], :name => "index_vim_commands_on_mode_id_and_command", :unique => true
+  add_index "vim_commands", ["language", "mode_id", "command"], :name => "index_vim_commands_on_language_and_mode_id_and_command"
 
 end
