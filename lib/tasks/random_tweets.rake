@@ -12,6 +12,7 @@ namespace :cron do
         'twitter.oauth_token' => ENV["twitter.oauth_token"],
         'twitter.oauth_token_secret' => ENV["twitter.oauth_token_secret"],
     })
+    p pit
     Twitter.configure do |config|
       config.consumer_key       = pit["twitter.consumer_key"]
       config.consumer_secret    = pit["twitter.consumer_secret"]
