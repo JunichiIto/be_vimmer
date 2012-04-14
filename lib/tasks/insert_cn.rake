@@ -1239,7 +1239,7 @@ EOF
         command = m["command"].strip
         desc = m["desc"].strip
         desc = desc.sub(/^\d +/, "")
-        if desc.strip.empty? || /^未使用/ =~ desc
+        if desc.strip.empty? || /^不用/ =~ desc
           next
         end
         puts "Mode: #{@mode.label} Create Command:#{command} - #{desc}"
