@@ -1,5 +1,7 @@
 class VimCommandController < ApplicationController
   def index
-    @vim_commands = VimCommand.find_all_by_language "cn"
+    lang = params["lang"]
+    lang ||= "jp"
+    @vim_commands = VimCommand.find_all_by_language lang
   end
 end
