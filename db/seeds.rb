@@ -1214,7 +1214,6 @@ CTRL-_          'allowrevins' がオンのとき、言語を切り替える。(�
 :~              直前に実行した ":substitute" を実行
 EOF
 
-
 @lines.each do |line|
   if /^###/ =~ line
     label = line.sub /###/, ""
