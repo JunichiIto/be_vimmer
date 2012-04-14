@@ -2,7 +2,9 @@
 require 'twitter'
 require 'pit'
 include ActionView::Helpers::TextHelper
+
 desc "Random tweets"
+
 task :cron, "lang"
 task :cron => :environment do |x, args|
   lang = args.lang
