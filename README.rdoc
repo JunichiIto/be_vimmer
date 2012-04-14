@@ -10,3 +10,14 @@ Tweets are pushed via cron task on server.(See +lib/tasks/cron.rb+ ) You need to
 
 
 The Web UI just display the Vim command list and the basic information about this application.
+
+
+===Cron task and arguments
+
+The following command means "Post 3 tweets every 2 hours in Japanese." 
+
+
+    rake cron["jp","3","2"]
+
+
+"en" is English and "cn" is Chinese.
