@@ -7,11 +7,15 @@ namespace :cron do
     pit = Pit.get(
       'be_vimmer_jp',
       :require => {
-        'twitter.consumer_key' => ENV["twitter.consumer_key"],
-        'twitter.consumer_secret' => ENV["twitter.consumer_secret"],
-        'twitter.oauth_token' => ENV["twitter.oauth_token"],
+        'twitter.consumer_key'       => ENV["twitter.consumer_key"],
+        'twitter.consumer_secret'    => ENV["twitter.consumer_secret"],
+        'twitter.oauth_token'        => ENV["twitter.oauth_token"],
         'twitter.oauth_token_secret' => ENV["twitter.oauth_token_secret"],
     })
+    pit["twitter.consumer_key"] ||= ENV["twitter.consumer_key"]
+    pit["twitter.consumer_secret"] ||= ENV["twitter.consumer_secret"]
+    pit["twitter.oauth_token"] ||= ENV["twitter.oauth_token"]
+    pit["twitter.oauth_token_secret"] ||= ENV["twitter.oauth_token_secret"]
     p pit
     Twitter.configure do |config|
       config.consumer_key       = pit["twitter.consumer_key"]
