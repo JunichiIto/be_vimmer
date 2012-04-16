@@ -24,19 +24,22 @@ end
 
 def execute(lang, tweets_per_exec, ex_show_interval)
   configure_twitter lang
-  commands = non_ex_commands lang
+  commands = show_ex_command?(ex_show_interval) ? all_commands(lang) : non_ex_commands(lang)
   count = commands.count
   tweets_per_exec.times do 
     idx = rand(count)
     command = VimCommand.find commands[idx].id
     tweet = build_tweet command
-p tweet
-    #post tweet
+    post tweet
   end
 end
 
+def all_commands(lang)
+  VimCommand.where(language: lang).select('id')
+end
+
 def non_ex_commands(lang)
-  commands = VimCommand.where(language: lang).joins(:mode).where("modes.label NOT LIKE 'EX%'").select('vim_commands.id')
+  VimCommand.where(language: lang).joins(:mode).where("modes.label NOT LIKE 'EX%'").select('vim_commands.id')
 end
 
 def configure_twitter(lang)
