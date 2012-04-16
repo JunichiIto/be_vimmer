@@ -5,25 +5,38 @@ include ActionView::Helpers::TextHelper
 
 desc "Random tweets"
 
-task :cron, "lang", "skip_interval", "tweets_per_exec"
+task :cron, "lang", "skip_interval", "tweets_per_exec", "ex_show_interval"
 task :cron => :environment do |x, args|
-  if Time.now.hour % args.skip_interval.to_i == 0 
-    execute args.lang, args.tweets_per_exec.to_i
+  if execute_this_time? args.skip_interval.to_i
+    execute args.lang, args.tweets_per_exec.to_i, args.ex_show_interval.to_i
   else
     puts "Skip this time"
   end
 end
 
-def execute(lang, tweets_per_exec)
+def execute_this_time?(skip_interval)
+  Time.now.hour % skip_interval == 0 
+end
+
+def show_ex_command?(ex_show_interval)
+  Time.now.hour % ex_show_interval == 0 
+end
+
+def execute(lang, tweets_per_exec, ex_show_interval)
   configure_twitter lang
-  commands = VimCommand.where(language: lang).select('id')
+  commands = non_ex_commands lang
   count = commands.count
   tweets_per_exec.times do 
     idx = rand(count)
     command = VimCommand.find commands[idx].id
     tweet = build_tweet command
-    post tweet
+p tweet
+    #post tweet
   end
+end
+
+def non_ex_commands(lang)
+  commands = VimCommand.where(language: lang).joins(:mode).where("modes.label NOT LIKE 'EX%'").select('vim_commands.id')
 end
 
 def configure_twitter(lang)
