@@ -1,9 +1,7 @@
 # Ad-hoc script to transform Vim documentation
 lines = []
-File.open "en2.txt" do |file|
-  file.readlines.each do |line|
-    lines << line.sub(/^ +|\|[^|]+\| +/, "")
-  end
+File.read("en2.txt").lines.each do |line|
+  lines << line.sub(/^ +|\|[^|]+\| +/, "")
 end
 
 lines.each do |line| puts line end
