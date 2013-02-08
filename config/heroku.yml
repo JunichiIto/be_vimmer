@@ -16,17 +16,8 @@ production:
   config:
     BUNDLE_WITHOUT: "development:test"
 
-# staging:
-#   stack: cedar
-#   app: awesomeapp-staging
-#   config: &default
-#     BUNDLE_WITHOUT: "development:test"
-#   addons:
-#     - pgbackups:auto-week
-#     - memcache:5mb
-#     - logging:basic
-#     - scheduler:standard
-#
-# demo:
-#   app: awesomeapp-demo
-#   config: *default
+staging:
+  stack: cedar
+  app: bevimmer-staging
+  config: &default
+    BUNDLE_WITHOUT: "development:test"
