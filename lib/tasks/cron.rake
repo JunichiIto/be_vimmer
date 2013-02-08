@@ -15,18 +15,18 @@ task :cron => :environment do |x, args|
 end
 
 def execute_this_time?(skip_interval)
-  Time.now.hour % skip_interval == 0 
+  Time.now.hour % skip_interval == 0
 end
 
 def show_ex_command?(ex_show_interval)
-  Time.now.hour % ex_show_interval == 0 
+  Time.now.hour % ex_show_interval == 0
 end
 
 def execute(lang, tweets_per_exec, ex_show_interval)
   configure_twitter lang
   commands = show_ex_command?(ex_show_interval) ? all_commands(lang) : non_ex_commands(lang)
   count = commands.count
-  tweets_per_exec.times do 
+  tweets_per_exec.times do
     idx = rand(count)
     command = VimCommand.find commands[idx].id
     tweet = build_tweet command
@@ -46,10 +46,10 @@ def configure_twitter(lang)
   pit = Pit.get(
     "be_vimmer_#{lang}",
     :require => {
-      "twitter.consumer_key.#{lang}"       => '', 
-      "twitter.consumer_secret.#{lang}"    => '', 
-      "twitter.oauth_token.#{lang}"        => '', 
-      "twitter.oauth_token_secret.#{lang}" => '', 
+      "twitter.consumer_key.#{lang}"       => '',
+      "twitter.consumer_secret.#{lang}"    => '',
+      "twitter.oauth_token.#{lang}"        => '',
+      "twitter.oauth_token_secret.#{lang}" => '',
   })
 
   pit["twitter.consumer_key.#{lang}"]       ||= ENV["twitter.consumer_key.#{lang}"]

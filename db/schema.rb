@@ -20,12 +20,12 @@ ActiveRecord::Schema.define(:version => 20120416214136) do
   end
 
   create_table "vim_commands", :force => true do |t|
-    t.integer  "mode_id",     :limit => 255
     t.string   "command"
     t.string   "description"
-    t.datetime "created_at",                 :null => false
-    t.datetime "updated_at",                 :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
     t.string   "language"
+    t.integer  "mode_id"
   end
 
   add_index "vim_commands", ["language", "mode_id", "command"], :name => "idx_l_m_c", :unique => true

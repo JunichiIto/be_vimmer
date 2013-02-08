@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.3'
 gem "twitter-bootstrap-rails"
-gem 'twitter'
+gem 'twitter', '~> 4.5'
 gem 'pit', :require => "pit"
 
 # Bundle edge Rails instead:
@@ -12,7 +12,9 @@ group :production do
     gem 'pg'
 end
 group :development, :test do
-    gem 'sqlite3'
+  gem 'sqlite3'
+  gem 'heroku_san'
+  gem 'heroku'
 end
 
 
