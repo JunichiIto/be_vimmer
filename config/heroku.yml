@@ -11,7 +11,7 @@
 #
 production:
   app: bevimmer
-  stack: bamboo-mri-1.9.2
+  stack: cedar
   # tag: production/*
   config:
     BUNDLE_WITHOUT: "development:test"
