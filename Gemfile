@@ -9,6 +9,7 @@ gem "thin"
 gem "haml", ">= 3.0.0"
 gem "haml-rails"
 gem "jquery-rails"
+gem 'json', '~> 1.7.7'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
