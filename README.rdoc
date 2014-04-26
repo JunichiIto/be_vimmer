@@ -6,7 +6,7 @@ Be Vimmer is an application that tweets Vim commands and their description perio
 Vim documentation has to be stored in database in advance. (See  +db/seeds.rb+ or +lib/tasks+ )
 
 
-Tweets are pushed via cron task on server.(See +lib/tasks/cron.rb+ ) You need to register Twitter credentials on Pit (http://rubygems.org/gems/pit) configurations or environment variables before execution.
+Tweets are pushed via cron task on server.(See +lib/tasks/cron.rb+ ) You need to register Twitter credentials in environment variables before execution.
 
 
 The Web UI just display the Vim command list and the basic information about this application.

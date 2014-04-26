@@ -1,6 +1,5 @@
 # coding: utf-8
 require 'twitter'
-require 'pit'
 include ActionView::Helpers::TextHelper
 
 class VimCommand < ActiveRecord::Base

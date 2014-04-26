@@ -88,7 +88,6 @@ GEM
     multipart-post (1.1.5)
     netrc (0.7.7)
     pg (0.14.1)
-    pit (0.0.7)
     polyglot (0.3.3)
     rack (1.4.5)
     rack-cache (1.2)
@@ -180,7 +179,6 @@ DEPENDENCIES
   jquery-rails
   less-rails
   pg
-  pit
   rails (= 3.2.16)
   rspec-rails (>= 2.0.1)
   sass-rails (~> 3.2.3)

@@ -4,7 +4,6 @@ gem 'rails', '3.2.16'
 
 gem "twitter-bootstrap-rails"
 gem 'twitter', '~> 4.5'
-gem 'pit', :require => "pit"
 gem "thin"
 gem "haml", ">= 3.0.0"
 gem "haml-rails"
