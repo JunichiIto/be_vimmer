@@ -1,6 +1,5 @@
 # coding: utf-8
 require 'twitter'
-include ActionView::Helpers::TextHelper
 
 class VimCommand < ActiveRecord::Base
   attr_accessible :command, :description, :mode_id, :language
@@ -45,7 +44,7 @@ class VimCommand < ActiveRecord::Base
   def self.build_tweet(command)
     tweet = "#{command.command} → #{command.description} [#{command.mode.label}]"
     length = 140 - " #Vim".size - 1
-    truncate(tweet, length: length) + " #Vim"
+    tweet.truncate(length) + " #Vim"
   end
 
   def self.post(tweet, lang)
