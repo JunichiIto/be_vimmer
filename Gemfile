@@ -2,22 +2,20 @@ source 'https://rubygems.org'
 
 ruby "2.1.1"
 
-gem 'rails', '3.2.16'
+gem 'rails', '4.0.4'
 
 gem "twitter-bootstrap-rails"
 gem 'twitter', '~> 4.5'
-gem "thin"
+gem "unicorn"
 gem "haml", ">= 3.0.0"
 gem "haml-rails"
 gem "jquery-rails"
 
-group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
-  gem 'uglifier', '>= 1.0.3'
-  gem 'less-rails'
-  gem 'therubyracer'
-end
+gem 'sass-rails', '~> 4.0.3'
+gem 'coffee-rails', '~> 4.0.1'
+gem 'uglifier', '>= 1.3.0'
+gem 'less-rails'
+gem 'therubyracer'
 
 group :production do
   gem 'pg'

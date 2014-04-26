@@ -2,9 +2,8 @@
 require 'twitter'
 
 class VimCommand < ActiveRecord::Base
-  attr_accessible :command, :description, :mode_id, :language
   belongs_to :mode
-  default_scope order: 'vim_commands.id'
+  default_scope -> { order(:id) }
   
   def self.update_tweets(lang, skip_interval, tweets_per_exec, ex_show_interval)
     if execute_this_time? skip_interval.to_i
