@@ -57,14 +57,14 @@ class VimCommand < ActiveRecord::Base
 
   def self.twitter_client(lang)
     params = {
-        consumer_key:       ENV["twitter_consumer_key_#{lang}"],
-        consumer_secret:    ENV["twitter_consumer_secret_#{lang}"],
-        oauth_token:        ENV["twitter_oauth_token_#{lang}"],
-        oauth_token_secret: ENV["twitter_oauth_token_secret_#{lang}"]
+        consumer_key:        ENV["twitter_consumer_key_#{lang}"],
+        consumer_secret:     ENV["twitter_consumer_secret_#{lang}"],
+        access_token:        ENV["twitter_oauth_token_#{lang}"],
+        access_token_secret: ENV["twitter_oauth_token_secret_#{lang}"]
     }
 
     raise "Please check env values!" if params.values.any?(&:nil?)
 
-    Twitter::Client.new(params)
+    Twitter::REST::Client.new(params)
   end
 end

@@ -16,8 +16,11 @@ describe VimCommand do
     end
     specify { expect(twitter_client.instance_variable_get(:@consumer_key)).to eq '123' }
     specify { expect(twitter_client.instance_variable_get(:@consumer_secret)).to eq '456' }
-    specify { expect(twitter_client.instance_variable_get(:@oauth_token)).to eq '789' }
-    specify { expect(twitter_client.instance_variable_get(:@oauth_token_secret)).to eq 'abc' }
+    specify { expect(twitter_client.instance_variable_get(:@access_token)).to eq '789' }
+    specify { expect(twitter_client.instance_variable_get(:@access_token_secret)).to eq 'abc' }
+    it "resnponds to :update" do
+      expect(twitter_client.respond_to? :update).to be_true
+    end
   end
 
   describe "::update_tweets" do
