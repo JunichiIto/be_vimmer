@@ -16,3 +16,4 @@
 .env
 
 .powenv
+/config/heroku.yml

@@ -1,0 +1,35 @@
+production:
+  app: bevimmer
+  stack: cedar
+  config:
+    BUNDLE_WITHOUT: "development:test"
+    twitter.consumer_key.cn:       (please set)
+    twitter.consumer_key.en:       (please set)
+    twitter.consumer_key.jp:       (please set)
+    twitter.consumer_secret.cn:    (please set)
+    twitter.consumer_secret.en:    (please set)
+    twitter.consumer_secret.jp:    (please set)
+    twitter.oauth_token.cn:        (please set)
+    twitter.oauth_token.en:        (please set)
+    twitter.oauth_token.jp:        (please set)
+    twitter.oauth_token_secret.cn: (please set)
+    twitter.oauth_token_secret.en: (please set)
+    twitter.oauth_token_secret.jp: (please set)
+
+staging:
+  stack: cedar
+  app: bevimmer-staging
+  config: &default
+    BUNDLE_WITHOUT: "development:test"
+    twitter.consumer_key.cn:       (please set)
+    twitter.consumer_key.en:       (please set)
+    twitter.consumer_key.jp:       (please set)
+    twitter.consumer_secret.cn:    (please set)
+    twitter.consumer_secret.en:    (please set)
+    twitter.consumer_secret.jp:    (please set)
+    twitter.oauth_token.cn:        (please set)
+    twitter.oauth_token.en:        (please set)
+    twitter.oauth_token.jp:        (please set)
+    twitter.oauth_token_secret.cn: (please set)
+    twitter.oauth_token_secret.en: (please set)
+    twitter.oauth_token_secret.jp: (please set)
