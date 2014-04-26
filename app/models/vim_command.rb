@@ -8,7 +8,7 @@ class VimCommand < ActiveRecord::Base
   belongs_to :mode
   default_scope order: 'vim_commands.id'
   
-  def self.update_tweet(lang, skip_interval, tweets_per_exec, ex_show_interval)
+  def self.update_tweets(lang, skip_interval, tweets_per_exec, ex_show_interval)
     if execute_this_time? skip_interval.to_i
       execute lang, tweets_per_exec.to_i, ex_show_interval.to_i
     else
