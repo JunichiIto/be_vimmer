@@ -1,23 +1,38 @@
 require 'spec_helper'
 
 describe VimCommand do
+  describe "::twitter_client" do
+    let(:env_hash) {
+      {
+          "twitter.consumer_key.jp" => "123",
+          "twitter.consumer_secret.jp" => "456",
+          "twitter.oauth_token.jp" => "789",
+          "twitter.oauth_token_secret.jp" => "abc",
+      }
+    }
+    let(:twitter_client) { VimCommand.twitter_client("jp") }
+    before do
+      stub_const('ENV', env_hash)
+    end
+    specify { expect(twitter_client.instance_variable_get(:@consumer_key)).to eq '123' }
+    specify { expect(twitter_client.instance_variable_get(:@consumer_secret)).to eq '456' }
+    specify { expect(twitter_client.instance_variable_get(:@oauth_token)).to eq '789' }
+    specify { expect(twitter_client.instance_variable_get(:@oauth_token_secret)).to eq 'abc' }
+  end
+
   describe "::update_tweets" do
     let(:mode) { Mode.create(label: "test") }
-    let!(:vim_command) {
+    let!(:vim_command) do
       VimCommand.new(command: "test command", description: "test desc", language: "jp").tap do |command|
         command.mode = mode
         command.save!
       end
-    }
-
-    before do
-      allow(Twitter).to receive(:configure)
-      allow(Twitter).to receive(:update)
     end
 
     it "updates tweet" do
-      expect(Twitter).to receive(:configure).once
-      expect(Twitter).to receive(:update).once
+      twitter = double(:twitter)
+      expect(twitter).to receive(:update).once
+      allow(VimCommand).to receive(:twitter_client).with("jp").and_return(twitter)
       VimCommand.update_tweets("jp", "1", "1", "1")
     end
   end

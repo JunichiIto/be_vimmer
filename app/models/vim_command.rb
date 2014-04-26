@@ -25,14 +25,13 @@ class VimCommand < ActiveRecord::Base
   end
 
   def self.execute(lang, tweets_per_exec, ex_show_interval)
-    configure_twitter lang
     commands = show_ex_command?(ex_show_interval) ? all_commands(lang) : non_ex_commands(lang)
     count = commands.count
     tweets_per_exec.times do
       idx = rand(count)
       command = VimCommand.find commands[idx].id
       tweet = build_tweet command
-      post tweet
+      post tweet, lang
     end
   end
 
@@ -44,41 +43,27 @@ class VimCommand < ActiveRecord::Base
     VimCommand.where(language: lang).joins(:mode).where("modes.label NOT LIKE 'EX%'").select('vim_commands.id')
   end
 
-  def self.configure_twitter(lang)
-    pit = Pit.get(
-        "be_vimmer_#{lang}",
-        :require => {
-            "twitter.consumer_key.#{lang}"       => '',
-            "twitter.consumer_secret.#{lang}"    => '',
-            "twitter.oauth_token.#{lang}"        => '',
-            "twitter.oauth_token_secret.#{lang}" => '',
-        })
-
-    pit["twitter.consumer_key.#{lang}"]       ||= ENV["twitter.consumer_key.#{lang}"]
-    pit["twitter.consumer_secret.#{lang}"]    ||= ENV["twitter.consumer_secret.#{lang}"]
-    pit["twitter.oauth_token.#{lang}"]        ||= ENV["twitter.oauth_token.#{lang}"]
-    pit["twitter.oauth_token_secret.#{lang}"] ||= ENV["twitter.oauth_token_secret.#{lang}"]
-
-    Twitter.configure do |config|
-      config.consumer_key       = pit["twitter.consumer_key.#{lang}"]
-      config.consumer_secret    = pit["twitter.consumer_secret.#{lang}"]
-      config.oauth_token        = pit["twitter.oauth_token.#{lang}"]
-      config.oauth_token_secret = pit["twitter.oauth_token_secret.#{lang}"]
-    end
-  end
-
   def self.build_tweet(command)
     tweet = "#{command.command} → #{command.description} [#{command.mode.label}]"
     length = 140 - " #Vim".size - 1
     truncate(tweet, length: length) + " #Vim"
   end
 
-  def self.post(tweet)
+  def self.post(tweet, lang)
     puts tweet
     begin
-      Twitter.update tweet.chomp
+      twitter_client(lang).update tweet.chomp
     rescue => ex
       p ex
     end
+  end
+
+  def self.twitter_client(lang)
+    Twitter::Client.new(
+        consumer_key:       ENV["twitter.consumer_key.#{lang}"],
+        consumer_secret:    ENV["twitter.consumer_secret.#{lang}"],
+        oauth_token:        ENV["twitter.oauth_token.#{lang}"],
+        oauth_token_secret: ENV["twitter.oauth_token_secret.#{lang}"]
+    )
   end
 end
