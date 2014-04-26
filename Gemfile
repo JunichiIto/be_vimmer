@@ -27,5 +27,9 @@ group :development, :test do
   gem 'sqlite3'
   gem 'heroku_san'
   gem 'heroku'
+end
+
+group :test do
   gem "rspec-rails", ">= 2.0.1"
+  gem 'capybara'
 end
