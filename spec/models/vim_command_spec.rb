@@ -4,10 +4,10 @@ describe VimCommand do
   describe "::twitter_client" do
     let(:env_hash) {
       {
-          "twitter.consumer_key.jp" => "123",
-          "twitter.consumer_secret.jp" => "456",
-          "twitter.oauth_token.jp" => "789",
-          "twitter.oauth_token_secret.jp" => "abc",
+          "twitter_consumer_key_jp" => "123",
+          "twitter_consumer_secret_jp" => "456",
+          "twitter_oauth_token_jp" => "789",
+          "twitter_oauth_token_secret_jp" => "abc",
       }
     }
     let(:twitter_client) { VimCommand.twitter_client("jp") }

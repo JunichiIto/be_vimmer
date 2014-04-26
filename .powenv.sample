@@ -1,4 +1,4 @@
-twitter.consumer_key.jp=(please set)
-twitter.consumer_secret.jp=(please set)
-twitter.oauth_token.jp=(please set)
-twitter.oauth_token_secret.jp=(please set)
+export twitter_consumer_key_jp=(please set)
+export twitter_consumer_secret_jp=(please set)
+export twitter_oauth_token_jp=(please set)
+export twitter_oauth_token_secret_jp=(please set)
