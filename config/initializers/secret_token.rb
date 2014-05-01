@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-BeVimmer::Application.config.secret_key_base = '47b00e756ed619990a9f4b02314faa45cdb66afac412497bb9e62e09ef0e80040eb52676203e043eff21b1b3c105556bf0972185741c60a396b6958789ee329c'
+BeVimmer::Application.config.secret_key_base = 'e95bc8e9a8f3efc3f6bf39b3abe4e6d84073973d0c017d376faf8a36a2f087871205cbddbe4f67eac405d5560b1b9e1d1e0e430b4e131ae07537a7e46d63879c'
