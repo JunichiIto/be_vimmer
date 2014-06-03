@@ -19,7 +19,7 @@ describe VimCommand do
     specify { expect(twitter_client.instance_variable_get(:@access_token)).to eq '789' }
     specify { expect(twitter_client.instance_variable_get(:@access_token_secret)).to eq 'abc' }
     it "resnponds to :update" do
-      expect(twitter_client.respond_to? :update).to be_true
+      expect(twitter_client.respond_to? :update).to be_truthy
     end
   end
 

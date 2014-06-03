@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby "2.1.1"
+ruby "2.1.2"
 
 gem 'rails', '4.0.4'
 
@@ -32,6 +32,6 @@ group :development, :test do
 end
 
 group :test do
-  gem "rspec-rails", ">= 2.0.1"
+  gem "rspec-rails", "~> 2.99.0"
   gem 'capybara'
 end
