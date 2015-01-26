@@ -4,8 +4,8 @@ namespace :seed do
   task :insert_tw => :environment do
     @lines = <<-EOF.split "\n"
 ###插入模式
-CTRL-@          插入最近插入的文本並停止插入
-CTRL-A          插入最近插入的文本
+CTRL-@          插入最近插入的內容並停止插入
+CTRL-A          插入最近插入的內容
 CTRL-B          不用 |i_CTRL-B-gone|
 CTRL-C          退出插入模式，不檢查縮寫，除非置位了'insertmode'。
 CTRL-D          在當前行刪除一個 shiftwidth 的縮進
@@ -144,7 +144,7 @@ CTRL-]             :ta 到光標所在的標識符
 CTRL-^             編輯第 N 個輪換文件 (等價於 ":e #N")
 CTRL-_             不用
 <Space>         1  等同於 "l"
-!{motion}{filter}2  通過 {filter} 命令過濾 Nmove 文本
+!{motion}{filter}2  通過 {filter} 命令過濾 Nmove 內容
 !!{filter}      2  通過 {filter} 命令過濾 N 行
 "{a-zA-Z0-9.%#:-"}  指定下次刪除、抽出或放置使用的寄存器{a-zA-Z0-9.%#:-"} (大寫用於添加)({.%#:} 只能用於放置)
 #               1  反向搜索第 N 次出現的光標所在的標識符
@@ -176,18 +176,18 @@ $               1  光標移動到往下第 N 行的行尾之後
 :               1  開始進入 Ex 命令
 {count}:           開始進入 Ex 命令，給出從當前行開始到下方N-1 行為止的行範圍
 ;               1  重複最近的 f、t、F 或 T N 次
-<{motion}       2  左移 Nmove 文本行一個 'shiftwidth'
+<{motion}       2  左移 Nmove 內容行一個 'shiftwidth'
 <<              2  左移 N 行一個 'shiftwidth'
-={motion}       2  通過 "indent" 過濾 Nmove 文本行
+={motion}       2  通過 "indent" 過濾 Nmove 內容行
 ==              2  通過 "indent" 過濾 N 行
->{motion}       2  右移 Nmove 文本行一個 'shiftwidth'
+>{motion}       2  右移 Nmove 內容行一個 'shiftwidth'
 >>              2  右移 N 行一個 'shiftwidth'
 ?{pattern}<CR>  1  反向搜索第 N 次出現的 {pattern}
 ?<CR>           1  反向搜索最近一次搜索使用的 {pattern}
 @{a-z}          2  執行 {a-z} 寄存器的內容 N 次
 @:                 重複上次的 ":" 命令 N 次
 @@              2  重複上次的 @{a-z} N 次
-A               2  在行尾附加文本 N 次
+A               2  在行尾附加內容 N 次
 B               1  光標反向移動 N 個 WORD (字串)
 ["x]C           2  從光標位置到行尾部分，再加上 N-1 行進行修改[到緩衝區 (譯者注: 應為寄存器，下同) x]；等價於 "c$"
 ["x]D           2  刪除位置到行尾部分，再加上 N-1 行的字符 [到緩衝區 (見上) x]；等價於 "d$"
@@ -195,16 +195,16 @@ E               1  光標正向移動到第 N 個 WORD 的結束處
 F{char}         1  光標左移到第 N 次出現的 {char} 上
 G               1  光標移動到第 N 行，缺省是最後一行
 H               1  光標移動到屏幕頂部開始算的第 N 行
-I               2  在本行第一個 CHAR 之前插入文本 N 次
+I               2  在本行第一個 CHAR 之前插入內容 N 次
 J               2  連接 (Join) N 行；缺省為 2
 K                  查找光標所在的關鍵字 (Keyword)，使用'keywordprg' 的定義
 L               1  光標移動到屏幕底部開始算的第 N 行
 M               1  光標移動到屏幕的中間一行
 N               1  反方向重複最近的 '/' 或 '?' N 次
-O               2  在光標上方開始一個新行，並插入文本，重複 N次
-["x]P           2  在光標放置文本 [到緩衝區 (見上) x] N 次
+O               2  在光標上方開始一個新行，並插入內容，重複 N次
+["x]P           2  在光標放置內容 [到緩衝區 (見上) x] N 次
 Q                  切換到 "Ex" 模式
-R               2  進入替換模式: 覆蓋存在的字符，重複輸入文本N-1 次
+R               2  進入替換模式: 覆蓋存在的字符，重複輸入內容N-1 次
 ["x]S           2  刪除 N 行 [到緩衝區 (見上) x]] 並開始輸入；等價於 "cc"
 T{char}         1  光標移動到左側第 N 次出現的 {char} 之前
 U               2  撤消一行內所有最近的改變
@@ -229,11 +229,11 @@ _               1  光標移動到下方第 N - 1 行的第一個 CHAR 上
 ``              1  光標移動最近一次跳轉的位置
 `{              1  光標移動當前段落的開始處
 `}              1  光標移動當前段落的結束處
-a               2  在光標處附加文本 N 次
+a               2  在光標處附加內容 N 次
 b               1  光標反向移動 N 個單詞
-["x]c{motion}   2  刪除 Nmove 文本 [到緩衝區 (見上) x] 並開始編輯
+["x]c{motion}   2  刪除 Nmove 內容 [到緩衝區 (見上) x] 並開始編輯
 ["x]cc          2  刪除 N 行 [到緩衝區 (見上) x] 並開始編輯
-["x]d{motion}   2  刪除 Nmove 文本 [到緩衝區 (見上) x]
+["x]d{motion}   2  刪除 Nmove 內容 [到緩衝區 (見上) x]
 ["x]dd          2  刪除 N 行 [到緩衝區 (見上) x]]
 do              2  等同於 ":diffget"
 dp              2  等同於 ":diffput"
@@ -241,14 +241,14 @@ e               1  光標正向移動到第 N 個單詞的結束處
 f{char}         1  光標右移到第 N 次出現的 {char} 上
 g{char}            擴展命令，見下 |g|
 h               1  光標左移 N 個字符
-i               2  在光標前插入文本 N 次
+i               2  在光標前插入內容 N 次
 j               1  光標下移 N 行
 k               1  光標上移 N 行
 l               1  光標右移 N 個字符
 m{A-Za-z}          在光標位置處設置位置標記 {A-Za-z}
 n               1  重複最近的 '/' 或 '?' N 次
-o               2  在光標下方開始一個新行，並插入文本，重複 N次
-["x]p           2  在光標後放置文本 [從寄存器 x] N 次
+o               2  在光標下方開始一個新行，並插入內容，重複 N次
+["x]p           2  在光標後放置內容 [從寄存器 x] N 次
 q{0-9a-zA-Z"}      記錄輸入的字符到命令寄存器 {0-9a-zA-Z"}(大寫用於添加)
 q                  (在記錄時) 停止記錄
 q:                 在命令行窗口裡編輯 : 命令行
@@ -261,14 +261,14 @@ u               2  撤消改變
 v                  開始面向字符的可視 (Visual) 模式
 w               1  光標前移 N 個單詞
 ["x]x           2  刪除光標開始的 N 個字符 [到緩衝區 (見上) x]
-["x]y{motion}      抽出 Nmove 文本 [到緩衝區 (見上) x]
+["x]y{motion}      抽出 Nmove 內容 [到緩衝區 (見上) x]
 ["x]yy             抽出 N 行 [到緩衝區 (見上) x]
 z{char}            'z' 開始的命令，見下 |z|
 {               1  光標反向移動 N 個段落
 |               1  光標移到第 N 列
 }               1  光標正向移動 N 個段落
 ~               2  'tildeop' 關閉時: 切換光標所在處開始的 N 個字符的大小寫，並右移光標 N 個字符
-~{motion}          'tildeop' 打開時: 切換 Nmove 文本的大小寫
+~{motion}          'tildeop' 打開時: 切換 Nmove 內容的大小寫
 <C-End>         1  等同於 "G"
 <C-Home>        1  等同於 "gg"
 <C-Left>        1  等同於 "b"
@@ -307,7 +307,7 @@ z{char}            'z' 開始的命令，見下 |z|
 <S-ScrollWheelLeft>     窗口向左滾動完整一頁
 <ScrollWheelRight>      窗口向右滾動六列
 <S-ScrollWheelRight>    窗口向右滾動完整一頁
-###文本對象
+###內容對象
 a"                 雙引號字符串
 a'                 單引號字符串
 a(                 等同於 ab
@@ -486,9 +486,9 @@ gE              1  反向轉移到上一個 WORD 的結尾處
 gH                 啟動選擇行模式
 gI              2  類似於 "I"，但總是從第一列開始
 gJ              2  連接行，不插入空格
-["x]gP          2  在光標籤放置文本 [從寄存器 x] N 次，光標留在插入文本之後
+["x]gP          2  在光標籤放置內容 [從寄存器 x] N 次，光標留在插入內容之後
 gR              2  進入虛擬替換模式
-gU{motion}      2  使得 Nmove 文本全部大寫
+gU{motion}      2  使得 Nmove 內容全部大寫
 gV                 在執行選擇模式下的映射或者菜單時，不要重複選擇過去的可視區域
 g]                 :tselect 到光標所在的標籤上
 g^              1  'wrap' 關閉時轉到當前行最左側屏幕上可見的非空白字符'wrap' 打開時轉到當前屏幕行最左側的非空白字符
@@ -504,16 +504,16 @@ gj              1  類似於 "j"，但 'wrap' 打開時往下 N 個屏幕行
 gk              1  類似於 "k"，但 'wrap' 打開時往上 N 個屏幕行
 gm              1  轉到屏幕行正中間的那個字符
 go              1  光標移動到緩衝區的第 N 個字節
-["x]gp          2  在光標後面放置文本 [從寄存器 x] N 次，光標留在後面
-gq{motion}      2  排版 Nmove 文本
+["x]gp          2  在光標後面放置內容 [從寄存器 x] N 次，光標留在後面
+gq{motion}      2  排版 Nmove 內容
 gr{char}        2  虛擬替換 N 個字符為 {char}
 gs                 睡眠 N 秒 (缺省 1)
-gu{motion}      2  使得 Nmove 文本全部小寫
+gu{motion}      2  使得 Nmove 內容全部小寫
 gv                 重新選擇上次的可視區域
-gw{motion}      2  排版 Nmove 文本並保持光標位置
+gw{motion}      2  排版 Nmove 內容並保持光標位置
 gx                 執行光標下的文件名對應的應用程序 (僅限於|netrw| 插件)
 g@{motion}         調用 'operatorfunc'
-g~{motion}      2  改變 Nmove 文本的大小寫
+g~{motion}      2  改變 Nmove 內容的大小寫
 g<Down>         1  等同於 "gj"
 g<End>          1  等同於 "g$"
 g<Home>         1  等同於 "g0"
@@ -546,7 +546,7 @@ zb                 重畫，光標在窗口底行
 zc                 關閉摺疊
 zd                 刪除摺疊
 ze                 'wrap' 關閉時，水平滾動使得光標定位到屏幕的尾部 (最右側)
-zf{motion}         為 Nmove 文本建立摺疊
+zf{motion}         為 Nmove 內容建立摺疊
 zg                 把單詞標記為拼寫正確 (good)
 zh                 'wrap' 關閉時，水平右滾屏幕 N 個字符
 zi                 切換 'foldenable'
@@ -581,10 +581,10 @@ CTRL-]             跳轉到高亮的標籤上
 <               2  左移高亮行一個 'shiftwidth'
 =               2  用 {equalprg} 選項指定的外部程序過濾高亮行
 >               2  右移高亮行一個 'shiftwidth'
-A               2  列塊模式下: 在高亮區域的所有行後附加相同的文本
+A               2  列塊模式下: 在高亮區域的所有行後附加相同的內容
 C               2  刪除高亮行，並開始插入
 D               2  刪除高亮行
-I               2  列塊模式: 在所有高亮行之前插入相同的文本
+I               2  列塊模式: 在所有高亮行之前插入相同的內容
 J               2  連接高亮行
 K                  在高亮區域上運行 'keywordprg'
 O                  水平移動到區域的另外一側
@@ -723,7 +723,7 @@ CTRL-_          'allowrevins'  打開時: 改變語言 (希伯來，波斯)
 :N[ext]         轉到參數列表的上一個文件
 :P[rint]        顯示行
 :X              請求加密密鑰
-:a[ppend]       附加文本
+:a[ppend]       附加內容
 :ab[breviate]   輸入縮寫
 :abc[lear]      刪除所有的縮寫
 :abo[veleft]    使得分割的窗口出現在左側或者上方
@@ -884,7 +884,7 @@ CTRL-_          'allowrevins'  打開時: 改變語言 (希伯來，波斯)
 :grepa[dd]      類似 :grep，但附加到當前列表後
 :gu[i]          啟動 GUI
 :gv[im]         啟動 GUI
-:ha[rdcopy]     發送文本到打印機
+:ha[rdcopy]     發送內容到打印機
 :h[elp]         打開幫助窗口
 :helpf[ind]     打開顯示幫助窗口的對話框
 :helpg[rep]     類似於 ":grep"，但搜索幫助文件
@@ -892,7 +892,7 @@ CTRL-_          'allowrevins'  打開時: 改變語言 (希伯來，波斯)
 :hi[ghlight]    指定高亮方法
 :hid[e]         為一個命令隱藏當前緩衝區
 :his[tory]      顯示歷史列表
-:i[nsert]       插入文本
+:i[nsert]       插入內容
 :ia[bbrev]      類似於 ":abbrev"，但用於插入模式
 :iabc[lear]     類似於 ":abclear"，但用於插入模式
 :if             條件滿足時執行命令
@@ -1004,7 +1004,7 @@ CTRL-_          'allowrevins'  打開時: 改變語言 (希伯來，波斯)
 :norea[bbrev]   輸入不會被重新映射的縮寫
 :noreme[nu]     輸入不會被重新映射的菜單
 :norm[al]       執行普通模式的命令
-:nu[mber]       顯示文本行時給出行號
+:nu[mber]       顯示內容行時給出行號
 :nun[map]       類似於 ":unmap"，但使用普通模式
 :nunme[nu]      刪除普通模式的菜單
 :ol[dfiles]     列出 viminfo 文件中包含位置標記的文件
@@ -1031,7 +1031,7 @@ CTRL-_          'allowrevins'  打開時: 改變語言 (希伯來，波斯)
 :po[p]          跳轉到標籤棧較舊的項目上
 :pop[up]        根據名字彈出菜單
 :pp[op]         在預覽窗口 ":pop"
-:pre[serve]     寫入所有文本到交換文件
+:pre[serve]     寫入所有內容到交換文件
 :prev[ious]     跳轉到參數列表裡的上一個文件
 :ps[earch]      類似於 ":ijump"，但在預覽窗口顯示匹配
 :pt[ag]         在預覽窗口顯示標籤
@@ -1043,7 +1043,7 @@ CTRL-_          'allowrevins'  打開時: 改變語言 (希伯來，波斯)
 :ptp[revious]   在預覽窗口 |:tprevious|
 :ptr[ewind]     在預覽窗口 |:trewind|
 :pts[elect]     在預覽窗口 |:tselect| 和顯示標籤
-:pu[t]          插入寄存器的內容到文本
+:pu[t]          插入寄存器的內容到內容
 :pw[d]          顯示當前目錄
 :py3            執行 Python 3 命令
 :python3        同 :py3
@@ -1053,7 +1053,7 @@ CTRL-_          'allowrevins'  打開時: 改變語言 (希伯來，波斯)
 :q[uit]         退出當前窗口 (如果只有一窗口，則退出 Vim)
 :quita[ll]      退出 Vim
 :qa[ll]         退出 Vim
-:r[ead]         讀入文件到文本
+:r[ead]         讀入文件到內容
 :rec[over]      從交換文件裡恢覆文件
 :red[o]         重做一次撤銷的改變
 :redi[r]        重定向消息到文件或者寄存器
@@ -1064,7 +1064,7 @@ CTRL-_          'allowrevins'  打開時: 改變語言 (希伯來，波斯)
 :ret[ab]        改變製表大小
 :retu[rn]       從用戶函數返回
 :rew[ind]       轉到參數列表的第一個文件
-:ri[ght]        右對齊文本
+:ri[ght]        右對齊內容
 :rightb[elow]   使得分割窗口出現在右側或者下方
 :rub[y]         執行 Ruby 命令
 :rubyd[o]       對每行執行 Ruby 命令
@@ -1072,7 +1072,7 @@ CTRL-_          'allowrevins'  打開時: 改變語言 (希伯來，波斯)
 :rund[o]        從文件裡讀入撤銷信息
 :ru[ntime]      執行 'runtimepath' 裡的 vim 腳本
 :rv[iminfo]     讀取 viminfo 文件
-:s[ubstitute]   查找和替代文本
+:s[ubstitute]   查找和替代內容
 :sN[ext]        分割窗口並轉到參數列表的前一個文件
 :san[dbox]      在沙盤裡執行命令
 :sa[rgument]    分割窗口並轉到參數列表的某一個文件
