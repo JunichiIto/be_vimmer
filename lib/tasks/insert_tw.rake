@@ -489,7 +489,7 @@ gJ              2  連接行，不插入空格
 ["x]gP          2  在遊標籤放置內容 [從寄存器 x] N 次，遊標留在插入內容之後
 gR              2  進入虛擬替換模式
 gU{motion}      2  使得 Nmove 內容全部大寫
-gV                 在執行選擇模式下的映射或者菜單時，不要重複選擇過去的可視區域
+gV                 在執行選擇模式下的映射或者選單時，不要重複選擇過去的可視區域
 g]                 :tselect 到遊標所在的標籤上
 g^              1  'wrap' 關閉時轉到當前行最左側屏幕上可見的非空白字符'wrap' 打開時轉到當前屏幕行最左側的非空白字符
 ga                 打印遊標所在處的字符的 ascii 值
@@ -728,8 +728,8 @@ CTRL-_          'allowrevins'  打開時: 改變語言 (希伯來，波斯)
 :abc[lear]      刪除所有的縮寫
 :abo[veleft]    使得分割的窗口出現在左側或者上方
 :al[l]          為參數列表的每個文件打開一個窗口
-:am[enu]        為所有模式輸入菜單項
-:an[oremenu]    為所有模式輸入菜單項，不會被重新映射
+:am[enu]        為所有模式輸入選單項
+:an[oremenu]    為所有模式輸入選單項，不會被重新映射
 :ar[gs]         顯示參數列表
 :arga[dd]       增加項目到參數列表中
 :argd[elete]    從參數列表中刪除項目
@@ -741,7 +741,7 @@ CTRL-_          'allowrevins'  打開時: 改變語言 (希伯來，波斯)
 :as[cii]        顯示遊標所在的字符的 ascii 值
 :au[tocmd]      輸入或者顯示自動命令
 :aug[roup]      選擇要用的自動命令組
-:aun[menu]      刪除所有模式下的菜單
+:aun[menu]      刪除所有模式下的選單
 :b[uffer]       轉到緩衝區列表裡的特定緩衝區
 :bN[ext]        轉到緩衝區列表裡的上一個緩衝區
 :ba[ll]         為緩衝區列表裡的每個緩衝區打開一個窗口
@@ -795,7 +795,7 @@ CTRL-_          'allowrevins'  打開時: 改變語言 (希伯來，波斯)
 :clo[se]        改變當前窗口
 :cm[ap]         類似於 ":map"，但用於命令行模式
 :cmapc[lear]    清除所有映射，用於命令行模式
-:cme[nu]        為命令行模式增加菜單
+:cme[nu]        為命令行模式增加選單
 :cn[ext]        跳轉到下一個錯誤
 :cnew[er]       跳轉到下一個較新的錯誤列表
 :cnf[ile]       跳轉到下一個文件的第一個錯誤
@@ -819,7 +819,7 @@ CTRL-_          'allowrevins'  打開時: 改變語言 (希伯來，波斯)
 :cst[ag]        使用 cscope 來跳轉到標籤上
 :cu[nmap]       類似於 ":unmap"，但用於命令行模式
 :cuna[bbrev]    類似於 ":unabbrev"，但用於命令行模式
-:cunme[nu]      刪除命令行的菜單
+:cunme[nu]      刪除命令行的選單
 :cw[indow]      打開或者關閉 quickfix 窗口
 :d[elete]       刪除行
 :delm[arks]     刪除位置標記
@@ -852,7 +852,7 @@ CTRL-_          'allowrevins'  打開時: 改變語言 (希伯來，波斯)
 :echon          等同於 :echo，但不留 <EOL>
 :el[se]         :if 命令的一部分
 :elsei[f]       :if 命令的一部分
-:em[enu]        按名字執行菜單
+:em[enu]        按名字執行選單
 :en[dif]        結束最近的 :if
 :endfo[r]       結束最近的 :for
 :endf[unction]  結束用戶函數
@@ -900,7 +900,7 @@ CTRL-_          'allowrevins'  打開時: 改變語言 (希伯來，波斯)
 :il[ist]        列出匹配標識符的行
 :im[ap]         類似於 ":map"，但用於插入模式
 :imapc[lear]    類似於 ":map"，但用於插入模式
-:ime[nu]        為插入模式增加菜單
+:ime[nu]        為插入模式增加選單
 :ino[remap]     類似於 ":noremap"，但用於插入模式
 :inorea[bbrev]  類似於 ":noreabbrev"，但用於插入模式
 :inoreme[nu]    類似於 ":noremenu"，但用於插入模式
@@ -909,7 +909,7 @@ CTRL-_          'allowrevins'  打開時: 改變語言 (希伯來，波斯)
 :isp[lit]       分割窗口，並跳轉到標識符的定義
 :iu[nmap]       類似於 ":unmap"，但用於插入模式
 :iuna[bbrev]    類似於 ":unabbrev"，但用於插入模式
-:iunme[nu]      刪除插入模式的菜單
+:iunme[nu]      刪除插入模式的選單
 :j[oin]         連接行
 :ju[mps]        顯示跳轉表
 :k              設置位置標記
@@ -977,8 +977,8 @@ CTRL-_          'allowrevins'  打開時: 改變語言 (希伯來，波斯)
 :mapc[lear]     清除所有普通和可視模式的映射
 :marks          列出所有的位置標記
 :mat[ch]        定義要高亮顯示的匹配的模式
-:me[nu]         輸入新的菜單項
-:menut[ranslate] 增加菜單翻譯項目
+:me[nu]         輸入新的選單項
+:menut[ranslate] 增加選單翻譯項目
 :mes[sages]     顯示以前顯示的消息
 :mk[exrc]       寫入當前映射和設置到文件
 :mks[ession]    寫入會話信息到文件
@@ -995,29 +995,29 @@ CTRL-_          'allowrevins'  打開時: 改變語言 (希伯來，波斯)
 :new            創建一個新的空白窗口
 :nm[ap]         類似於 ":map"，但使用普通模式
 :nmapc[lear]    清除普通模式的所有映射
-:nme[nu]        為普通模式增加菜單
+:nme[nu]        為普通模式增加選單
 :nn[oremap]     類似於 ":noremap"，但使用普通模式
 :nnoreme[nu]    類似於 ":noremenu"，但使用普通模式
 :noa[utocmd]    跟隨的命令不激活自動命令
 :no[remap]      輸入不會被重新映射的映射
 :noh[lsearch]   暫停 'hlsearch' 高亮
 :norea[bbrev]   輸入不會被重新映射的縮寫
-:noreme[nu]     輸入不會被重新映射的菜單
+:noreme[nu]     輸入不會被重新映射的選單
 :norm[al]       執行普通模式的命令
 :nu[mber]       顯示內容行時給出行號
 :nun[map]       類似於 ":unmap"，但使用普通模式
-:nunme[nu]      刪除普通模式的菜單
+:nunme[nu]      刪除普通模式的選單
 :ol[dfiles]     列出 viminfo 文件中包含位置標記的文件
 :o[pen]         啟動打開模式 (沒有實現)
 :om[ap]         類似於 ":map"，但使用操作符等待模式
 :omapc[lear]    刪除操作符等待模式的所有映射
-:ome[nu]        為操作符等待模式增加菜單
+:ome[nu]        為操作符等待模式增加選單
 :on[ly]         關閉當前窗口，除了當前的窗口以外
 :ono[remap]     類似於 ":noremap"，但使用操作符等待模式
 :onoreme[nu]    類似於 ":noremenu"，但使用操作符等待模式
 :opt[ions]      打開選項窗口
 :ou[nmap]       類似於 ":unmap"，但使用操作符等待模式
-:ounme[nu]      刪除操作符等待模式的菜單
+:ounme[nu]      刪除操作符等待模式的選單
 :ow[nsyntax]    為本窗口設置新的局部語法高亮
 :p[rint]        顯示行
 :profd[el]      停止剖視 (profile) 函數或腳本
@@ -1029,7 +1029,7 @@ CTRL-_          'allowrevins'  打開時: 改變語言 (希伯來，波斯)
 :pe[rl]         執行 Perl 命令
 :perld[o]       對每行都執行 Perl 命令
 :po[p]          跳轉到標籤棧較舊的項目上
-:pop[up]        根據名字彈出菜單
+:pop[up]        根據名字彈出選單
 :pp[op]         在預覽窗口 ":pop"
 :pre[serve]     寫入所有內容到交換文件
 :prev[ious]     跳轉到參數列表裡的上一個文件
@@ -1105,7 +1105,7 @@ CTRL-_          'allowrevins'  打開時: 改變語言 (希伯來，波斯)
 :sm[agic]       帶 'magic' 的 :substitute
 :sma[p]         類似於 ":map"，但用於選擇模式
 :smapc[lear]    刪除選擇模式所有的映射
-:sme[nu]        增加選擇模式菜單
+:sme[nu]        增加選擇模式選單
 :sn[ext]        分割窗口並轉到參數列表的下一個文件
 :sni[ff]        發送請求到 sniff
 :sno[magic]     帶 'nomagic' 的 :substitute
@@ -1132,7 +1132,7 @@ CTRL-_          'allowrevins'  打開時: 改變語言 (希伯來，波斯)
 :sts[elect]     執行 ":tselect" 並分割窗口
 :sun[hide]      等同於 ":unhide"
 :sunm[ap]       類似於 ":unmap"，但用於選擇模式
-:sunme[nu]      刪除選擇模式的菜單
+:sunme[nu]      刪除選擇模式的選單
 :sus[pend]      等同於 ":stop"
 :sv[iew]        分割窗口並以只讀模式編輯文件
 :sw[apname]     顯示當前交換文件的名字
@@ -1160,19 +1160,19 @@ CTRL-_          'allowrevins'  打開時: 改變語言 (希伯來，波斯)
 :tc[l]          執行 Tcl 命令
 :tcld[o]        為每行執行 Tcl 命令
 :tclf[ile]      執行 Tcl 腳本文件
-:te[aroff]      撕下一個菜單
+:te[aroff]      撕下一個選單
 :tf[irst]       轉到第一個匹配的標籤
 :th[row]        拋出例外
 :tj[ump]        類似於 ":tselect"，只有一個匹配時直接跳轉之
 :tl[ast]        跳轉到最後一個匹配的標籤
-:tm[enu]        定義菜單的工具提示
+:tm[enu]        定義選單的工具提示
 :tn[ext]        跳轉到下一個匹配的標籤
 :to[pleft]      使得分割的窗口出現在頂部或者最左端
 :tp[revious]    跳轉到上一個匹配的標籤
 :tr[ewind]      跳轉到第一個匹配的標籤
 :try            執行命令，錯誤或者例外時終止
 :ts[elect]      列出匹配的標籤並從中選擇一個
-:tu[nmenu]      刪除菜單的工具提示
+:tu[nmenu]      刪除選單的工具提示
 :u[ndo]         撤銷最近的改變
 :undoj[oin]     將下一個改變和上一個撤銷塊合併
 :undol[ist]     列出撤銷樹的葉結點
@@ -1181,7 +1181,7 @@ CTRL-_          'allowrevins'  打開時: 改變語言 (希伯來，波斯)
 :unl[et]        刪除變量
 :unlo[ckvar]    給變量解鎖
 :unm[ap]        刪除映射
-:unme[nu]       刪除菜單
+:unme[nu]       刪除選單
 :uns[ilent]     非安靜模式執行命令
 :up[date]       如果有修改，寫回緩衝區
 :v[global]      對不匹配的行，執行命令
@@ -1195,13 +1195,13 @@ CTRL-_          'allowrevins'  打開時: 改變語言 (希伯來，波斯)
 :vie[w]         以只讀方式編輯文件
 :vm[ap]         類似於 ":map"，但使用可視+選擇模式
 :vmapc[lear]    刪除可視+選擇模式所有的映射
-:vme[nu]        為可視+選擇模式增加菜單
+:vme[nu]        為可視+選擇模式增加選單
 :vne[w]         建立新的空白窗口，垂直分割
 :vn[oremap]     類似於 ":noremap"，但使用可視+選擇模式
 :vnoreme[nu]    類似於 ":noremenu"，但使用可視+選擇模式
 :vs[plit]       垂直分割當前窗口
 :vu[nmap]       類似於 ":unmap"，但使用可視+選擇模式
-:vunme[nu]      刪除可視+選擇模式的菜單
+:vunme[nu]      刪除可視+選擇模式的選單
 :windo          為每個窗口執行命令
 :w[rite]        寫回文件
 :wN[ext]        寫回文件，然後跳轉到參數列表的前一個文件
@@ -1221,11 +1221,11 @@ CTRL-_          'allowrevins'  打開時: 改變語言 (希伯來，波斯)
 :xa[ll]         等同於 ":wqall"
 :xmapc[lear]    刪除可視模式的所有映射
 :xm[ap]         類似於 ":map"，但使用可視模式
-:xme[nu]        增加可視模式的菜單
+:xme[nu]        增加可視模式的選單
 :xn[oremap]     類似於 ":noremap"，但使用可視模式
 :xnoreme[nu]    類似於 ":noremenu"，但使用可視模式
 :xu[nmap]       類似於 ":unmap"，但使用可視模式
-:xunme[nu]      刪除可視模式的菜單
+:xunme[nu]      刪除可視模式的選單
 :y[ank]         抽出行到寄存器
 :z              顯示一些行
 EOF
