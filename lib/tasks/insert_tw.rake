@@ -87,17 +87,17 @@ CTRL-_          'allowrevins' 開啟時: 變更語言(希伯來語，波斯語�
 <ScrollWheelRight>      視窗向右滾動六列
 <S-ScrollWheelRight>   視窗向右滾動完整一頁
 ###子模式的指令
-CTRL-X CTRL-D   補全定義過的標識符
+CTRL-X CTRL-D   補全定義過的標識符號
 CTRL-X CTRL-E   上滾
 CTRL-X CTRL-F   補全檔案名稱
-CTRL-X CTRL-I   補全標識符
-CTRL-X CTRL-K   從字典補全標識符
+CTRL-X CTRL-I   補全標識符號
+CTRL-X CTRL-K   從字典補全標識符號
 CTRL-X CTRL-L   補全完整的行
 CTRL-X CTRL-N   下一個補全
 CTRL-X CTRL-O   全能 (omni) 補全
 CTRL-X CTRL-P   上一個補全
 CTRL-X CTRL-S   拼寫建議
-CTRL-X CTRL-T   從同義詞詞典補全標識符
+CTRL-X CTRL-T   從同義詞詞典補全標識符號
 CTRL-X CTRL-U   用 'completefunc' 補全
 CTRL-X CTRL-V   如同 : 指令列那樣補全
 CTRL-X CTRL-Y   下滾
@@ -140,14 +140,14 @@ CTRL-\ CTRL-N      進入普通 (Normal) 模式 (空動作)
 CTRL-\ CTRL-G      進入 'insertmode' 指定的模式
 CTRL-\ a - z       保留作外掛程式用
 CTRL-\ 其它        不用
-CTRL-]             :ta 到游標所在的標識符
+CTRL-]             :ta 到游標所在的標識符號
 CTRL-^             編輯第 N 個備用檔 (等價於 ":e #N")
 CTRL-_             不用
 <Space>         1  等同於 "l"
 !{motion}{filter}2  通過 {filter} 指令過濾 Nmove 內容
 !!{filter}      2  通過 {filter} 指令過濾 N 行
 "{a-zA-Z0-9.%#:-"}  指定下次刪除、抽出或放置使用的暫存器{a-zA-Z0-9.%#:-"} (大寫用於添加)({.%#:} 只能用於放置)
-#               1  反向搜尋第 N 次出現的游標所在的標識符
+#               1  反向搜尋第 N 次出現的游標所在的標識符號
 $               1  游標移動到往下第 N 行的行尾之後
 %               1  查找本行下一個 (花/方) 括號，並轉到其匹配的括號上，或者轉到匹配的註釋配對上，或者轉到匹配的預處理指令上。
 {count}%        1  轉到檔案百分之 N 的位置上
@@ -164,7 +164,7 @@ $               1  游標移動到往下第 N 行的行尾之後
 '}              1  游標移動到該段的尾部所在行的第一個 CHAR上
 (               1  游標回退 N 個句子
 )               1  游標前進 N 個句子
-*               1  正向搜尋第 N 次出現的游標所在的標識符
+*               1  正向搜尋第 N 次出現的游標所在的標識符號
 +               1  等同於 <CR>
 ,               1  反方向重複最近的 f、t、F 或 T N 次
 -               1  游標移動到上方 N 行的第一個 CHAR 上
@@ -397,7 +397,7 @@ CTRL-W g }         在游標所在的標籤上執行 |:ptjump|
 CTRL-W g f         在新的標籤頁裡編輯游標所在的檔名
 CTRL-W g F         在新的標籤頁裡編輯游標所在的檔名然後跳轉到檔名後給出的行號上。
 CTRL-W h           跳轉到左面第 N 個的視窗 (在首個視窗上停止)
-CTRL-W i           分割視窗並跳轉到游標所在的標識符的聲明上
+CTRL-W i           分割視窗並跳轉到游標所在的標識符號的聲明上
 CTRL-W j           跳轉到下面第 N 個的視窗 (在最後視窗上停止)
 CTRL-W k           跳轉到上面第 N 個的視窗 (在首個視窗上停止)
 CTRL-W l           跳轉到右面第 N 個的視窗 (在最後視窗上停止)
@@ -896,8 +896,8 @@ CTRL-_          'allowrevins'  開啟時: 變更語言 (希伯來，波斯)
 :ia[bbrev]      類似於 ":abbrev"，但用於插入模式
 :iabc[lear]     類似於 ":abclear"，但用於插入模式
 :if             條件滿足時執行指令
-:ij[ump]        跳轉到標識符的定義
-:il[ist]        列出符合標識符的行
+:ij[ump]        跳轉到標識符號的定義
+:il[ist]        列出符合標識符號的行
 :im[ap]         類似於 ":map"，但用於插入模式
 :imapc[lear]    類似於 ":map"，但用於插入模式
 :ime[nu]        為插入模式增加選單
@@ -905,8 +905,8 @@ CTRL-_          'allowrevins'  開啟時: 變更語言 (希伯來，波斯)
 :inorea[bbrev]  類似於 ":noreabbrev"，但用於插入模式
 :inoreme[nu]    類似於 ":noremenu"，但用於插入模式
 :int[ro]        顯示介紹文字
-:is[earch]      列出匹配標識符的一行
-:isp[lit]       分割視窗，並跳轉到標識符的定義
+:is[earch]      列出匹配標識符號的一行
+:isp[lit]       分割視窗，並跳轉到標識符號的定義
 :iu[nmap]       類似於 ":unmap"，但用於插入模式
 :iuna[bbrev]    類似於 ":unabbrev"，但用於插入模式
 :iunme[nu]      刪除插入模式的選單
