@@ -77,7 +77,7 @@ CTRL-_          'allowrevins' 開啟時: 變更語言(希伯來語，波斯語�
 <F1>            等同於 <Help>
 <Help>          停止插入模式顯示說明視窗
 <Insert>        切換插入/替換模式
-<LeftMouse>     游標移到鼠標點擊處
+<LeftMouse>     游標移到滑鼠點擊處
 <ScrollWheelDown>       視窗向下滾動三行
 <S-ScrollWheelDown>     視窗向下滾動完整一頁
 <ScrollWheelUp>         視窗向上滾動三行
@@ -273,7 +273,7 @@ z{char}            'z' 開始的指令，見下 |z|
 <C-Home>        1  等同於 "gg"
 <C-Left>        1  等同於 "b"
 
-<C-LeftMouse>      ":ta" 到鼠標點擊所在的單字上
+<C-LeftMouse>      ":ta" 到滑鼠點擊所在的單字上
 <C-Right>       1  等同於 "w"
 <C-RightMouse>    等同於 "CTRL-T"
 ["x]<Del>       2  等同於 "x"
@@ -285,17 +285,17 @@ z{char}            'z' 開始的指令，見下 |z|
 <Home>          1  等同於 "0"
 <Insert>        2  等同於 "i"
 <Left>          1  等同於 "h"
-<LeftMouse>     1  移動游標到鼠標點擊處
-<MiddleMouse>   2  等同於在鼠標點擊處 "gP"
+<LeftMouse>     1  移動游標到滑鼠點擊處
+<MiddleMouse>   2  等同於在滑鼠點擊處 "gP"
 <PageDown>         等同於 CTRL-F
 <PageUp>           等同於 CTRL-B
 <Right>         1  等同於 "l"
-<RightMouse>       開始可視模式，移動游標到鼠標點擊處
+<RightMouse>       開始可視模式，移動游標到滑鼠點擊處
 <S-Down>        1  等同於 CTRL-F
 <S-Left>        1  等同於 "b"
-<S-LeftMouse>      等同於在鼠標點擊處 "*"
+<S-LeftMouse>      等同於在滑鼠點擊處 "*"
 <S-Right>       1  等同於 "w"
-<S-RightMouse>    等同於在鼠標點擊處 "#"
+<S-RightMouse>    等同於在滑鼠點擊處 "#"
 <S-Up>          1  等同於 CTRL-B
 <Undo>          2  等同於 "u"
 <Up>            1  等同於 "k"
@@ -688,7 +688,7 @@ CTRL-\ a - d    保留給外掛程式用
 CTRL-\ e {expr} 以 {expr} 的結果替換指令列
 CTRL-\ f - z    保留給外掛程式用
 CTRL-\ 其它     不用
-CTRL-]          激活縮寫
+CTRL-]          啟用縮寫
 CTRL-^          切換 |:lmap| 映射的使用
 CTRL-_          'allowrevins'  開啟時: 變更語言 (希伯來，波斯)
 <Del>           刪除游標所在的字元
@@ -708,7 +708,7 @@ CTRL-_          'allowrevins'  開啟時: 變更語言 (希伯來，波斯)
 <PageDown>      等同於 <S-Down>
 <PageUp>        等同於 <S-Up>
 <Insert>        切換插入/替換模式
-<LeftMouse>     游標移動到鼠標點擊的地方
+<LeftMouse>     游標移動到滑鼠點擊的地方
 ###EX 指令
 :!              過濾行，或可通過外部指令執行之
 :!!             重複上次的 ":!" 指令
@@ -747,7 +747,7 @@ CTRL-_          'allowrevins'  開啟時: 變更語言 (希伯來，波斯)
 :ba[ll]         為緩衝區清單裡的每個緩衝區開啟一個視窗
 :bad[d]         增加緩衝區到緩衝區清單
 :bd[elete]      從緩衝區清單刪除緩衝區
-:be[have]       設定鼠標和選擇行為
+:be[have]       設定滑鼠和選擇行為
 :bel[owright]   使得分割的視窗出現在右側或者下方
 :bf[irst]       轉到緩衝區清單裡的第一個緩衝區
 :bl[ast]        轉到緩衝區清單裡的最後一個緩衝區
@@ -998,7 +998,7 @@ CTRL-_          'allowrevins'  開啟時: 變更語言 (希伯來，波斯)
 :nme[nu]        為普通模式增加選單
 :nn[oremap]     類似於 ":noremap"，但使用普通模式
 :nnoreme[nu]    類似於 ":noremenu"，但使用普通模式
-:noa[utocmd]    跟隨的指令不激活自動指令
+:noa[utocmd]    跟隨的指令不啟用自動指令
 :no[remap]      輸入不會被重新映射的映射
 :noh[lsearch]   暫停 'hlsearch' 高亮
 :norea[bbrev]   輸入不會被重新映射的縮寫
