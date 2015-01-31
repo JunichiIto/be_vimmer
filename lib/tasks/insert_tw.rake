@@ -54,7 +54,7 @@ CTRL-\ a - z    保留給外掛程式用
 CTRL-\ others   不用
 CTRL-]          切換縮寫
 CTRL-^          切換 |:lmap| 映射的使用
-CTRL-_          'allowrevins' 開啟時: 變更語言(希伯來語，波斯語等) {僅當編譯時加入|+rightleft| 特性才有效}
+CTRL-_          'allowrevins' 開啟時: 變更語言 (希伯來語，波斯語等) {僅當編譯時加入|+rightleft| 特性才有效}
 0 CTRL-D        刪除該行的所有縮排
 ^ CTRL-D        刪除該行的所有縮排，在下一行恢復刪除的縮排
 <Del>           刪除游標所在的字元
@@ -85,23 +85,23 @@ CTRL-_          'allowrevins' 開啟時: 變更語言(希伯來語，波斯語�
 <ScrollWheelLeft>       視窗向左滾動六列
 <S-ScrollWheelLeft>     視窗向左滾動完整一頁
 <ScrollWheelRight>      視窗向右滾動六列
-<S-ScrollWheelRight>   視窗向右滾動完整一頁
+<S-ScrollWheelRight>    視窗向右滾動完整一頁
 ###子模式的指令
-CTRL-X CTRL-D   補全定義過的標識符號
+CTRL-X CTRL-D   補齊定義過的標識符號
 CTRL-X CTRL-E   上滾
-CTRL-X CTRL-F   補全檔案名稱
-CTRL-X CTRL-I   補全標識符號
-CTRL-X CTRL-K   從字典補全標識符號
-CTRL-X CTRL-L   補全完整的行
-CTRL-X CTRL-N   下一個補全
-CTRL-X CTRL-O   全能 (omni) 補全
-CTRL-X CTRL-P   上一個補全
+CTRL-X CTRL-F   補齊檔案名稱
+CTRL-X CTRL-I   補齊標識符號
+CTRL-X CTRL-K   從字典補齊標識符號
+CTRL-X CTRL-L   補齊完整的行
+CTRL-X CTRL-N   下一個補齊
+CTRL-X CTRL-O   全能 (omni) 補齊
+CTRL-X CTRL-P   上一個補齊
 CTRL-X CTRL-S   拼寫建議
-CTRL-X CTRL-T   從同義詞詞典補全標識符號
-CTRL-X CTRL-U   用 'completefunc' 補全
-CTRL-X CTRL-V   如同 : 指令列那樣補全
+CTRL-X CTRL-T   從同義詞詞典補齊標識符號
+CTRL-X CTRL-U   用 'completefunc' 補齊
+CTRL-X CTRL-V   如同 : 指令列那樣補齊
 CTRL-X CTRL-Y   下滾
-CTRL-X CTRL-]   補全標籤
+CTRL-X CTRL-]   補齊標籤
 CTRL-X s        拼寫建議
 ###一般模式
 CTRL-@             不用
@@ -646,24 +646,24 @@ y                  抽出高亮 (highlight) 區域
 ~               2  變更高亮 (highlight) 區域的大小寫
 ###指令列編輯
 CTRL-@          不用
-CTRL-A          使用游標前面的模式進行補全，並插入所有符合的指令
+CTRL-A          使用游標前面的模式進行補齊，並插入所有符合的指令
 CTRL-B          游標移動到指令列開始的地方
 CTRL-C          等同於 <ESC>
-CTRL-D          列出游標前面模式的所有補全
+CTRL-D          列出游標前面模式的所有補齊
 CTRL-E          游標移動到指令列結束的地方
 CTRL-F          'cedit' 的預設值: 開啟指令列視窗；否則不用
 CTRL-G          不用
 <BS>            刪除游標前面的字元
 {char1} <BS> {char2}   'digraph' 開啟時，輸入二合字母
 CTRL-H          等同於 <BS>
-<Tab>           如果 'wildchar' 是 <Tab>: 補全游標前面的模式
+<Tab>           如果 'wildchar' 是 <Tab>: 補齊游標前面的模式
 <S-Tab>         等同於 CTRL-P
-'wildchar'      補全游標前面的模式 (預設: <Tab>)
+'wildchar'      補齊游標前面的模式 (預設: <Tab>)
 CTRL-I          等同於 <Tab>
 <NL>            等同於 <CR>
 CTRL-J          等同於 <CR>
 CTRL-K {char1} {char2}輸入二合字母
-CTRL-L          補全游標前的模式，並插入最長的公共子串
+CTRL-L          補齊游標前的模式，並插入最長的公共子串
 <CR>            執行輸入的指令
 CTRL-M          等同於 <CR>
 CTRL-N          使用 'wildchar' 並有多個符合: 轉到下一個符合，不然: 等同於 <Down>
@@ -677,7 +677,7 @@ CTRL-T          不用
 CTRL-U          刪除所有字元
 CTRL-V          按本義插入下一個非數字字元，或者插入其後三位數字所代表的單個字節。
 CTRL-W          刪除游標前面的單字
-CTRL-X          不用 (保留作補全用)
+CTRL-X          不用 (保留作補齊用)
 CTRL-Y          複製 (抽出) 無模式的選擇
 CTRL-Z          不用 (保留作暫停用)
 <Esc>           放棄指令列，不執行
