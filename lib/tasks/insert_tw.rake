@@ -3,7 +3,7 @@ namespace :seed do
   desc "Insert Traditional Chinese Descriptions"
   task :insert_tw => :environment do
     @lines = <<-EOF.split "\n"
-###插入模式
+###編輯模式
 CTRL-@          插入最近插入的文字並停止插入。
 CTRL-A          插入最近插入的文字。
 CTRL-B          不用 |i_CTRL-B-gone|。
@@ -86,7 +86,7 @@ CTRL-_          'allowrevins' 開啟時: 變更語言 (希伯來語，波斯語�
 <S-ScrollWheelLeft>     視窗向左捲動完整一頁。
 <ScrollWheelRight>      視窗向右捲動六列。
 <S-ScrollWheelRight>    視窗向右捲動完整一頁。
-###子模式的指令
+###submode
 CTRL-X CTRL-D   補齊定義過的標識符號。
 CTRL-X CTRL-E   上捲。
 CTRL-X CTRL-F   補齊檔案名稱。
