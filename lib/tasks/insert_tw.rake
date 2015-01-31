@@ -29,9 +29,9 @@ CTRL-K {char1} {char2}輸入二合字母
 CTRL-L          'insertmode' 開啟時: 離開插入模式
 <CR>            開始新行
 CTRL-M          等同於 <CR>
-CTRL-N          查找游標前面的關鍵字的下一個匹配
+CTRL-N          尋找符合游標前面的下一個關鍵字
 CTRL-O          執行單個指令然後回到插入模式
-CTRL-P          查找游標前面的關鍵字的前一個匹配
+CTRL-P          尋找符合游標前面的上一個關鍵字
 CTRL-Q          等同於 CTRL-V，除非它用於終端控制流
 CTRL-R {0-9a-z"%#*:=}插入暫存器內容
 CTRL-R CTRL-R {0-9a-z"%#*:=}按本義插入暫存器內容
@@ -149,15 +149,15 @@ CTRL-_             不用
 "{a-zA-Z0-9.%#:-"}  指定下次刪除、抽出或放置使用的暫存器{a-zA-Z0-9.%#:-"} (大寫用於添加)({.%#:} 只能用於放置)
 #               1  反向搜尋第 N 次出現的游標所在的標識符號
 $               1  游標移動到往下第 N 行的行尾之後
-%               1  查找本行下一個 (花/方) 括號，並轉到其匹配的括號上，或者轉到匹配的註釋配對上，或者轉到匹配的預處理指令上。
+%               1  尋找本行下一個 ({}/[]) 括號，並轉到其符合的括號上，或者轉到符合的註釋配對上，或者轉到符合的預處理指令上。
 {count}%        1  轉到檔案百分之 N 的位置上
 &               2  重複上次 :s
 '{a-zA-Z0-9}    1  游標移動到位置標記 {a-zA-Z0-9} 所在行的第一個 CHAR 上
 ''              1  游標移動到最近一次跳轉之前所在行的第一個CHAR 上
 '(              1  游標移動到該句的首部所在行的第一個 CHAR上
 ')              1  游標移動到該句的尾部所在行的第一個 CHAR上
-'<              1  游標移動到該緩衝區高亮區開始/曾經開始的行的第一個 CHAR 上。
-'>              1  游標移動到該緩衝區高亮區結束/曾經結束的行的第一個 CHAR 上。
+'<              1  游標移動到該緩衝區高亮 (highlight) 區開始/曾經開始的行的第一個 CHAR 上。
+'>              1  游標移動到該緩衝區高亮 (highlight) 區結束/曾經結束的行的第一個 CHAR 上。
 '[              1  游標移動到該緩衝區最近操作/放置的文本的首部所在行的第一個 CHAR 上
 ']              1  游標移動到該緩衝區最近操作/放置的文本的尾部所在行的第一個 CHAR 上
 '{              1  游標移動到該段的首部所在行的第一個 CHAR上
@@ -197,7 +197,7 @@ G               1  游標移動到第 N 行，預設是最後一行
 H               1  游標移動到畫面頂部開始算的第 N 行
 I               2  在本行第一個 CHAR 之前插入內容 N 次
 J               2  連接 (Join) N 行；預設為 2
-K                  查找游標所在的關鍵字 (Keyword)，使用'keywordprg' 的定義
+K                  尋找游標所在的關鍵字 (Keyword)，使用'keywordprg' 的定義
 L               1  游標移動到畫面底部開始算的第 N 行
 M               1  游標移動到畫面的中間一行
 N               1  反方向重複最近的 '/' 或 '?' N 次
@@ -222,8 +222,8 @@ _               1  游標移動到下方第 N - 1 行的第一個 CHAR 上
 `{a-zA-Z0-9}    1  游標移動到位置標記 {a-zA-Z0-9}
 `(              1  游標移動該句的開始處
 `)              1  游標移動該句的結束處
-`<              1  游標移動高亮區域的開始處
-`>              1  游標移動高亮區域的結束處
+`<              1  游標移動高亮 (highlight) 區域的開始處
+`>              1  游標移動高亮 (highlight) 區域的結束處
 `[              1  游標移動最近一次操作/放置的文本的開始處
 `]              1  游標移動最近一次操作/放置的文本的結束處
 ``              1  游標移動最近一次跳轉的位置
@@ -312,11 +312,11 @@ a"                 雙引號字元串
 a'                 單引號字元串
 a(                 等同於 ab
 a)                 等同於 ab
-a<                 "一個 <> 塊" 從 '<' 到匹配的 '>'
+a<                 "一個 <> 塊" 從 '<' 到符合的 '>'
 a>                 等同於 a<
 aB                 "一個大塊" 從 "[{" 到 "]}" (帶上括號)
 aW                 "一個字串" (帶上空白)
-a[                 "一個 [] 塊" 從 '[' 到匹配的 ']'
+a[                 "一個 [] 塊" 從 '[' 到符合的 ']'
 a]                 等同於 a[
 a`                 反引號字元串
 ab                 "一個塊" 從 "[(" 到 "])" (帶上括號)
@@ -330,11 +330,11 @@ i"                 雙引號字元串，不帶引號
 i'                 單引號字元串，不帶引號
 i(                 等同於 ib
 i)                 等同於 ib
-i<                 "內含 <> 塊" 從 '<' 到匹配的 '>'
+i<                 "內含 <> 塊" 從 '<' 到符合的 '>'
 i>                 等同於 i<
 iB                 "內含大塊" 從 "[{" 到 "]}"
 iW                 "內含字串"
-i[                 "內含 [] 塊" 從 '[' 到匹配的 ']'
+i[                 "內含 [] 塊" 從 '[' 到符合的 ']'
 i]                 等同於 i[
 i`                 反引號字元串，不帶反引號
 ib                 "內含塊" 從 "[(" 到 "])"
@@ -522,11 +522,11 @@ g<MiddleMouse>     等同於 <C-MiddleMouse>
 g<RightMouse>      等同於 <C-RightMouse>
 g<Up>           1  等同於 "gk"
 ###'z' 開始的指令
-z<CR>              重畫，游標移動到視窗的頂行的第一個非空白字元
-z{height}<CR>      重畫，使得視窗高度為 {height} 行
+z<CR>              重繪，游標移動到視窗的頂行的第一個非空白字元
+z{height}<CR>      重繪，使得視窗高度為 {height} 行
 z+                 游標移動到第 N 行 (預設為視窗之後的第一行)，其它同 "z<CR>"
-z-                 重畫，游標移動到視窗末行的第一個非空白字元
-z.                 重畫，游標移動到視窗的中間行的第一個非空白字元
+z-                 重繪，游標移動到視窗末行的第一個非空白字元
+z.                 重繪，游標移動到視窗的中間行的第一個非空白字元
 z=                 給出拼寫建議
 zA                 遞迴開啟一個關閉的摺疊或關閉一個開啟的摺疊
 zC                 遞迴關閉摺疊
@@ -542,7 +542,7 @@ zW                 把單字標記為拼寫錯誤 (wrong)
 zX                 重新應用 'foldlevel'
 z^                 游標移動到第 N 行 (預設為視窗之前的一行)，其它同 "z-"
 za                 開啟關閉的摺疊，或關閉開啟的摺疊
-zb                 重畫，游標在視窗底行
+zb                 重繪，游標在視窗底行
 zc                 關閉摺疊
 zd                 刪除摺疊
 ze                 'wrap' 關閉時，水平滾動使得游標定位到畫面的尾部 (最右側)
@@ -558,11 +558,11 @@ zn                 復位 'foldenable'
 zo                 開啟摺疊
 zr                 給 'foldlevel' 加一
 zs                 'wrap' 關閉時，水平滾動使得游標定位到畫面的起始處 (最左側)
-zt                 重畫，游標移動到視窗的頂部
+zt                 重繪，游標移動到視窗的頂部
 zw                 把單字標記為拼寫錯誤 (wrong)
 zv                 開啟足夠的摺疊，使得該行可見
 zx                 重新應用 'foldlevel' 然後執行 "zv"
-zz                 重畫，游標移動到視窗的中間行
+zz                 重繪，游標移動到視窗的中間行
 z<Left>            等同於 "zh"
 z<Right>           等同於 "zl"
 ###可視模式
@@ -570,80 +570,80 @@ CTRL-\ CTRL-N    結束可視模式
 CTRL-\ CTRL-G    轉到 'insertmode' 指定的模式
 CTRL-C             結束可視模式
 CTRL-G             在可視模式和選擇模式間切換
-<BS>            2  選擇模式: 刪除高亮區域
+<BS>            2  選擇模式: 刪除高亮 (highlight) 區域
 CTRL-H          2  等同於 <BS>
 CTRL-O             從選擇模式切換到可視模式，只限於下個指令
 CTRL-V             使得可視模式面向列塊，或者退出可視模式
 <Esc>              結束可視模式
-CTRL-]             跳轉到高亮的標籤上
-!{filter}       2  通過外部指令 {filter} 過濾高亮行
-:                  使用高亮行作為範圍，開始一個指令列
-<               2  左移高亮行一個 'shiftwidth'
-=               2  用 {equalprg} 選項指定的外部程式過濾高亮行
->               2  右移高亮行一個 'shiftwidth'
-A               2  列塊模式下: 在高亮區域的所有行後附加相同的內容
-C               2  刪除高亮行，並開始插入
-D               2  刪除高亮行
-I               2  列塊模式: 在所有高亮行之前插入相同的內容
-J               2  連接高亮行
-K                  在高亮區域上運行 'keywordprg'
+CTRL-]             跳轉到高亮 (highlight) 的標籤上
+!{filter}       2  通過外部指令 {filter} 過濾高亮 (highlight) 行
+:                  使用高亮 (highlight) 行作為範圍，開始一個指令列
+<               2  左移高亮 (highlight) 行一個 'shiftwidth'
+=               2  用 {equalprg} 選項指定的外部程式過濾高亮 (highlight) 行
+>               2  右移高亮 (highlight) 行一個 'shiftwidth'
+A               2  列塊模式下: 在高亮 (highlight) 區域的所有行後附加相同的內容
+C               2  刪除高亮 (highlight) 行，並開始插入
+D               2  刪除高亮 (highlight) 行
+I               2  列塊模式: 在所有高亮 (highlight) 行之前插入相同的內容
+J               2  連接高亮 (highlight) 行
+K                  在高亮 (highlight) 區域上運行 'keywordprg'
 O                  水平移動到區域的另外一側
 Q                  不啟動 Ex 模式
-R               2  刪除高亮行並開始插入
-S               2  刪除高亮行並開始插入
-U               2  使得高亮區域全變大寫
+R               2  刪除高亮 (highlight) 行並開始插入
+S               2  刪除高亮 (highlight) 行並開始插入
+U               2  使得高亮 (highlight) 區域全變大寫
 V                  使得可視區域面向行，或者退出可視模式
-X               2  刪除高亮區域
-Y                  抽出高亮行
-a"                 擴展高亮區域，使包含一個雙引號字元串
-a'                 擴展高亮區域，使包含一個單引號字元串
+X               2  刪除高亮 (highlight) 區域
+Y                  抽出高亮 (highlight) 行
+a"                 延伸高亮 (highlight) 區域，使包含一個雙引號字元串
+a'                 延伸高亮 (highlight) 區域，使包含一個單引號字元串
 a(                 等同於 ab
 a)                 等同於 ab
-a<                 擴展高亮區域，使包含一個 <> 塊
+a<                 延伸高亮 (highlight) 區域，使包含一個 <> 塊
 a>                 等同於 a<
-aB                 擴展高亮區域，使包含一個 {} 塊
-aW                 擴展高亮區域，使包含 "一個 WORD"
-a[                 擴展高亮區域，使包含一個 [] 塊
+aB                 延伸高亮 (highlight) 區域，使包含一個 {} 塊
+aW                 延伸高亮 (highlight) 區域，使包含 "一個 WORD"
+a[                 延伸高亮 (highlight) 區域，使包含一個 [] 塊
 a]                 等同於 a[
-a`                 擴展高亮區域，使包含一個反引號字元串
-ab                 擴展高亮區域，使包含一個 () 塊
-ap                 擴展高亮區域，使包含一個段落
-as                 擴展高亮區域，使包含一個句子
-at                 擴展高亮區域，使包含一個標籤塊
-aw                 擴展高亮區域，使包含 "一個單字"
+a`                 延伸高亮 (highlight) 區域，使包含一個反引號字元串
+ab                 延伸高亮 (highlight) 區域，使包含一個 () 塊
+ap                 延伸高亮 (highlight) 區域，使包含一個段落
+as                 延伸高亮 (highlight) 區域，使包含一個句子
+at                 延伸高亮 (highlight) 區域，使包含一個標籤塊
+aw                 延伸高亮 (highlight) 區域，使包含 "一個單字"
 a{                 等同於 aB
 a}                 等同於 aB
-c               2  刪除高亮區域，並開始插入
-d               2  刪除高亮區域
-gJ              2  連接高亮行，不插入空格
-gq              2  排版高亮行
-gv                 交換現在和以前的高亮區域
-i"                 擴展高亮區域，使包含一個雙引號字元串 (但不含引號)
-i'                 擴展高亮區域，使包含一個單引號字元串 (但不含引號)
+c               2  刪除高亮 (highlight) 區域，並開始插入
+d               2  刪除高亮 (highlight) 區域
+gJ              2  連接高亮 (highlight) 行，不插入空格
+gq              2  排版高亮 (highlight) 行
+gv                 交換現在和以前的高亮 (highlight) 區域
+i"                 延伸高亮 (highlight) 區域，使包含一個雙引號字元串 (但不含引號)
+i'                 延伸高亮 (highlight) 區域，使包含一個單引號字元串 (但不含引號)
 i(                 等同於 ib
 i)                 等同於 ib
-i<                 擴展高亮區域，使包含內含 <> 塊
+i<                 延伸高亮 (highlight) 區域，使包含內含 <> 塊
 i>                 等同於 i<
-iB                 擴展高亮區域，使包含內含 {} 塊
-iW                 擴展高亮區域，使包含 "內含 WORD"
-i[                 擴展高亮區域，使包含內含 [] 塊
+iB                 延伸高亮 (highlight) 區域，使包含內含 {} 塊
+iW                 延伸高亮 (highlight) 區域，使包含 "內含 WORD"
+i[                 延伸高亮 (highlight) 區域，使包含內含 [] 塊
 i]                 等同於 i[
-i`                 擴展高亮區域，使包含一個反引號字元串 (但不含反引號)
-ib                 擴展高亮區域，使包含內含 () 塊
-ip                 擴展高亮區域，使包含內含段落
-is                 擴展高亮區域，使包含內含句子
-it                 擴展高亮區域，使包含內含標籤塊
-iw                 擴展高亮區域，使包含 "內含單字"
+i`                 延伸高亮 (highlight) 區域，使包含一個反引號字元串 (但不含反引號)
+ib                 延伸高亮 (highlight) 區域，使包含內含 () 塊
+ip                 延伸高亮 (highlight) 區域，使包含內含段落
+is                 延伸高亮 (highlight) 區域，使包含內含句子
+it                 延伸高亮 (highlight) 區域，使包含內含標籤塊
+iw                 延伸高亮 (highlight) 區域，使包含 "內含單字"
 i{                 等同於 iB
 i}                 等同於 iB
 o                  移動游標到區域的另一側
-r               2  刪除高亮區域，並開始插入
-s               2  刪除高亮區域，並開始插入
-u               2  使得高亮區域全變小寫
+r               2  刪除高亮 (highlight) 區域，並開始插入
+s               2  刪除高亮 (highlight) 區域，並開始插入
+u               2  使得高亮 (highlight) 區域全變小寫
 v                  使得可視模式面向字元，或者退出可視模式
-x               2  刪除高亮區域
-y                  抽出高亮區域
-~               2  變更高亮區域的大小寫
+x               2  刪除高亮 (highlight) 區域
+y                  抽出高亮 (highlight) 區域
+~               2  變更高亮 (highlight) 區域的大小寫
 ###指令列編輯
 CTRL-@          不用
 CTRL-A          使用游標前面的模式進行補全，並插入所有符合的指令
@@ -666,9 +666,9 @@ CTRL-K {char1} {char2}輸入二合字母
 CTRL-L          補全游標前的模式，並插入最長的公共子串
 <CR>            執行輸入的指令
 CTRL-M          等同於 <CR>
-CTRL-N          使用 'wildchar' 並有多個匹配: 轉到下一個匹配，不然: 等同於 <Down>
+CTRL-N          使用 'wildchar' 並有多個符合: 轉到下一個符合，不然: 等同於 <Down>
 CTRL-O          不同
-CTRL-P          使用 'wildchar' 並有多個匹配: 轉到上一個匹配，不然: 等同於 <Up>
+CTRL-P          使用 'wildchar' 並有多個符合: 轉到上一個符合，不然: 等同於 <Up>
 CTRL-Q          等同於 CTRL-V，除非用於終端控制流
 CTRL-R {0-9a-z"%#*:= CTRL-F CTRL-P CTRL-W CTRL-A}插入暫存器的內容或特殊對象到游標所在的地方，如同直接輸入那樣
 CTRL-R CTRL-R {0-9a-z"%#*:= CTRL-F CTRL-P CTRL-W CTRL-A}按本義插入暫存器的內容或特殊對象到游標所在的地方
@@ -847,7 +847,7 @@ CTRL-_          'allowrevins'  開啟時: 變更語言 (希伯來，波斯)
 :ea[rlier]      回到舊的變更，還原
 :ec[ho]         回顯表達式結果
 :echoe[rr]      類似於 :echo，如同錯誤一樣顯示和使用歷史
-:echoh[l]       為 echo 等指令設定高亮
+:echoh[l]       為 echo 等指令設定高亮 (highlight) 
 :echom[sg]      等同於 :echo，在歷史裡放置消息
 :echon          等同於 :echo，但不留 <EOL>
 :el[se]         :if 指令的一部分
@@ -889,7 +889,7 @@ CTRL-_          'allowrevins'  開啟時: 變更語言 (希伯來，波斯)
 :helpf[ind]     開啟顯示說明視窗的對話框
 :helpg[rep]     類似於 ":grep"，但搜尋說明檔案
 :helpt[ags]     為一個目錄產生說明標籤
-:hi[ghlight]    指定高亮方法
+:hi[ghlight]    指定高亮 (highlight) 方法
 :hid[e]         為一個指令隱藏該緩衝區
 :his[tory]      顯示歷史清單
 :i[nsert]       插入內容
@@ -905,7 +905,7 @@ CTRL-_          'allowrevins'  開啟時: 變更語言 (希伯來，波斯)
 :inorea[bbrev]  類似於 ":noreabbrev"，但用於插入模式
 :inoreme[nu]    類似於 ":noremenu"，但用於插入模式
 :int[ro]        顯示介紹文字
-:is[earch]      列出匹配標識符號的一行
+:is[earch]      列出符合標識符號的一行
 :isp[lit]       分割視窗，並跳轉到標識符號的定義
 :iu[nmap]       類似於 ":unmap"，但用於插入模式
 :iuna[bbrev]    類似於 ":unabbrev"，但用於插入模式
@@ -939,7 +939,7 @@ CTRL-_          'allowrevins'  開啟時: 變更語言 (希伯來，波斯)
 :lgetb[uffer]   從緩衝區裡讀取位置
 :lgete[xpr]     從表達式裡讀取位置
 :lg[etfile]     從檔案裡讀取位置
-:lgr[ep]        運行 'grepprg' 並跳轉到第一個匹配
+:lgr[ep]        運行 'grepprg' 並跳轉到第一個符合
 :lgrepa[dd]     類似於 :grep，但附加到目前清單上
 :lh[elpgrep]    類似於 ":helpgrep"，但使用位置清單
 :ll             轉到指定位置
@@ -976,7 +976,7 @@ CTRL-_          'allowrevins'  開啟時: 變更語言 (希伯來，波斯)
 :map            顯示或者輸入映射
 :mapc[lear]     清除所有普通和可視模式的映射
 :marks          列出所有的位置標記
-:mat[ch]        定義要高亮顯示的符合的模式
+:mat[ch]        定義要高亮 (highlight) 顯示的符合的模式
 :me[nu]         輸入新的選單項
 :menut[ranslate] 增加選單翻譯項目
 :mes[sages]     顯示以前顯示的消息
@@ -1000,7 +1000,7 @@ CTRL-_          'allowrevins'  開啟時: 變更語言 (希伯來，波斯)
 :nnoreme[nu]    類似於 ":noremenu"，但使用普通模式
 :noa[utocmd]    跟隨的指令不啟用自動指令
 :no[remap]      輸入不會被重新映射的映射
-:noh[lsearch]   暫停 'hlsearch' 高亮
+:noh[lsearch]   暫停 'hlsearch' 高亮 (highlight) 
 :norea[bbrev]   輸入不會被重新映射的縮寫
 :noreme[nu]     輸入不會被重新映射的選單
 :norm[al]       執行普通模式的指令
@@ -1018,7 +1018,7 @@ CTRL-_          'allowrevins'  開啟時: 變更語言 (希伯來，波斯)
 :opt[ions]      開啟選項視窗
 :ou[nmap]       類似於 ":unmap"，但使用操作符等待模式
 :ounme[nu]      刪除操作符等待模式的選單
-:ow[nsyntax]    為本視窗設定新的局部語法高亮
+:ow[nsyntax]    為本視窗設定新的局部語法高亮 (highlight) 
 :p[rint]        顯示行
 :profd[el]      停止剖視 (profile) 函數或腳本
 :prof[ile]      剖視 (profile) 函數或腳本
@@ -1033,7 +1033,7 @@ CTRL-_          'allowrevins'  開啟時: 變更語言 (希伯來，波斯)
 :pp[op]         在預覽視窗 ":pop"
 :pre[serve]     寫入所有內容到交換檔案
 :prev[ious]     跳轉到參數清單裡的上一個檔案
-:ps[earch]      類似於 ":ijump"，但在預覽視窗顯示匹配
+:ps[earch]      類似於 ":ijump"，但在預覽視窗顯示符合
 :pt[ag]         在預覽視窗顯示標籤
 :ptN[ext]       在預覽視窗 |:tNext|
 :ptf[irst]      在預覽視窗 |:trewind|
@@ -1057,8 +1057,8 @@ CTRL-_          'allowrevins'  開啟時: 變更語言 (希伯來，波斯)
 :rec[over]      從 swap 檔裡還原檔案
 :red[o]         重做一次還原的變更
 :redi[r]        重定向消息到檔案或者暫存器
-:redr[aw]       強迫顯示的重畫
-:redraws[tatus] 強迫狀態行的重畫
+:redr[aw]       強迫顯示的重繪
+:redraws[tatus] 強迫狀態列的重繪
 :reg[isters]    顯示暫存器的內容
 :res[ize]       變更目前視窗的高度
 :ret[ab]        變更製表大小
@@ -1072,7 +1072,7 @@ CTRL-_          'allowrevins'  開啟時: 變更語言 (希伯來，波斯)
 :rund[o]        從檔案裡讀入還原資訊
 :ru[ntime]      執行 'runtimepath' 裡的 vim 腳本
 :rv[iminfo]     讀取 viminfo 檔案
-:s[ubstitute]   查找和替代內容
+:s[ubstitute]   尋找和替代內容
 :sN[ext]        分割視窗並轉到參數清單的前一個檔案
 :san[dbox]      在沙盤裡執行指令
 :sa[rgument]    分割視窗並轉到參數清單的某一個檔案
@@ -1136,7 +1136,7 @@ CTRL-_          'allowrevins'  開啟時: 變更語言 (希伯來，波斯)
 :sus[pend]      等同於 ":stop"
 :sv[iew]        分割視窗並以唯讀模式編輯檔案
 :sw[apname]     顯示目前交換檔案的名字
-:sy[ntax]       語法高亮
+:sy[ntax]       語法高亮 (highlight) 
 :sync[bind]     同步滾動綁定
 :t              等同於 ":copy"
 :tN[ext]        跳轉到上一個符合的標籤
@@ -1188,7 +1188,7 @@ CTRL-_          'allowrevins'  開啟時: 變更語言 (希伯來，波斯)
 :ve[rsion]      顯示版本編號和其它資訊
 :verb[ose]      執行指令，過程中設定 'verbose'
 :vert[ical]     使得跟隨的指令垂直分割
-:vim[grep]      在若干檔案裡查找模式
+:vim[grep]      在若干檔案裡尋找模式
 :vimgrepa[dd]   類似於 :vimgrep，但附加到目前清單
 :vi[sual]       等同於 ":edit"，但關掉 "Ex" 模式
 :viu[sage]      普通模式指令的總覽
