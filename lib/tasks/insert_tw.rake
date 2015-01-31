@@ -78,17 +78,17 @@ CTRL-_          'allowrevins' 開啟時: 變更語言 (希伯來語，波斯語�
 <Help>          停止插入模式顯示說明視窗
 <Insert>        切換插入/替換模式
 <LeftMouse>     游標移到滑鼠點擊處
-<ScrollWheelDown>       視窗向下滾動三行
-<S-ScrollWheelDown>     視窗向下滾動完整一頁
-<ScrollWheelUp>         視窗向上滾動三行
-<S-ScrollWheelUp>       視窗向上滾動完整一頁
-<ScrollWheelLeft>       視窗向左滾動六列
-<S-ScrollWheelLeft>     視窗向左滾動完整一頁
-<ScrollWheelRight>      視窗向右滾動六列
-<S-ScrollWheelRight>    視窗向右滾動完整一頁
+<ScrollWheelDown>       視窗向下捲動三行
+<S-ScrollWheelDown>     視窗向下捲動完整一頁
+<ScrollWheelUp>         視窗向上捲動三行
+<S-ScrollWheelUp>       視窗向上捲動完整一頁
+<ScrollWheelLeft>       視窗向左捲動六列
+<S-ScrollWheelLeft>     視窗向左捲動完整一頁
+<ScrollWheelRight>      視窗向右捲動六列
+<S-ScrollWheelRight>    視窗向右捲動完整一頁
 ###子模式的指令
 CTRL-X CTRL-D   補齊定義過的標識符號
-CTRL-X CTRL-E   上滾
+CTRL-X CTRL-E   上捲
 CTRL-X CTRL-F   補齊檔案名稱
 CTRL-X CTRL-I   補齊標識符號
 CTRL-X CTRL-K   從字典補齊標識符號
@@ -100,7 +100,7 @@ CTRL-X CTRL-S   拼寫建議
 CTRL-X CTRL-T   從同義詞詞典補齊標識符號
 CTRL-X CTRL-U   用 'completefunc' 補齊
 CTRL-X CTRL-V   如同 : 指令列那樣補齊
-CTRL-X CTRL-Y   下滾
+CTRL-X CTRL-Y   下捲
 CTRL-X CTRL-]   補齊標籤
 CTRL-X s        拼寫建議
 ###一般模式
@@ -109,7 +109,7 @@ CTRL-A          2  把 N 加到游標所在/之後的數值上
 CTRL-B          1  反向 (Back) 滾動 N 個畫面
 CTRL-C             終止目前的 (搜尋) 指令
 CTRL-D             向下 (Down) 滾動 N 行 (預設: 半個畫面)
-CTRL-E             向上滾動 N 行 (附加 (Extra) N 行)
+CTRL-E             向上捲動 N 行 (附加 (Extra) N 行)
 CTRL-F          1  向前 (Forward) 滾動 N 個畫面
 CTRL-G             顯示目前檔名和位置
 <BS>            1  等同於 "h"
@@ -120,23 +120,23 @@ CTRL-I          1  等同於 <Tab>
 CTRL-J          1  等同於 "j"
 CTRL-K             不用
 CTRL-L             重繪畫面
-<CR>            1  游標移到 N 行下面的第一個 CHAR
+<CR>            1  游標移到 N 行下面的第一個字完
 CTRL-M          1  等同於 <CR>
 CTRL-N          1  等同於 "j"
 CTRL-O          1  跳轉到跳轉表裡第 N 個較舊的項目
 CTRL-P          1  等同於 "k"
-CTRL-Q             (用於終端控制流)
+CTRL-Q             (用於終端控制流程)
 CTRL-R          2  重做 'u' 還原的變更
-CTRL-S             (用於終端控制流)
+CTRL-S             (用於終端控制流程)
 CTRL-T             跳轉到標籤清單的第 N 個較老的標籤 (Tag)
-CTRL-U             上滾 (Upwards) N 行 (預設: 半個畫面)
+CTRL-U             上捲 (Upwards) N 行 (預設: 半個畫面)
 CTRL-V             開始面向列塊的可視 (Visual) 模式
 CTRL-W {char}      視窗指令，見 |CTRL-W|
 CTRL-X          2  從游標所在/之後的數值上減去 N
-CTRL-Y             下滾 N 行
+CTRL-Y             下捲 N 行
 CTRL-Z             暫停程式 (或者啟動新的外殼)
 CTRL-[ <Esc>       不用
-CTRL-\ CTRL-N      進入普通 (Normal) 模式 (空動作)
+CTRL-\ CTRL-N      進入一般模式 (Normal) 模式 (空動作)
 CTRL-\ CTRL-G      進入 'insertmode' 指定的模式
 CTRL-\ a - z       保留作外掛程式用
 CTRL-\ 其它        不用
@@ -149,25 +149,25 @@ CTRL-_             不用
 "{a-zA-Z0-9.%#:-"}  指定下次刪除、抽出或放置使用的暫存器{a-zA-Z0-9.%#:-"} (大寫用於添加)({.%#:} 只能用於放置)
 #               1  反向搜尋第 N 次出現的游標所在的標識符號
 $               1  游標移動到往下第 N 行的行尾之後
-%               1  尋找本行下一個 ({}/[]) 括號，並轉到其符合的括號上，或者轉到符合的註釋配對上，或者轉到符合的預處理指令上。
+%               1  尋找本行下一個括號 ({}/[])，並轉到其符合的括號上，或者轉到符合的註釋配對上，或者轉到符合的預處理指令上。
 {count}%        1  轉到檔案百分之 N 的位置上
 &               2  重複上次 :s
-'{a-zA-Z0-9}    1  游標移動到位置標記 {a-zA-Z0-9} 所在行的第一個 CHAR 上
-''              1  游標移動到最近一次跳轉之前所在行的第一個CHAR 上
-'(              1  游標移動到該句的首部所在行的第一個 CHAR上
-')              1  游標移動到該句的尾部所在行的第一個 CHAR上
-'<              1  游標移動到該緩衝區高亮 (highlight) 區開始/曾經開始的行的第一個 CHAR 上。
-'>              1  游標移動到該緩衝區高亮 (highlight) 區結束/曾經結束的行的第一個 CHAR 上。
-'[              1  游標移動到該緩衝區最近操作/放置的文本的首部所在行的第一個 CHAR 上
-']              1  游標移動到該緩衝區最近操作/放置的文本的尾部所在行的第一個 CHAR 上
-'{              1  游標移動到該段的首部所在行的第一個 CHAR上
-'}              1  游標移動到該段的尾部所在行的第一個 CHAR上
+'{a-zA-Z0-9}    1  游標移動到位置標記 {a-zA-Z0-9} 所在行的第一個字元上
+''              1  游標移動到最近一次跳轉之前所在行的第一個字元上
+'(              1  游標移動到該句的首部所在行的第一個字元上
+')              1  游標移動到該句的尾部所在行的第一個字元上
+'<              1  游標移動到該緩衝區高亮 (highlight) 區開始/曾經開始的行的第一個字元上。
+'>              1  游標移動到該緩衝區高亮 (highlight) 區結束/曾經結束的行的第一個字元上。
+'[              1  游標移動到該緩衝區最近操作/放置的文本的首部所在行的第一個字元上
+']              1  游標移動到該緩衝區最近操作/放置的文本的尾部所在行的第一個字元上
+'{              1  游標移動到該段的首部所在行的第一個字元上
+'}              1  游標移動到該段的尾部所在行的第一個字元上
 (               1  游標回退 N 個句子
 )               1  游標前進 N 個句子
 *               1  正向搜尋第 N 次出現的游標所在的標識符號
 +               1  等同於 <CR>
 ,               1  反方向重複最近的 f、t、F 或 T N 次
--               1  游標移動到上方 N 行的第一個 CHAR 上
+-               1  游標移動到上方 N 行的第一個字元上
 .               2  重複最近的變更，其計數被 N 取代
 /{pattern}<CR>  1  正向搜尋第 N 次出現的 {pattern}
 /<CR>           1  正向搜尋最近一次搜尋使用的 {pattern}
@@ -195,7 +195,7 @@ E               1  游標正向移動到第 N 個 WORD 的結束處
 F{char}         1  游標左移到第 N 次出現的 {char} 上
 G               1  游標移動到第 N 行，預設是最後一行
 H               1  游標移動到畫面頂部開始算的第 N 行
-I               2  在本行第一個 CHAR 之前插入內容 N 次
+I               2  在本行第一個字元之前插入內容 N 次
 J               2  連接 (Join) N 行；預設為 2
 K                  尋找游標所在的關鍵字 (Keyword)，使用'keywordprg' 的定義
 L               1  游標移動到畫面底部開始算的第 N 行
@@ -217,8 +217,8 @@ ZQ                 無論如何退出目前檔案
 [{char}            方括號指令 (見下 |[|)
 \                  不用
 ]{char}            方括號指令 (見下 |]|)
-^               1  游標移動到本行的第一個 CHAR 上
-_               1  游標移動到下方第 N - 1 行的第一個 CHAR 上
+^               1  游標移動到本行的第一個字元上
+_               1  游標移動到下方第 N - 1 行的第一個字元上
 `{a-zA-Z0-9}    1  游標移動到位置標記 {a-zA-Z0-9}
 `(              1  游標移動該句的開始處
 `)              1  游標移動該句的結束處
@@ -299,14 +299,14 @@ z{char}            'z' 開始的指令，見下 |z|
 <S-Up>          1  等同於 CTRL-B
 <Undo>          2  等同於 "u"
 <Up>            1  等同於 "k"
-<ScrollWheelDown>       視窗向下滾動三行
-<S-ScrollWheelDown>     視窗向下滾動完整一頁
-<ScrollWheelUp>         視窗向上滾動三行
-<S-ScrollWheelUp>       視窗向上滾動完整一頁
-<ScrollWheelLeft>       視窗向左滾動六列
-<S-ScrollWheelLeft>     視窗向左滾動完整一頁
-<ScrollWheelRight>      視窗向右滾動六列
-<S-ScrollWheelRight>    視窗向右滾動完整一頁
+<ScrollWheelDown>       視窗向下捲動三行
+<S-ScrollWheelDown>     視窗向下捲動完整一頁
+<ScrollWheelUp>         視窗向上捲動三行
+<S-ScrollWheelUp>       視窗向上捲動完整一頁
+<ScrollWheelLeft>       視窗向左捲動六列
+<S-ScrollWheelLeft>     視窗向左捲動完整一頁
+<ScrollWheelRight>      視窗向右捲動六列
+<S-ScrollWheelRight>    視窗向右捲動完整一頁
 ###內容對象
 a"                 雙引號字元串
 a'                 單引號字元串
@@ -491,7 +491,7 @@ gR              2  進入虛擬替換模式
 gU{motion}      2  使得 Nmove 內容全部大寫
 gV                 在執行選擇模式下的映射或者選單時，不要重複選擇過去的可視區域
 g]                 :tselect 到游標所在的標籤上
-g^              1  'wrap' 關閉時轉到該行最左側畫面上可見的非空白字元'wrap' 開啟時轉到該畫面行最左側的非空白字元
+g^              1  'wrap' 關閉時轉到該行最左側畫面上可見的非空白字元 'wrap' 開啟時轉到該畫面行最左側的非空白字元
 ga                 打印游標所在處的字元的 ascii 值
 gd              1  轉到目前函數裡目前游標所在的單字的定義
 ge              1  反向轉到前一個單字的結尾處
@@ -548,11 +548,11 @@ zd                 刪除摺疊
 ze                 'wrap' 關閉時，水平滾動使得游標定位到畫面的尾部 (最右側)
 zf{motion}         為 Nmove 內容建立摺疊
 zg                 把單字標記為拼寫正確 (good)
-zh                 'wrap' 關閉時，水平右滾畫面 N 個字元
+zh                 'wrap' 關閉時，水平右捲畫面 N 個字元
 zi                 切換 'foldenable'
 zj              1  移動到下一個摺疊的開始處
 zk              1  移動到前一個摺疊的結束處
-zl                 'wrap' 關閉時，水平左滾畫面 N 個字元
+zl                 'wrap' 關閉時，水平左捲畫面 N 個字元
 zm                 從 'foldlevel' 減一
 zn                 復位 'foldenable'
 zo                 開啟摺疊
