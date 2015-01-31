@@ -19,13 +19,13 @@ CTRL-G k        往上一行，到插入開始的列
 CTRL-G <Up>     往上一行，到插入開始的列
 CTRL-G u        開始新的不可還原的編輯
 <BS>            刪除游標前的字元
-{char1}<BS>{char2}輸入二合字母 (只有開啟了 'digraph' 選項才有效)
+{char1}<BS>{char2} 輸入二合字母 (只有開啟了 'digraph' 選項才有效)
 CTRL-H          等同於 <BS>
 <Tab>           插入 <Tab> 字元
 CTRL-I          等同於 <Tab>
 <NL>            等同於 <CR>
 CTRL-J          等同於 <CR>
-CTRL-K {char1} {char2}輸入二合字母
+CTRL-K {char1} {char2} 輸入二合字母
 CTRL-L          'insertmode' 開啟時: 離開插入模式
 <CR>            開始新行
 CTRL-M          等同於 <CR>
@@ -33,11 +33,11 @@ CTRL-N          尋找符合游標前面的下一個關鍵字
 CTRL-O          執行單個指令然後回到插入模式
 CTRL-P          尋找符合游標前面的上一個關鍵字
 CTRL-Q          等同於 CTRL-V，除非它用於終端控制流
-CTRL-R {0-9a-z"%#*:=}插入暫存器內容
-CTRL-R CTRL-R {0-9a-z"%#*:=}按本義插入暫存器內容
-CTRL-R CTRL-O {0-9a-z"%#*:=}按本義插入暫存器內容，而且不自動縮排
-CTRL-R CTRL-P {0-9a-z"%#*:=}按本義插入暫存器內容，而且修正縮排
-CTRL-S          (用於終端控制流)
+CTRL-R {0-9a-z"%#*:=} 插入暫存器內容
+CTRL-R CTRL-R {0-9a-z"%#*:=} 按本義插入暫存器內容
+CTRL-R CTRL-O {0-9a-z"%#*:=} 按本義插入暫存器內容，而且不自動縮排
+CTRL-R CTRL-P {0-9a-z"%#*:=} 按本義插入暫存器內容，而且修正縮排
+CTRL-S          (用於終端控制流程)
 CTRL-T          在該行插入一個 shiftwidth 的縮排
 CTRL-U          刪除該行的所有輸入字元
 CTRL-V {char}   按本義插入下一個非數字字元
@@ -48,7 +48,7 @@ CTRL-Y          插入游標上方的字元
 CTRL-Z          'insertmode' 開啟時: 暫停 Vim
 <Esc>           結束插入模式 (除非開啟了 'insertmode')
 CTRL-[          等同於 <Esc>
-CTRL-\ CTRL-N  進入普通模式
+CTRL-\ CTRL-N  進入一般模式
 CTRL-\ CTRL-G  進入 'insertmode' 指定的模式
 CTRL-\ a - z    保留給外掛程式用
 CTRL-\ others   不用
@@ -103,7 +103,7 @@ CTRL-X CTRL-V   如同 : 指令列那樣補全
 CTRL-X CTRL-Y   下滾
 CTRL-X CTRL-]   補全標籤
 CTRL-X s        拼寫建議
-###普通模式
+###一般模式
 CTRL-@             不用
 CTRL-A          2  把 N 加到游標所在/之後的數值上
 CTRL-B          1  反向 (Back) 滾動 N 個畫面
@@ -682,7 +682,7 @@ CTRL-Y          複製 (抽出) 無模式的選擇
 CTRL-Z          不用 (保留作暫停用)
 <Esc>           放棄指令列，不執行
 CTRL-[          等同於 <Esc>
-CTRL-\ CTRL-N  轉到普通模式，放棄指令列
+CTRL-\ CTRL-N  轉到一般模式，放棄指令列
 CTRL-\ CTRL-G  轉到 'insertmode' 指定的模式，放棄指令列
 CTRL-\ a - d    保留給外掛程式用
 CTRL-\ e {expr} 以 {expr} 的結果替換指令列
@@ -993,20 +993,20 @@ CTRL-_          'allowrevins'  開啟時: 變更語言 (希伯來，波斯)
 :nbs[art]       開啟一個新的 Netbeans 會話
 :n[ext]         跳轉到參數清單的下一個檔案
 :new            建立一個新的空白視窗
-:nm[ap]         類似於 ":map"，但使用普通模式
-:nmapc[lear]    清除普通模式的所有映射
-:nme[nu]        為普通模式增加選單
-:nn[oremap]     類似於 ":noremap"，但使用普通模式
-:nnoreme[nu]    類似於 ":noremenu"，但使用普通模式
+:nm[ap]         類似於 ":map"，但使用一般模式
+:nmapc[lear]    清除一般模式的所有映射
+:nme[nu]        為一般模式增加選單
+:nn[oremap]     類似於 ":noremap"，但使用一般模式
+:nnoreme[nu]    類似於 ":noremenu"，但使用一般模式
 :noa[utocmd]    跟隨的指令不啟用自動指令
 :no[remap]      輸入不會被重新映射的映射
 :noh[lsearch]   暫停 'hlsearch' 高亮 (highlight) 
 :norea[bbrev]   輸入不會被重新映射的縮寫
 :noreme[nu]     輸入不會被重新映射的選單
-:norm[al]       執行普通模式的指令
+:norm[al]       執行一般模式的指令
 :nu[mber]       顯示內容行時給出行號
-:nun[map]       類似於 ":unmap"，但使用普通模式
-:nunme[nu]      刪除普通模式的選單
+:nun[map]       類似於 ":unmap"，但使用一般模式
+:nunme[nu]      刪除一般模式的選單
 :ol[dfiles]     列出 viminfo 檔案中包含位置標記的檔案
 :o[pen]         啟動開啟模式 (沒有實現)
 :om[ap]         類似於 ":map"，但使用操作符等待模式
@@ -1191,7 +1191,7 @@ CTRL-_          'allowrevins'  開啟時: 變更語言 (希伯來，波斯)
 :vim[grep]      在若干檔案裡尋找模式
 :vimgrepa[dd]   類似於 :vimgrep，但附加到目前清單
 :vi[sual]       等同於 ":edit"，但關掉 "Ex" 模式
-:viu[sage]      普通模式指令的總覽
+:viu[sage]      一般模式指令的總覽
 :vie[w]         以唯讀方式編輯檔案
 :vm[ap]         類似於 ":map"，但使用可視+選擇模式
 :vmapc[lear]    刪除可視+選擇模式所有的映射
