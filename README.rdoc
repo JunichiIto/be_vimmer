@@ -21,3 +21,8 @@ The following command means "Post 3 tweets every 2 hours in Japanese. EX command
 
 
 "en" is English, "cn" is Chinese(cn) and "tw" is Chinese(tw).
+
+
+===How to get OAuth token
+
+Use this => https://github.com/jugyo/get-twitter-oauth-token
