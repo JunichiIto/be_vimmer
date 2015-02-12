@@ -19,10 +19,12 @@ gem 'therubyracer'
 
 group :production do
   gem 'pg'
+  gem 'rails_12factor'
 end
 
-group :production, :staging do
-  gem 'rails_12factor'
+group :development do
+  gem 'spring'
+  gem 'spring-commands-rspec'
 end
 
 group :development, :test do
