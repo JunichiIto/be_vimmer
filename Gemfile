@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby "2.1.2"
+ruby "2.2.0"
 
 gem 'rails', '4.0.4'
 
@@ -26,12 +26,12 @@ group :production, :staging do
 end
 
 group :development, :test do
-  gem 'sqlite3'
+  gem 'sqlite3', '~> 1.3.10'
   gem 'heroku_san'
   gem 'heroku'
 end
 
 group :test do
-  gem "rspec-rails", "~> 3.0.1"
+  gem "rspec-rails", "~> 3.2.0"
   gem 'capybara'
 end
