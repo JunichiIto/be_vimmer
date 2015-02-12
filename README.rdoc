@@ -1,6 +1,6 @@
 == About Be Vimmer
 
-Be Vimmer is an application that tweets Vim commands and their description periodically in Japanese, English and Chinese. This application was created in order to help Vim learners.
+Be Vimmer is an application that tweets Vim commands and their description periodically in Japanese, English and Chinese(cn & tw). This application was created in order to help Vim learners.
 
 
 Vim documentation has to be stored in database in advance. (See  +db/seeds.rb+ or +lib/tasks+ )
@@ -20,4 +20,4 @@ The following command means "Post 3 tweets every 2 hours in Japanese. EX command
     rake cron["jp","2","3","6"]
 
 
-"en" is English and "cn" is Chinese.
+"en" is English, "cn" is Chinese(cn) and "tw" is Chinese(tw).
