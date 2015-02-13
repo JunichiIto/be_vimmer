@@ -128,7 +128,7 @@ CTRL-P          1  等同於 "k"。
 CTRL-Q             (用於終端控制流程)。
 CTRL-R          2  重做 'u' 還原的變更。
 CTRL-S             (用於終端控制流程)。
-CTRL-T             跳轉到標籤清單的第 N 個較老的標籤 (Tag)。
+CTRL-T             跳轉到標籤清單的第 N 個較舊的標籤 (Tag)。
 CTRL-U             上捲 (Upwards) N 行 (預設: 半個畫面)。
 CTRL-V             開始面向列塊的可視 (Visual) 模式。
 CTRL-W {char}      視窗指令，見 |CTRL-W|。
@@ -639,7 +639,7 @@ o                  移動游標到區域的另一側。
 r               2  刪除高亮 (highlight) 區域，並開始插入。
 s               2  刪除高亮 (highlight) 區域，並開始插入。
 u               2  使得高亮 (highlight) 區域全變小寫。
-v                  使得可視模式面向字元，或者退出可視模式。
+v                  使用可視模式，或者退出可視模式。
 x               2  刪除高亮 (highlight) 區域。
 y                  抽出高亮 (highlight) 區域。
 ~               2  變更高亮 (highlight) 區域的大小寫。
