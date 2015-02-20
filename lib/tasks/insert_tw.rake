@@ -6,11 +6,11 @@ namespace :seed do
 ###編輯模式
 CTRL-@          插入最近插入的文字並停止插入。
 CTRL-A          插入最近插入的文字。
-CTRL-B          不用 |i_CTRL-B-gone|。
+CTRL-B          無作用 |i_CTRL-B-gone|。
 CTRL-C          退出插入模式，不檢查縮寫，除非置位了'insertmode'。
 CTRL-D          在該行刪除一個 shiftwidth 的縮排。
 CTRL-E          插入游標下方的字元。
-CTRL-F          不用 (但預設是 'cinkeys' 中的一項，用以重新縮排本行)。
+CTRL-F          無作用 (但預設是 'cinkeys' 中的一項，用以重新縮排本行)。
 CTRL-G CTRL-J   往下一行，到插入開始的列。
 CTRL-G j        往下一行，到插入開始的列。
 CTRL-G <Down>   往下一行，到插入開始的列。
@@ -51,7 +51,7 @@ CTRL-[          等同於 <Esc>。
 CTRL-\ CTRL-N  進入一般模式。
 CTRL-\ CTRL-G  進入 'insertmode' 指定的模式。
 CTRL-\ a - z    保留給外掛程式用。
-CTRL-\ others   無用。
+CTRL-\ others   無作用。
 CTRL-]          切換縮寫。
 CTRL-^          切換 |:lmap| 映射的使用。
 CTRL-_          'allowrevins' 開啟時: 變更語言 (希伯來語，波斯語等) {僅當編譯時加入|+rightleft| 特性才有效}。
@@ -104,7 +104,7 @@ CTRL-X CTRL-Y   下捲。
 CTRL-X CTRL-]   補齊標籤。
 CTRL-X s        拼寫建議。
 ###一般模式
-CTRL-@             無用。
+CTRL-@             無作用。
 CTRL-A          2  把 N 加到游標所在/之後的數值上。
 CTRL-B          1  反向 (Back) 滾動 N 個畫面。
 CTRL-C             終止目前的 (搜尋) 指令。
@@ -118,7 +118,7 @@ CTRL-H          1  等同於 "h"。
 CTRL-I          1  等同於 <Tab>。
 <NL>            1  等同於 "j"。
 CTRL-J          1  等同於 "j"。
-CTRL-K             無用。
+CTRL-K             無作用。
 CTRL-L             重繪畫面。
 <CR>            1  游標移到 N 行下面的第一個字完。
 CTRL-M          1  等同於 <CR>。
@@ -135,14 +135,14 @@ CTRL-W {char}      視窗指令，見 |CTRL-W|。
 CTRL-X          2  從游標所在/之後的數值上減去 N。
 CTRL-Y             下捲 N 行。
 CTRL-Z             暫停程式 (或者啟動新的外殼)。
-CTRL-[ <Esc>       無用。
+CTRL-[ <Esc>       無作用。
 CTRL-\ CTRL-N      進入一般模式 (Normal) 模式 (空動作)。
 CTRL-\ CTRL-G      進入 'insertmode' 指定的模式。
 CTRL-\ a - z       保留作外掛程式用。
-CTRL-\ 其它        無用。
+CTRL-\ 其它        無作用。
 CTRL-]             :ta 到游標所在的標識符號。
 CTRL-^             編輯第 N 個備用檔 (等同於 ":e #N")。
-CTRL-_             無用。
+CTRL-_             無作用。
 <Space>         1  等同於 "l"。
 !{motion}{filter}2  通過 {filter} 指令過濾 Nmove 文字。
 !!{filter}      2  通過 {filter} 指令過濾 N 行。
@@ -215,7 +215,7 @@ W               1  游標前移 N 個 WORD。
 ZZ                 如果修改過，保存目前檔案，然後離開。
 ZQ                 無論如何退出目前檔案。
 [{char}            方括號指令 (見下 |[|)。
-\                  無用。
+\                  無作用。
 ]{char}            方括號指令 (見下 |]|)。
 ^               1  游標移動到本行的第一個字元上。
 _               1  游標移動到下方第 N - 1 行的第一個字元上。
@@ -644,14 +644,14 @@ x               2  刪除高亮 (highlight) 區域。
 y                  抽出高亮 (highlight) 區域。
 ~               2  變更高亮 (highlight) 區域的大小寫。
 ###指令列編輯
-CTRL-@          不用。
+CTRL-@          無作用。
 CTRL-A          使用游標前面的模式進行補齊，並插入所有符合的指令。
 CTRL-B          游標移動到指令列開始的地方。
 CTRL-C          等同於 <ESC>。
 CTRL-D          列出游標前面模式的所有補齊。
 CTRL-E          游標移動到指令列結束的地方。
-CTRL-F          'cedit' 的預設值: 開啟指令列視窗；否則不用。
-CTRL-G          不用。
+CTRL-F          'cedit' 的預設值: 開啟指令列視窗；否則無作用。
+CTRL-G          無作用。
 <BS>            刪除游標前面的字元。
 {char1} <BS> {char2}   'digraph' 開啟時，輸入二合字母。
 CTRL-H          等同於 <BS>。
@@ -672,13 +672,13 @@ CTRL-Q          等同於 CTRL-V，除非用於終端控制流。
 CTRL-R {0-9a-z"%#*:= CTRL-F CTRL-P CTRL-W CTRL-A}插入暫存器的內容或特殊對象到游標所在的地方，如同直接輸入那樣。
 CTRL-R CTRL-R {0-9a-z"%#*:= CTRL-F CTRL-P CTRL-W CTRL-A}按本義插入暫存器的內容或特殊對象到游標所在的地方。
 CTRL-S          (用於終端控制流)。
-CTRL-T          不用。
+CTRL-T          無作用。
 CTRL-U          刪除所有字元。
 CTRL-V          按本義插入下一個非數字字元，或者插入其後三位數字所代表的單個字節。
 CTRL-W          刪除游標前面的單字。
-CTRL-X          不用 (保留作補齊用)。
+CTRL-X          無作用 (保留作補齊用)。
 CTRL-Y          複製 (抽出) 無模式的選擇。
-CTRL-Z          不用 (保留作暫停用)。
+CTRL-Z          無作用 (保留作暫停用)。
 <Esc>           放棄指令列，不執行。
 CTRL-[          等同於 <Esc>。
 CTRL-\ CTRL-N  轉到一般模式，放棄指令列。
@@ -686,7 +686,7 @@ CTRL-\ CTRL-G  轉到 'insertmode' 指定的模式，放棄指令列。
 CTRL-\ a - d    保留給外掛程式用。
 CTRL-\ e {expr} 以 {expr} 的結果替換指令列。
 CTRL-\ f - z    保留給外掛程式用。
-CTRL-\ 其它     不用。
+CTRL-\ 其它     無作用。
 CTRL-]          啟用縮寫。
 CTRL-^          切換 |:lmap| 映射的使用。
 CTRL-_          'allowrevins'  開啟時: 變更語言 (希伯來，波斯)。
@@ -1236,7 +1236,7 @@ EOF
         command = m["command"].strip
         desc = m["desc"].strip
         desc = desc.sub(/^\d +/, "")
-        if desc.strip.empty? || /^無用。/ =~ desc
+        if desc.strip.empty? || /^無作用/ =~ desc
           next
         end
         puts "Mode: #{@mode.label} Create Command:#{command} - #{desc}"
