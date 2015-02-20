@@ -11,12 +11,12 @@ CTRL-C          退出插入模式，不檢查縮寫，除非置位了'insertmod
 CTRL-D          在該行刪除一個 shiftwidth 的縮排。
 CTRL-E          插入游標下方的字元。
 CTRL-F          無作用 (但預設是 'cinkeys' 中的一項，用以重新縮排本行)。
-CTRL-G CTRL-J   往下一行，到插入開始的列。
-CTRL-G j        往下一行，到插入開始的列。
-CTRL-G <Down>   往下一行，到插入開始的列。
-CTRL-G CTRL-K   往上一行，到插入開始的列。
-CTRL-G k        往上一行，到插入開始的列。
-CTRL-G <Up>     往上一行，到插入開始的列。
+CTRL-G CTRL-J   將游標往下移動一行，且不離開編輯模式 (等同於按下 <Down> 鍵)。
+CTRL-G j        將游標往下移動一行，且不離開編輯模式 (等同於按下 <Down> 鍵)。
+CTRL-G <Down>   將游標往下移動一行，且不離開編輯模式 (等同於按下 <Down> 鍵)。
+CTRL-G CTRL-K   將游標往上移動一行，且不離開編輯模式 (等同於按下 <Up> 鍵)。
+CTRL-G k        將游標往上移動一行，且不離開編輯模式 (等同於按下 <Up> 鍵)。
+CTRL-G <Up>     將游標往上移動一行，且不離開編輯模式 (等同於按下 <Up> 鍵)。
 CTRL-G u        開始新的不可還原的編輯。
 <BS>            刪除游標前的字元。
 {char1}<BS>{char2} 輸入二合字母 (只有開啟了 'digraph' 選項才有效)。
