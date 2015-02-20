@@ -105,7 +105,7 @@ CTRL-X CTRL-]   補齊標籤。
 CTRL-X s        拼寫建議。
 ###一般模式
 CTRL-@             無作用。
-CTRL-A          2  把 N 加到游標所在/之後的數值上。
+CTRL-A          2  增加當前游標上的數值或者字母 [count]。
 CTRL-B          1  反向 (Back) 滾動 N 個畫面。
 CTRL-C             終止目前的 (搜尋) 指令。
 CTRL-D             向下 (Down) 滾動 N 行 (預設: 半個畫面)。
@@ -132,7 +132,7 @@ CTRL-T             跳轉到標籤清單的第 N 個較舊的標籤 (Tag)。
 CTRL-U             上捲 (Upwards) N 行 (預設: 半個畫面)。
 CTRL-V             開始面向列塊的可視 (Visual) 模式。
 CTRL-W {char}      視窗指令，見 |CTRL-W|。
-CTRL-X          2  從游標所在/之後的數值上減去 N。
+CTRL-X          2  減少當前游標上的數值或者字母 [count]。
 CTRL-Y             下捲 N 行。
 CTRL-Z             暫停程式 (或者啟動新的外殼)。
 CTRL-[ <Esc>       無作用。
