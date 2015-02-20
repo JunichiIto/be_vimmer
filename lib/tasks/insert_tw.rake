@@ -11,12 +11,12 @@ CTRL-C          退出插入模式，不檢查縮寫，除非置位了'insertmod
 CTRL-D          在該行刪除一個 shiftwidth 的縮排。
 CTRL-E          插入游標下方的字元。
 CTRL-F          無作用 (但預設是 'cinkeys' 中的一項，用以重新縮排本行)。
-CTRL-G CTRL-J   將游標往下移動一行，且不離開編輯模式 (等同於按下 <Down> 鍵)。
-CTRL-G j        將游標往下移動一行，且不離開編輯模式 (等同於按下 <Down> 鍵)。
-CTRL-G <Down>   將游標往下移動一行，且不離開編輯模式 (等同於按下 <Down> 鍵)。
-CTRL-G CTRL-K   將游標往上移動一行，且不離開編輯模式 (等同於按下 <Up> 鍵)。
-CTRL-G k        將游標往上移動一行，且不離開編輯模式 (等同於按下 <Up> 鍵)。
-CTRL-G <Up>     將游標往上移動一行，且不離開編輯模式 (等同於按下 <Up> 鍵)。
+CTRL-G CTRL-J   將游標往下移動一行 (等同於在編輯模式中按下 <Down> 鍵)。
+CTRL-G j        將游標往下移動一行 (等同於在編輯模式中按下 <Down> 鍵)。
+CTRL-G <Down>   將游標往下移動一行 (等同於在編輯模式中按下 <Down> 鍵)。
+CTRL-G CTRL-K   將游標往上移動一行 (等同於在編輯模式中按下 <Up> 鍵)。
+CTRL-G k        將游標往上移動一行 (等同於在編輯模式中按下 <Up> 鍵)。
+CTRL-G <Up>     將游標往上移動一行 (等同於在編輯模式中按下 <Up> 鍵)。
 CTRL-G u        開始新的不可還原的編輯。
 <BS>            刪除游標前的字元。
 {char1}<BS>{char2} 輸入二合字母 (只有開啟了 'digraph' 選項才有效)。
@@ -27,12 +27,12 @@ CTRL-I          等同於 <Tab>
 CTRL-J          等同於 <CR>。
 CTRL-K {char1} {char2} 輸入二合字母。
 CTRL-L          'insertmode' 開啟時: 離開插入模式。
-<CR>            開始新行。
+<CR>            開始新的一行。
 CTRL-M          等同於 <CR>。
 CTRL-N          尋找符合游標前面的下一個關鍵字。
 CTRL-O          執行單個指令然後回到插入模式。
 CTRL-P          尋找符合游標前面的上一個關鍵字。
-CTRL-Q          等同於 CTRL-V，除非它用於終端控制流。
+CTRL-Q          等同於 CTRL-V，除非用於終端控制流程。
 CTRL-R {0-9a-z"%#*:=} 插入暫存器內容。
 CTRL-R CTRL-R {0-9a-z"%#*:=} 按本義插入暫存器內容。
 CTRL-R CTRL-O {0-9a-z"%#*:=} 按本義插入暫存器內容，而且不自動縮排。
@@ -79,13 +79,13 @@ CTRL-_          'allowrevins' 開啟時: 變更語言 (希伯來語，波斯語�
 <Insert>        切換插入/替換模式。
 <LeftMouse>     游標移到滑鼠點擊處。
 <ScrollWheelDown>       視窗向下捲動三行。
-<S-ScrollWheelDown>     視窗向下捲動完整一頁。
+<S-ScrollWheelDown>     視窗向下捲動一頁。
 <ScrollWheelUp>         視窗向上捲動三行。
-<S-ScrollWheelUp>       視窗向上捲動完整一頁。
+<S-ScrollWheelUp>       視窗向上捲動一頁。
 <ScrollWheelLeft>       視窗向左捲動六列。
-<S-ScrollWheelLeft>     視窗向左捲動完整一頁。
+<S-ScrollWheelLeft>     視窗向左捲動一頁。
 <ScrollWheelRight>      視窗向右捲動六列。
-<S-ScrollWheelRight>    視窗向右捲動完整一頁。
+<S-ScrollWheelRight>    視窗向右捲動一頁。
 ###submode
 CTRL-X CTRL-D   補齊定義過的標識符號。
 CTRL-X CTRL-E   上捲。
@@ -299,13 +299,13 @@ z{char}            'z' 開始的指令，見下 |z|。
 <Undo>          2  等同於 "u"。
 <Up>            1  等同於 "k"。
 <ScrollWheelDown>       視窗向下捲動三行。
-<S-ScrollWheelDown>     視窗向下捲動完整一頁。
+<S-ScrollWheelDown>     視窗向下捲動一頁。
 <ScrollWheelUp>         視窗向上捲動三行。
-<S-ScrollWheelUp>       視窗向上捲動完整一頁。
+<S-ScrollWheelUp>       視窗向上捲動一頁。
 <ScrollWheelLeft>       視窗向左捲動六列。
-<S-ScrollWheelLeft>     視窗向左捲動完整一頁。
+<S-ScrollWheelLeft>     視窗向左捲動一頁。
 <ScrollWheelRight>      視窗向右捲動六列。
-<S-ScrollWheelRight>    視窗向右捲動完整一頁。
+<S-ScrollWheelRight>    視窗向右捲動一頁。
 ###Text objects
 a"                 雙引號字元串。
 a'                 單引號字元串。
