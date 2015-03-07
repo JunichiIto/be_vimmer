@@ -1,6 +1,4 @@
-== About Be Vimmer
-
-關於 Be Vimmer
+== About Be Vimmer (關於 Be Vimmer)
 
 Be Vimmer is an application that tweets Vim commands and their description periodically in Japanese, English and Chinese(cn & tw). This application was created in order to help Vim learners.
 
@@ -18,9 +16,7 @@ The Web UI just display the Vim command list and the basic information about thi
 
 網路介面將會顯示 Vim 指令清單及此應用程式相關訊息。
 
-===Cron task and arguments
-
-Cron 任務與參數設定
+===Cron task and arguments (Cron 任務與參數設定)
 
 The following command means "Post 3 tweets every 2 hours in Japanese. EX commands appear every 6 hours." 
 
@@ -33,9 +29,7 @@ The following command means "Post 3 tweets every 2 hours in Japanese. EX command
 
 「en」即英文，「cn」表示檢體中文，而「tw」表示繁體中文。
 
-===How to get OAuth token
-
-如何取得 OAuth token
+===How to get OAuth token (如何取得 OAuth token)
 
 Use this => https://github.com/jugyo/get-twitter-oauth-token
 
