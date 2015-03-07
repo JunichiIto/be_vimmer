@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
-ruby "2.1.2"
+ruby "2.2.0"
 
-gem 'rails', '4.0.4'
+gem 'rails', '4.2.0'
 
 gem "twitter-bootstrap-rails"
 gem 'twitter', '~> 5.8.0'
@@ -19,19 +19,21 @@ gem 'therubyracer'
 
 group :production do
   gem 'pg'
-end
-
-group :production, :staging do
   gem 'rails_12factor'
 end
 
+group :development do
+  gem 'spring'
+  gem 'spring-commands-rspec'
+end
+
 group :development, :test do
-  gem 'sqlite3'
+  gem 'sqlite3', '~> 1.3.10'
   gem 'heroku_san'
   gem 'heroku'
 end
 
 group :test do
-  gem "rspec-rails", "~> 3.0.1"
+  gem "rspec-rails", "~> 3.2.0"
   gem 'capybara'
 end

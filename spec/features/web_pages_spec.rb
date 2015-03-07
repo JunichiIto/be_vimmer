@@ -13,6 +13,9 @@ feature 'web pages' do
     cn = VimCommand.new(command: ":w", description: "你好", language: "cn")
     cn.mode = mode
     cn.save!
+    tw = VimCommand.new(command: ":w", description: "你好台湾", language: "tw")
+    tw.mode = mode
+    tw.save!
   end
   scenario "access pages" do
     visit root_path
@@ -24,9 +27,14 @@ feature 'web pages' do
     expect(page).to have_content "Save"
 
     within ".navbar" do
-      click_link "Chinese"
+      click_link "Chinese(cn)"
     end
     expect(page).to have_content "你好"
+
+    within ".navbar" do
+      click_link "Chinese(tw)"
+    end
+    expect(page).to have_content "你好台湾"
 
     within ".navbar" do
       click_link "Japanese"
