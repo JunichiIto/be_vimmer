@@ -99,7 +99,7 @@ CTRL-X CTRL-P   上一個補齊。
 CTRL-X CTRL-S   拼寫建議。
 CTRL-X CTRL-T   從同義詞詞典補齊標識符號。
 CTRL-X CTRL-U   用 'completefunc' 補齊。
-CTRL-X CTRL-V   如同 : 指令列那樣補齊。
+CTRL-X CTRL-V   如同 : 命令列那樣補齊。
 CTRL-X CTRL-Y   下捲。
 CTRL-X CTRL-]   補齊標籤。
 CTRL-X s        拼寫建議。
@@ -251,9 +251,9 @@ o               2  在游標下方開始一個新行，並插入 text，重複 N
 ["x]p           2  在游標後 [從暫存器 x] 放置 text N 次。
 q{0-9a-zA-Z"}      記錄輸入的字元到指令暫存器 {0-9a-zA-Z"}(大寫用於添加)。
 q                  (在記錄時) 停止記錄。
-q:                 在指令列視窗裡編輯 : 指令列。
-q/                 在指令列視窗裡編輯 / 指令列。
-q?                 在指令列視窗裡編輯 ? 指令列。
+q:                 在命令列視窗裡編輯 : 命令列。
+q/                 在命令列視窗裡編輯 / 命令列。
+q?                 在命令列視窗裡編輯 ? 命令列。
 r{char}         2  用 {char} 替換 N 個字元。
 ["x]s           2  (替換) 刪除 N 個字元 [到暫存區 x] 並開始輸入。
 t{char}         1  游標移動到右側第 N 次出現的 {char} 之前。
@@ -576,7 +576,7 @@ CTRL-V             使得可視模式面向列塊，或者退出可視模式。
 <Esc>              結束可視模式。
 CTRL-]             跳轉到高亮 (highlight) 的標籤上。
 !{filter}       2  通過外部指令 {filter} 過濾高亮 (highlight) 行。
-:                  使用高亮 (highlight) 行作為範圍，開始一個指令列。
+:                  使用高亮 (highlight) 行作為範圍，開始一個命令列。
 <               2  左移高亮 (highlight) 行一個 'shiftwidth'。
 =               2  用 {equalprg} 選項指定的外部程式過濾高亮 (highlight) 行。
 >               2  右移高亮 (highlight) 行一個 'shiftwidth'。
@@ -643,14 +643,14 @@ v                  使用可視模式，或者退出可視模式。
 x               2  刪除高亮 (highlight) 區域。
 y                  抽出高亮 (highlight) 區域。
 ~               2  變更高亮 (highlight) 區域的大小寫。
-###指令列編輯
+###命令列編輯
 CTRL-@          無作用。
 CTRL-A          使用游標前面的模式進行補齊，並插入所有符合的指令。
-CTRL-B          游標移動到指令列開始的地方。
+CTRL-B          游標移動到命令列開始的地方。
 CTRL-C          等同於 <ESC>。
 CTRL-D          列出游標前面模式的所有補齊。
-CTRL-E          游標移動到指令列結束的地方。
-CTRL-F          'cedit' 的預設值: 開啟指令列視窗；否則無作用。
+CTRL-E          游標移動到命令列結束的地方。
+CTRL-F          'cedit' 的預設值: 開啟命令列視窗；否則無作用。
 CTRL-G          無作用。
 <BS>            刪除游標前面的字元。
 {char1} <BS> {char2}   'digraph' 開啟時，輸入二合字母。
@@ -679,12 +679,12 @@ CTRL-W          刪除游標前面的單字。
 CTRL-X          無作用 (保留作補齊用)。
 CTRL-Y          複製 (抽出) 無模式的選擇。
 CTRL-Z          無作用 (保留作暫停用)。
-<Esc>           放棄指令列，不執行。
+<Esc>           放棄命令列，不執行。
 CTRL-[          等同於 <Esc>。
-CTRL-\ CTRL-N  轉到一般模式，放棄指令列。
-CTRL-\ CTRL-G  轉到 'insertmode' 指定的模式，放棄指令列。
+CTRL-\ CTRL-N  轉到一般模式，放棄命令列。
+CTRL-\ CTRL-G  轉到 'insertmode' 指定的模式，放棄命令列。
 CTRL-\ a - d    保留給外掛程式用。
-CTRL-\ e {expr} 以 {expr} 的結果替換指令列。
+CTRL-\ e {expr} 以 {expr} 的結果替換命令列。
 CTRL-\ f - z    保留給外掛程式用。
 CTRL-\ 其它     無作用。
 CTRL-]          啟用縮寫。
@@ -697,12 +697,12 @@ CTRL-_          'allowrevins'  開啟時: 變更語言 (希伯來，波斯)。
 <Right>         游標右移。
 <S-Right>       游標右移一個單字。
 <C-Right>       游標右移一個單字。
-<Up>            從歷史中調入符合游標前模式的前一個指令列。
-<S-Up>          從歷史中調入前一個指令列。
-<Down>          從歷史中調入符合游標前模式的後一個指令列。
-<S-Down>        從歷史中調入後一個指令列。
-<Home>          游標移動到指令列開始的地方。
-<End>           游標移動到指令列結束的地方。
+<Up>            從歷史中調入符合游標前模式的前一個命令列。
+<S-Up>          從歷史中調入前一個命令列。
+<Down>          從歷史中調入符合游標前模式的後一個命令列。
+<S-Down>        從歷史中調入後一個命令列。
+<Home>          游標移動到命令列開始的地方。
+<End>           游標移動到命令列結束的地方。
 <PageDown>      等同於 <S-Down>。
 <PageUp>        等同於 <S-Up>。
 <Insert>        切換插入/替換模式。
@@ -766,8 +766,8 @@ CTRL-_          'allowrevins'  開啟時: 變更語言 (希伯來，波斯)。
 :c[hange]       替換一行或若干行。
 :cN[ext]        跳轉到上一個錯誤。
 :cNf[ile]       跳轉到前一個檔案的最後一個錯誤。
-:ca[bbrev]      類似於 ":abbreviate"，但用於指令列模式。
-:cabc[lear]     清除所有縮寫，用於指令列模式。
+:ca[bbrev]      類似於 ":abbreviate"，但用於命令列模式。
+:cabc[lear]     清除所有縮寫，用於命令列模式。
 :caddb[uffer]   通過緩衝區補充錯誤。
 :cad[dexpr]     通過表達式補充錯誤。
 :caddf[ile]     加入錯誤訊息到目前 quickfix 清單。
@@ -791,15 +791,15 @@ CTRL-_          'allowrevins'  開啟時: 變更語言 (希伯來，波斯)。
 :cl[ist]        列出所有錯誤。
 :cla[st]        跳轉到指定的錯誤上，預設為最後一個。
 :clo[se]        變更目前視窗。
-:cm[ap]         類似於 ":map"，但用於指令列模式。
-:cmapc[lear]    清除所有映射，用於指令列模式。
-:cme[nu]        為指令列模式增加選單。
+:cm[ap]         類似於 ":map"，但用於命令列模式。
+:cmapc[lear]    清除所有映射，用於命令列模式。
+:cme[nu]        為命令列模式增加選單。
 :cn[ext]        跳轉到下一個錯誤。
 :cnew[er]       跳轉到下一個較新的錯誤清單。
 :cnf[ile]       跳轉到下一個檔案的第一個錯誤。
-:cno[remap]     類似於 ":noremap"，但用於指令列模式。
-:cnorea[bbrev]  類似於 ":noreabbrev"，但用於指令列模式。
-:cnoreme[nu]    類似於 ":noremenu"，但用於指令列模式。
+:cno[remap]     類似於 ":noremap"，但用於命令列模式。
+:cnorea[bbrev]  類似於 ":noreabbrev"，但用於命令列模式。
+:cnoreme[nu]    類似於 ":noremenu"，但用於命令列模式。
 :co[py]         複製行。
 :col[der]       跳轉到上一個較老的錯誤清單。
 :colo[rscheme]  載入特定的色彩方案。
@@ -815,9 +815,9 @@ CTRL-_          'allowrevins'  開啟時: 變更語言 (希伯來，波斯)。
 :cr[ewind]      跳到指定的錯誤，預設為第一個。
 :cs[cope]       執行 cscope 指令。
 :cst[ag]        使用 cscope 來跳轉到標籤上。
-:cu[nmap]       類似於 ":unmap"，但用於指令列模式。
-:cuna[bbrev]    類似於 ":unabbrev"，但用於指令列模式。
-:cunme[nu]      刪除指令列的選單。
+:cu[nmap]       類似於 ":unmap"，但用於命令列模式。
+:cuna[bbrev]    類似於 ":unabbrev"，但用於命令列模式。
+:cunme[nu]      刪除命令列的選單。
 :cw[indow]      開啟或者關閉 quickfix 視窗。
 :d[elete]       刪除行。
 :delm[arks]     刪除位置標記。
