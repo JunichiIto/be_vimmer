@@ -6,17 +6,17 @@ namespace :seed do
 ###編輯模式
 CTRL-@          插入最近插入的文字並停止插入。
 CTRL-A          插入最近插入的文字。
-CTRL-B          不用 |i_CTRL-B-gone|。
+CTRL-B          無作用 |i_CTRL-B-gone|。
 CTRL-C          退出插入模式，不檢查縮寫，除非置位了'insertmode'。
 CTRL-D          在該行刪除一個 shiftwidth 的縮排。
 CTRL-E          插入游標下方的字元。
-CTRL-F          不用 (但預設是 'cinkeys' 中的一項，用以重新縮排本行)。
-CTRL-G CTRL-J   往下一行，到插入開始的列。
-CTRL-G j        往下一行，到插入開始的列。
-CTRL-G <Down>   往下一行，到插入開始的列。
-CTRL-G CTRL-K   往上一行，到插入開始的列。
-CTRL-G k        往上一行，到插入開始的列。
-CTRL-G <Up>     往上一行，到插入開始的列。
+CTRL-F          無作用 (但預設是 'cinkeys' 中的一項，用以重新縮排本行)。
+CTRL-G CTRL-J   將游標往下移動一行 (等同於在編輯模式中按下 <Down> 鍵)。
+CTRL-G j        將游標往下移動一行 (等同於在編輯模式中按下 <Down> 鍵)。
+CTRL-G <Down>   將游標往下移動一行 (等同於在編輯模式中按下 <Down> 鍵)。
+CTRL-G CTRL-K   將游標往上移動一行 (等同於在編輯模式中按下 <Up> 鍵)。
+CTRL-G k        將游標往上移動一行 (等同於在編輯模式中按下 <Up> 鍵)。
+CTRL-G <Up>     將游標往上移動一行 (等同於在編輯模式中按下 <Up> 鍵)。
 CTRL-G u        開始新的不可還原的編輯。
 <BS>            刪除游標前的字元。
 {char1}<BS>{char2} 輸入二合字母 (只有開啟了 'digraph' 選項才有效)。
@@ -27,12 +27,12 @@ CTRL-I          等同於 <Tab>
 CTRL-J          等同於 <CR>。
 CTRL-K {char1} {char2} 輸入二合字母。
 CTRL-L          'insertmode' 開啟時: 離開插入模式。
-<CR>            開始新行。
+<CR>            開始新的一行。
 CTRL-M          等同於 <CR>。
 CTRL-N          尋找符合游標前面的下一個關鍵字。
 CTRL-O          執行單個指令然後回到插入模式。
 CTRL-P          尋找符合游標前面的上一個關鍵字。
-CTRL-Q          等同於 CTRL-V，除非它用於終端控制流。
+CTRL-Q          等同於 CTRL-V，除非用於終端控制流程。
 CTRL-R {0-9a-z"%#*:=} 插入暫存器內容。
 CTRL-R CTRL-R {0-9a-z"%#*:=} 按本義插入暫存器內容。
 CTRL-R CTRL-O {0-9a-z"%#*:=} 按本義插入暫存器內容，而且不自動縮排。
@@ -51,7 +51,7 @@ CTRL-[          等同於 <Esc>。
 CTRL-\ CTRL-N  進入一般模式。
 CTRL-\ CTRL-G  進入 'insertmode' 指定的模式。
 CTRL-\ a - z    保留給外掛程式用。
-CTRL-\ others   無用。
+CTRL-\ others   無作用。
 CTRL-]          切換縮寫。
 CTRL-^          切換 |:lmap| 映射的使用。
 CTRL-_          'allowrevins' 開啟時: 變更語言 (希伯來語，波斯語等) {僅當編譯時加入|+rightleft| 特性才有效}。
@@ -79,13 +79,13 @@ CTRL-_          'allowrevins' 開啟時: 變更語言 (希伯來語，波斯語�
 <Insert>        切換插入/替換模式。
 <LeftMouse>     游標移到滑鼠點擊處。
 <ScrollWheelDown>       視窗向下捲動三行。
-<S-ScrollWheelDown>     視窗向下捲動完整一頁。
+<S-ScrollWheelDown>     視窗向下捲動一頁。
 <ScrollWheelUp>         視窗向上捲動三行。
-<S-ScrollWheelUp>       視窗向上捲動完整一頁。
+<S-ScrollWheelUp>       視窗向上捲動一頁。
 <ScrollWheelLeft>       視窗向左捲動六列。
-<S-ScrollWheelLeft>     視窗向左捲動完整一頁。
+<S-ScrollWheelLeft>     視窗向左捲動一頁。
 <ScrollWheelRight>      視窗向右捲動六列。
-<S-ScrollWheelRight>    視窗向右捲動完整一頁。
+<S-ScrollWheelRight>    視窗向右捲動一頁。
 ###submode
 CTRL-X CTRL-D   補齊定義過的標識符號。
 CTRL-X CTRL-E   上捲。
@@ -99,13 +99,13 @@ CTRL-X CTRL-P   上一個補齊。
 CTRL-X CTRL-S   拼寫建議。
 CTRL-X CTRL-T   從同義詞詞典補齊標識符號。
 CTRL-X CTRL-U   用 'completefunc' 補齊。
-CTRL-X CTRL-V   如同 : 指令列那樣補齊。
+CTRL-X CTRL-V   如同 : 命令列那樣補齊。
 CTRL-X CTRL-Y   下捲。
 CTRL-X CTRL-]   補齊標籤。
 CTRL-X s        拼寫建議。
 ###一般模式
-CTRL-@             無用。
-CTRL-A          2  把 N 加到游標所在/之後的數值上。
+CTRL-@             無作用。
+CTRL-A          2  增加當前游標上的數值或者字母 [count]。
 CTRL-B          1  反向 (Back) 滾動 N 個畫面。
 CTRL-C             終止目前的 (搜尋) 指令。
 CTRL-D             向下 (Down) 滾動 N 行 (預設: 半個畫面)。
@@ -118,7 +118,7 @@ CTRL-H          1  等同於 "h"。
 CTRL-I          1  等同於 <Tab>。
 <NL>            1  等同於 "j"。
 CTRL-J          1  等同於 "j"。
-CTRL-K             無用。
+CTRL-K             無作用。
 CTRL-L             重繪畫面。
 <CR>            1  游標移到 N 行下面的第一個字完。
 CTRL-M          1  等同於 <CR>。
@@ -128,21 +128,21 @@ CTRL-P          1  等同於 "k"。
 CTRL-Q             (用於終端控制流程)。
 CTRL-R          2  重做 'u' 還原的變更。
 CTRL-S             (用於終端控制流程)。
-CTRL-T             跳轉到標籤清單的第 N 個較老的標籤 (Tag)。
+CTRL-T             跳轉到標籤清單的第 N 個較舊的標籤 (Tag)。
 CTRL-U             上捲 (Upwards) N 行 (預設: 半個畫面)。
 CTRL-V             開始面向列塊的可視 (Visual) 模式。
 CTRL-W {char}      視窗指令，見 |CTRL-W|。
-CTRL-X          2  從游標所在/之後的數值上減去 N。
+CTRL-X          2  減少當前游標上的數值或者字母 [count]。
 CTRL-Y             下捲 N 行。
 CTRL-Z             暫停程式 (或者啟動新的外殼)。
-CTRL-[ <Esc>       無用。
+CTRL-[ <Esc>       無作用。
 CTRL-\ CTRL-N      進入一般模式 (Normal) 模式 (空動作)。
 CTRL-\ CTRL-G      進入 'insertmode' 指定的模式。
 CTRL-\ a - z       保留作外掛程式用。
-CTRL-\ 其它        無用。
+CTRL-\ 其它        無作用。
 CTRL-]             :ta 到游標所在的標識符號。
 CTRL-^             編輯第 N 個備用檔 (等同於 ":e #N")。
-CTRL-_             無用。
+CTRL-_             無作用。
 <Space>         1  等同於 "l"。
 !{motion}{filter}2  通過 {filter} 指令過濾 Nmove 文字。
 !!{filter}      2  通過 {filter} 指令過濾 N 行。
@@ -207,7 +207,7 @@ Q                  切換到 "Ex" 模式。
 R               2  進入替換模式: 覆蓋存在的字元，重複輸入 text N-1 次。
 ["x]S           2  刪除 N 行 [到暫存器 x] 並開始輸入；等同於 "cc"。
 T{char}         1  游標移動到左側第 N 次出現的 {char} 之前。
-U               2  還原一行內所有最近的變更。
+U               2  還原一行內最近所有的變更。
 V                  進入面向行的可視 (Visual) 模式。
 W               1  游標前移 N 個 WORD。
 ["x]X           2  刪除游標前的 N 個字元 [到暫存器 x]。
@@ -215,7 +215,7 @@ W               1  游標前移 N 個 WORD。
 ZZ                 如果修改過，保存目前檔案，然後離開。
 ZQ                 無論如何退出目前檔案。
 [{char}            方括號指令 (見下 |[|)。
-\                  無用。
+\                  無作用。
 ]{char}            方括號指令 (見下 |]|)。
 ^               1  游標移動到本行的第一個字元上。
 _               1  游標移動到下方第 N - 1 行的第一個字元上。
@@ -251,9 +251,9 @@ o               2  在游標下方開始一個新行，並插入 text，重複 N
 ["x]p           2  在游標後 [從暫存器 x] 放置 text N 次。
 q{0-9a-zA-Z"}      記錄輸入的字元到指令暫存器 {0-9a-zA-Z"}(大寫用於添加)。
 q                  (在記錄時) 停止記錄。
-q:                 在指令列視窗裡編輯 : 指令列。
-q/                 在指令列視窗裡編輯 / 指令列。
-q?                 在指令列視窗裡編輯 ? 指令列。
+q:                 在命令列視窗裡編輯 : 命令列。
+q/                 在命令列視窗裡編輯 / 命令列。
+q?                 在命令列視窗裡編輯 ? 命令列。
 r{char}         2  用 {char} 替換 N 個字元。
 ["x]s           2  (替換) 刪除 N 個字元 [到暫存區 x] 並開始輸入。
 t{char}         1  游標移動到右側第 N 次出現的 {char} 之前。
@@ -299,13 +299,13 @@ z{char}            'z' 開始的指令，見下 |z|。
 <Undo>          2  等同於 "u"。
 <Up>            1  等同於 "k"。
 <ScrollWheelDown>       視窗向下捲動三行。
-<S-ScrollWheelDown>     視窗向下捲動完整一頁。
+<S-ScrollWheelDown>     視窗向下捲動一頁。
 <ScrollWheelUp>         視窗向上捲動三行。
-<S-ScrollWheelUp>       視窗向上捲動完整一頁。
+<S-ScrollWheelUp>       視窗向上捲動一頁。
 <ScrollWheelLeft>       視窗向左捲動六列。
-<S-ScrollWheelLeft>     視窗向左捲動完整一頁。
+<S-ScrollWheelLeft>     視窗向左捲動一頁。
 <ScrollWheelRight>      視窗向右捲動六列。
-<S-ScrollWheelRight>    視窗向右捲動完整一頁。
+<S-ScrollWheelRight>    視窗向右捲動一頁。
 ###Text objects
 a"                 雙引號字元串。
 a'                 單引號字元串。
@@ -501,7 +501,7 @@ gh                 開始選擇模式。
 gi              2  類似於 "i"，但先移動到 |'^| 位置標記。
 gj              1  類似於 "j"，但 'wrap' 開啟時往下 N 個畫面行。
 gk              1  類似於 "k"，但 'wrap' 開啟時往上 N 個畫面行。
-gm              1  轉到畫面行正中間的那個字元。
+gm              1  轉到當前行正中間的那個字元。
 go              1  游標移動到緩衝區的第 N 個字節。
 ["x]gp          2  在游標後面放置 text [從暫存器 x] N 次，游標留在後面。
 gq{motion}      2  排版 Nmove text。
@@ -576,7 +576,7 @@ CTRL-V             使得可視模式面向列塊，或者退出可視模式。
 <Esc>              結束可視模式。
 CTRL-]             跳轉到高亮 (highlight) 的標籤上。
 !{filter}       2  通過外部指令 {filter} 過濾高亮 (highlight) 行。
-:                  使用高亮 (highlight) 行作為範圍，開始一個指令列。
+:                  使用高亮 (highlight) 行作為範圍，開始一個命令列。
 <               2  左移高亮 (highlight) 行一個 'shiftwidth'。
 =               2  用 {equalprg} 選項指定的外部程式過濾高亮 (highlight) 行。
 >               2  右移高亮 (highlight) 行一個 'shiftwidth'。
@@ -639,19 +639,19 @@ o                  移動游標到區域的另一側。
 r               2  刪除高亮 (highlight) 區域，並開始插入。
 s               2  刪除高亮 (highlight) 區域，並開始插入。
 u               2  使得高亮 (highlight) 區域全變小寫。
-v                  使得可視模式面向字元，或者退出可視模式。
+v                  使用可視模式，或者退出可視模式。
 x               2  刪除高亮 (highlight) 區域。
 y                  抽出高亮 (highlight) 區域。
 ~               2  變更高亮 (highlight) 區域的大小寫。
-###指令列編輯
-CTRL-@          不用。
+###命令列編輯
+CTRL-@          無作用。
 CTRL-A          使用游標前面的模式進行補齊，並插入所有符合的指令。
-CTRL-B          游標移動到指令列開始的地方。
+CTRL-B          游標移動到命令列開始的地方。
 CTRL-C          等同於 <ESC>。
 CTRL-D          列出游標前面模式的所有補齊。
-CTRL-E          游標移動到指令列結束的地方。
-CTRL-F          'cedit' 的預設值: 開啟指令列視窗；否則不用。
-CTRL-G          不用。
+CTRL-E          游標移動到命令列結束的地方。
+CTRL-F          'cedit' 的預設值: 開啟命令列視窗；否則無作用。
+CTRL-G          無作用。
 <BS>            刪除游標前面的字元。
 {char1} <BS> {char2}   'digraph' 開啟時，輸入二合字母。
 CTRL-H          等同於 <BS>。
@@ -672,21 +672,21 @@ CTRL-Q          等同於 CTRL-V，除非用於終端控制流。
 CTRL-R {0-9a-z"%#*:= CTRL-F CTRL-P CTRL-W CTRL-A}插入暫存器的內容或特殊對象到游標所在的地方，如同直接輸入那樣。
 CTRL-R CTRL-R {0-9a-z"%#*:= CTRL-F CTRL-P CTRL-W CTRL-A}按本義插入暫存器的內容或特殊對象到游標所在的地方。
 CTRL-S          (用於終端控制流)。
-CTRL-T          不用。
+CTRL-T          無作用。
 CTRL-U          刪除所有字元。
 CTRL-V          按本義插入下一個非數字字元，或者插入其後三位數字所代表的單個字節。
 CTRL-W          刪除游標前面的單字。
-CTRL-X          不用 (保留作補齊用)。
+CTRL-X          無作用 (保留作補齊用)。
 CTRL-Y          複製 (抽出) 無模式的選擇。
-CTRL-Z          不用 (保留作暫停用)。
-<Esc>           放棄指令列，不執行。
+CTRL-Z          無作用 (保留作暫停用)。
+<Esc>           放棄命令列，不執行。
 CTRL-[          等同於 <Esc>。
-CTRL-\ CTRL-N  轉到一般模式，放棄指令列。
-CTRL-\ CTRL-G  轉到 'insertmode' 指定的模式，放棄指令列。
+CTRL-\ CTRL-N  轉到一般模式，放棄命令列。
+CTRL-\ CTRL-G  轉到 'insertmode' 指定的模式，放棄命令列。
 CTRL-\ a - d    保留給外掛程式用。
-CTRL-\ e {expr} 以 {expr} 的結果替換指令列。
+CTRL-\ e {expr} 以 {expr} 的結果替換命令列。
 CTRL-\ f - z    保留給外掛程式用。
-CTRL-\ 其它     不用。
+CTRL-\ 其它     無作用。
 CTRL-]          啟用縮寫。
 CTRL-^          切換 |:lmap| 映射的使用。
 CTRL-_          'allowrevins'  開啟時: 變更語言 (希伯來，波斯)。
@@ -697,12 +697,12 @@ CTRL-_          'allowrevins'  開啟時: 變更語言 (希伯來，波斯)。
 <Right>         游標右移。
 <S-Right>       游標右移一個單字。
 <C-Right>       游標右移一個單字。
-<Up>            從歷史中調入符合游標前模式的前一個指令列。
-<S-Up>          從歷史中調入前一個指令列。
-<Down>          從歷史中調入符合游標前模式的後一個指令列。
-<S-Down>        從歷史中調入後一個指令列。
-<Home>          游標移動到指令列開始的地方。
-<End>           游標移動到指令列結束的地方。
+<Up>            從歷史中調入符合游標前模式的前一個命令列。
+<S-Up>          從歷史中調入前一個命令列。
+<Down>          從歷史中調入符合游標前模式的後一個命令列。
+<S-Down>        從歷史中調入後一個命令列。
+<Home>          游標移動到命令列開始的地方。
+<End>           游標移動到命令列結束的地方。
 <PageDown>      等同於 <S-Down>。
 <PageUp>        等同於 <S-Up>。
 <Insert>        切換插入/替換模式。
@@ -766,8 +766,8 @@ CTRL-_          'allowrevins'  開啟時: 變更語言 (希伯來，波斯)。
 :c[hange]       替換一行或若干行。
 :cN[ext]        跳轉到上一個錯誤。
 :cNf[ile]       跳轉到前一個檔案的最後一個錯誤。
-:ca[bbrev]      類似於 ":abbreviate"，但用於指令列模式。
-:cabc[lear]     清除所有縮寫，用於指令列模式。
+:ca[bbrev]      類似於 ":abbreviate"，但用於命令列模式。
+:cabc[lear]     清除所有縮寫，用於命令列模式。
 :caddb[uffer]   通過緩衝區補充錯誤。
 :cad[dexpr]     通過表達式補充錯誤。
 :caddf[ile]     加入錯誤訊息到目前 quickfix 清單。
@@ -791,15 +791,15 @@ CTRL-_          'allowrevins'  開啟時: 變更語言 (希伯來，波斯)。
 :cl[ist]        列出所有錯誤。
 :cla[st]        跳轉到指定的錯誤上，預設為最後一個。
 :clo[se]        變更目前視窗。
-:cm[ap]         類似於 ":map"，但用於指令列模式。
-:cmapc[lear]    清除所有映射，用於指令列模式。
-:cme[nu]        為指令列模式增加選單。
+:cm[ap]         類似於 ":map"，但用於命令列模式。
+:cmapc[lear]    清除所有映射，用於命令列模式。
+:cme[nu]        為命令列模式增加選單。
 :cn[ext]        跳轉到下一個錯誤。
 :cnew[er]       跳轉到下一個較新的錯誤清單。
 :cnf[ile]       跳轉到下一個檔案的第一個錯誤。
-:cno[remap]     類似於 ":noremap"，但用於指令列模式。
-:cnorea[bbrev]  類似於 ":noreabbrev"，但用於指令列模式。
-:cnoreme[nu]    類似於 ":noremenu"，但用於指令列模式。
+:cno[remap]     類似於 ":noremap"，但用於命令列模式。
+:cnorea[bbrev]  類似於 ":noreabbrev"，但用於命令列模式。
+:cnoreme[nu]    類似於 ":noremenu"，但用於命令列模式。
 :co[py]         複製行。
 :col[der]       跳轉到上一個較老的錯誤清單。
 :colo[rscheme]  載入特定的色彩方案。
@@ -815,9 +815,9 @@ CTRL-_          'allowrevins'  開啟時: 變更語言 (希伯來，波斯)。
 :cr[ewind]      跳到指定的錯誤，預設為第一個。
 :cs[cope]       執行 cscope 指令。
 :cst[ag]        使用 cscope 來跳轉到標籤上。
-:cu[nmap]       類似於 ":unmap"，但用於指令列模式。
-:cuna[bbrev]    類似於 ":unabbrev"，但用於指令列模式。
-:cunme[nu]      刪除指令列的選單。
+:cu[nmap]       類似於 ":unmap"，但用於命令列模式。
+:cuna[bbrev]    類似於 ":unabbrev"，但用於命令列模式。
+:cunme[nu]      刪除命令列的選單。
 :cw[indow]      開啟或者關閉 quickfix 視窗。
 :d[elete]       刪除行。
 :delm[arks]     刪除位置標記。
@@ -1236,7 +1236,7 @@ EOF
         command = m["command"].strip
         desc = m["desc"].strip
         desc = desc.sub(/^\d +/, "")
-        if desc.strip.empty? || /^無用。/ =~ desc
+        if desc.strip.empty? || /^無作用/ =~ desc
           next
         end
         puts "Mode: #{@mode.label} Create Command:#{command} - #{desc}"
