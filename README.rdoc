@@ -2,34 +2,40 @@
 
 Be Vimmer is an application that tweets Vim commands and their description periodically in Japanese, English and Chinese(cn & tw). This application was created in order to help Vim learners.
 
-Be Vimmer 是一個可定期在 tweeter 上發佈 Vim 指令及相關敘述 (日文、英文及簡繁體中文) 的應用程式，以於幫助 Vim 初學者。
+Be Vimmer 是一個可定期在 Twitter 上發佈 Vim 指令及相關敘述 (日文、英文、簡體中文及繁體中文) 的應用程式，以於幫助 Vim 初學者。
+
 
 Vim documentation has to be stored in database in advance. (See  +db/seeds.rb+ or +lib/tasks+ )
 
 Vim 文件必須先儲存在資料庫中。(詳見 +db/seeds.rb+ 或 +lib/tasks+)
 
+
 Tweets are pushed via cron task on server.(See +lib/tasks/cron.rb+ ) You need to register Twitter credentials in environment variables before execution.
 
-推特文將會在 server 上以 cron 任務的方式進行發佈。 (詳見 +lib/tasks/cron.rb+) 在執行此應用程式前，使用者需先將註冊的推特資訊設定在環境變數中。
+推文將會在 server 上以 cron 任務的方式進行發佈。 (詳見 +lib/tasks/cron.rb+) 在執行此應用程式前，使用者需先將註冊的推特 (Twitter) 資訊設定在環境變數中。
+
 
 The Web UI just display the Vim command list and the basic information about this application.
 
 網路介面將會顯示 Vim 指令清單及此應用程式相關訊息。
 
-===Cron task and arguments (Cron 任務與參數設定)
+
+=== Cron task and arguments (Cron 任務與參數設定)
 
 The following command means "Post 3 tweets every 2 hours in Japanese. EX commands appear every 6 hours." 
 
-下列指令說明：每隔兩小時以日文發佈三則推特文。EX 指令每六小時出現一次。
+下列指令說明：每隔兩小時以日文發佈三則推文。EX 指令每六小時出現一次。
+
 
     rake cron["jp","2","3","6"]
 
 
 "en" is English, "cn" is Chinese(cn) and "tw" is Chinese(tw).
 
-「en」即英文，「cn」表示檢體中文，而「tw」表示繁體中文。
+「en」即英文，「cn」表示簡體中文，而「tw」表示繁體中文。
 
-===How to get OAuth token (如何取得 OAuth token)
+
+=== How to get OAuth token (如何取得 OAuth token)
 
 Use this => https://github.com/jugyo/get-twitter-oauth-token
 
