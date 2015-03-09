@@ -139,7 +139,7 @@ CTRL-[ <Esc>       無作用。
 CTRL-\ CTRL-N      進入一般模式 (Normal) 模式 (空動作)。
 CTRL-\ CTRL-G      進入 'insertmode' 指定的模式。
 CTRL-\ a - z       保留作外掛程式用。
-CTRL-\ 其它        無作用。
+CTRL-\ others      無作用。
 CTRL-]             :ta 到游標所在的標識符號。
 CTRL-^             編輯第 N 個備用檔 (等同於 ":e #N")。
 CTRL-_             無作用。
@@ -686,7 +686,7 @@ CTRL-\ CTRL-G  轉到 'insertmode' 指定的模式，放棄命令列。
 CTRL-\ a - d    保留給外掛程式用。
 CTRL-\ e {expr} 以 {expr} 的結果替換命令列。
 CTRL-\ f - z    保留給外掛程式用。
-CTRL-\ 其它     無作用。
+CTRL-\ others   無作用。
 CTRL-]          啟用縮寫。
 CTRL-^          切換 |:lmap| 映射的使用。
 CTRL-_          'allowrevins'  開啟時: 變更語言 (希伯來，波斯)。
