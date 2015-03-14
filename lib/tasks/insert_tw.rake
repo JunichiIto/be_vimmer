@@ -3,7 +3,7 @@ namespace :seed do
   desc "Insert Traditional Chinese Descriptions"
   task :insert_tw => :environment do
     @lines = <<-EOF.split "\n"
-###編輯模式
+###插入模式
 CTRL-@          插入最近插入的文字並停止插入。
 CTRL-A          插入最近插入的文字。
 CTRL-B          無作用 |i_CTRL-B-gone|。
