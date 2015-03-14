@@ -100,7 +100,7 @@ CTRL-X CTRL-S   拼寫建議。
 CTRL-X CTRL-T   從同義詞詞典補齊標識符號。
 CTRL-X CTRL-U   用 'completefunc' 補齊。
 CTRL-X CTRL-V   如同 : 命令列那樣補齊。
-CTRL-X CTRL-Y   下捲。
+CTRL-X CTRL-Y   向下捲動。
 CTRL-X CTRL-]   補齊標籤。
 CTRL-X s        拼寫建議。
 ###一般模式
@@ -133,7 +133,7 @@ CTRL-U             上捲 (Upwards) N 行 (預設: 半個畫面)。
 CTRL-V             開始面向列塊的可視 (Visual) 模式。
 CTRL-W {char}      視窗指令，見 |CTRL-W|。
 CTRL-X          2  減少當前游標上的數值或者字母 [count]。
-CTRL-Y             下捲 N 行。
+CTRL-Y             向下捲動 N 行。
 CTRL-Z             暫停程式 (或者啟動新的外殼)。
 CTRL-[ <Esc>       無作用。
 CTRL-\ CTRL-N      進入一般模式 (Normal) 模式 (空動作)。
