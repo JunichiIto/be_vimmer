@@ -2,7 +2,30 @@
 namespace :seed do
   desc "Insert Traditional Chinese Descriptions"
   task :insert_tw => :environment do
-    @lines = <<-EOF.split "\n"
+    ActiveRecord::Base.transaction do
+      language = 'tw'
+      VimCommand.where(language: language).destroy_all
+      mode = nil
+      lines.each do |line|
+        if /^###/ =~ line
+          label = line.sub /###/, ""
+          mode = Mode.where(label: label).first_or_create!
+        elsif m = /^(?<command>([\x21-\x7e]+ ?)+)(?<desc>.+)/.match(line)
+          command = m["command"].strip
+          desc = m["desc"].strip
+          desc = desc.sub(/^\d +/, "")
+          if desc.strip.empty? || /^無作用/ =~ desc
+            next
+          end
+          puts "Mode: #{mode.label} Create Command:#{command} - #{desc}"
+          mode.vim_commands.create! command: command, description: desc, language: language
+        end
+      end
+    end
+  end
+  
+  def lines
+    <<-EOF.split "\n"
 ###插入模式
 CTRL-@          插入最近插入的文字並停止插入。
 CTRL-A          插入最近插入的文字。
@@ -1226,22 +1249,6 @@ CTRL-_          'allowrevins'  開啟時: 變更語言 (希伯來，波斯)。
 :xunme[nu]      刪除可視模式的選單。
 :y[ank]         抽出行到暫存器。
 :z              顯示一些行。
-EOF
-
-    @lines.each do |line|
-      if /^###/ =~ line
-        label = line.sub /###/, ""
-        @mode = Mode.where(label: label).first_or_create!
-      elsif m = /^(?<command>([\x21-\x7e]+ ?)+)(?<desc>.+)/.match(line)
-        command = m["command"].strip
-        desc = m["desc"].strip
-        desc = desc.sub(/^\d +/, "")
-        if desc.strip.empty? || /^無作用/ =~ desc
-          next
-        end
-        puts "Mode: #{@mode.label} Create Command:#{command} - #{desc}"
-        @mode.vim_commands.create! command: command, description: desc, language: 'tw'
-      end
-    end
+    EOF
   end
 end
