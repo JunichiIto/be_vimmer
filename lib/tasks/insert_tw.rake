@@ -134,7 +134,7 @@ CTRL-V             開始面向列塊的可視 (Visual) 模式。
 CTRL-W {char}      視窗指令，見 |CTRL-W|。
 CTRL-X          2  減少當前游標上的數值或者字母 [count]。
 CTRL-Y             向下捲動 N 行。
-CTRL-Z             暫停程式 (或者啟動新的 Shell)。
+CTRL-Z             暫停程式 (或者啟動新的 shell)。
 CTRL-[ <Esc>       無作用。
 CTRL-\ CTRL-N      進入一般模式 (Normal) 模式 (空動作)。
 CTRL-\ CTRL-G      進入 'insertmode' 指定的模式。
@@ -1120,7 +1120,7 @@ CTRL-_          'allowrevins'  開啟時: 變更語言 (希伯來，波斯)。
 :sp[lit]        分割目前視窗。
 :spr[evious]    分割視窗並轉到參數清單的前一個檔案。
 :sre[wind]      分割視窗並轉到參數清單的第一個檔案。
-:st[op]         暫停編輯器並退回 Shell。
+:st[op]         暫停編輯器並退回 shell。
 :sta[g]         分割視窗並跳轉到標籤上。
 :startg[replace] 開始虛擬替換模式。
 :startr[eplace] 開始替換模式。
