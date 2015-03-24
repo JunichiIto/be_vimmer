@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby "2.2.1"
 
-gem 'rails', '4.2.0'
+gem 'rails', '4.2.1'
 
 gem "twitter-bootstrap-rails"
 gem 'twitter', '~> 5.8.0'
@@ -34,6 +34,6 @@ group :development, :test do
 end
 
 group :test do
-  gem "rspec-rails", "~> 3.2.0"
+  gem "rspec-rails", "~> 3.2.1"
   gem 'capybara'
 end
