@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby "2.2.3"
 
-gem 'rails', '4.2.1'
+gem 'rails', '4.2.4'
 
 gem "twitter-bootstrap-rails"
 gem 'twitter', '~> 5.8.0'
