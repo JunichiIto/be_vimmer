@@ -112,15 +112,17 @@ GEM
     memoizable (0.4.2)
       thread_safe (~> 0.3, >= 0.3.1)
     mime-types (2.6.2)
-    mini_portile (0.6.2)
+    mini_portile2 (2.1.0)
     minitest (5.8.1)
     multi_json (1.11.2)
     multipart-post (2.0.0)
     naught (1.0.0)
     netrc (0.7.7)
-    nokogiri (1.6.6.2)
-      mini_portile (~> 0.6.0)
+    nokogiri (1.6.8)
+      mini_portile2 (~> 2.1.0)
+      pkg-config (~> 1.1.7)
     pg (0.18.1)
+    pkg-config (1.1.7)
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -259,5 +261,8 @@ DEPENDENCIES
   uglifier (>= 1.3.0)
   unicorn
 
+RUBY VERSION
+   ruby 2.3.1p112
+
 BUNDLED WITH
-   1.10.6
+   1.12.4
