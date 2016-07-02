@@ -2,66 +2,58 @@
 %html(lang="en")
   %head
     %meta(charset="utf-8")
+    %meta(http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1")
     %meta(name="viewport" content="width=device-width, initial-scale=1.0")
     %title= content_for?(:title) ? yield(:title) : "Be Vimmer"
     = csrf_meta_tags
+    = stylesheet_link_tag "application", :media => "all"
+    = favicon_link_tag 'apple-touch-icon-144x144-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '144x144'
+    = favicon_link_tag 'apple-touch-icon-114x114-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '114x114'
+    = favicon_link_tag 'apple-touch-icon-72x72-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '72x72'
+    = favicon_link_tag 'apple-touch-icon-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png'
+    = favicon_link_tag 'favicon.ico', :rel => 'shortcut icon'
+    = javascript_include_tag "application"
     / Le HTML5 shim, for IE6-8 support of HTML elements
     /[if lt IE 9]
-      = javascript_include_tag "http://html5shim.googlecode.com/svn/trunk/html5.js"
-    = stylesheet_link_tag "application", :media => "all"
-    %link(href="favicon.ico" rel="shortcut icon")
-    %link(href="images/apple-touch-icon.png" rel="apple-touch-icon")
-    %link(href="images/apple-touch-icon-72x72.png" rel="apple-touch-icon" sizes="72x72")
-    %link(href="images/apple-touch-icon-114x114.png" rel="apple-touch-icon" sizes="114x114")
-
+      = javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"
   %body
-    .navbar.navbar-fixed-top
-      .navbar-inner
-        .container
-          %a.btn.btn-navbar(data-target=".nav-collapse" data-toggle="collapse")
-            %span.icon-bar
-            %span.icon-bar
-            %span.icon-bar
-          %a.brand(href="#") Be Vimmer
-          .container.nav-collapse
-            %ul.nav
-              %li= link_to "Japanese", "/"
-              %li= link_to "English", "/?lang=en"
-              %li= link_to "Chinese(cn)", "/?lang=cn"
-              %li= link_to "Chinese(tw)", "/?lang=tw"
+    .navbar.navbar-default.navbar-static-top
+      .container
+        %button.navbar-toggle(type="button" data-toggle="collapse" data-target=".navbar-responsive-collapse")
+          %span.icon-bar
+          %span.icon-bar
+          %span.icon-bar
+        %a.navbar-brand(href="#") Be Vimmer
+        .navbar-collapse.collapse.navbar-responsive-collapse
+          %ul.nav.navbar-nav
+            %li= link_to "Japanese", "/"
+            %li= link_to "English", "/?lang=en"
+            %li= link_to "Chinese(cn)", "/?lang=cn"
+            %li= link_to "Chinese(tw)", "/?lang=tw"
 
     .container
-
-      .content
-        .row
-          .span9
-            = yield
-          .span3
-            .well.sidebar-nav
-              %h3 Links
-              %ul.nav.nav-list
-                %li.nav-header About Be Vimmer
-                %li= link_to "Japanese", "http://blog.jnito.com/entry/20120415/1334452212"
-                %li= link_to "English", "http://junichiito.blogspot.jp/2012/04/released-be-vimmer-twitter-bot.html"
-                %li.nav-header Twitter Bots
-                %li= link_to "Japanese", "https://twitter.com/#!/be_vimmer_jp"
-                %li= link_to "English", "https://twitter.com/#!/be_vimmer_en"
-                %li= link_to "Chinese(cn)", "https://twitter.com/#!/be_vimmer_cn"
-                %li= link_to "Chinese(tw)", "https://twitter.com/#!/be_vimmer_tw"
-                %li.nav-header Vim Documentation
-                %li= link_to "Japanese", "http://vim-jp.org/vimdoc-ja/quickref.html"
-                %li= link_to "English", "http://code.google.com/p/vim/source/browse/runtime/doc/index.txt"
-                %li= link_to "Chinese(cn)", "http://sourceforge.net/projects/vimcdoc/files/vimcdoc/1.8.0/"
-                %li= link_to "Chinese(tw)", "https://github.com/chusiang/vimcdoc-tw"
-                %li.nav-header Source Code
-                %li= link_to "github", "https://github.com/JunichiIto/be_vimmer"
-                %li.nav-header Developer
-                %li= link_to "@jnchito", "https://twitter.com/jnchito"
-    
-      %footer
-    /
-      Javascripts
-      \==================================================
-    / Placed at the end of the document so the pages load faster
-    = javascript_include_tag "application"
-
+      .row
+        .col-lg-9
+          = bootstrap_flash
+          = yield
+        .col-lg-3
+          .well.sidebar-nav
+            %h3 Links
+            %ul.nav.nav-list
+              %li.nav-header About Be Vimmer
+              %li= link_to "Japanese", "http://blog.jnito.com/entry/20120415/1334452212"
+              %li= link_to "English", "http://junichiito.blogspot.jp/2012/04/released-be-vimmer-twitter-bot.html"
+              %li.nav-header Twitter Bots
+              %li= link_to "Japanese", "https://twitter.com/#!/be_vimmer_jp"
+              %li= link_to "English", "https://twitter.com/#!/be_vimmer_en"
+              %li= link_to "Chinese(cn)", "https://twitter.com/#!/be_vimmer_cn"
+              %li= link_to "Chinese(tw)", "https://twitter.com/#!/be_vimmer_tw"
+              %li.nav-header Vim Documentation
+              %li= link_to "Japanese", "http://vim-jp.org/vimdoc-ja/quickref.html"
+              %li= link_to "English", "http://code.google.com/p/vim/source/browse/runtime/doc/index.txt"
+              %li= link_to "Chinese(cn)", "http://sourceforge.net/projects/vimcdoc/files/vimcdoc/1.8.0/"
+              %li= link_to "Chinese(tw)", "https://github.com/chusiang/vimcdoc-tw"
+              %li.nav-header Source Code
+              %li= link_to "github", "https://github.com/JunichiIto/be_vimmer"
+              %li.nav-header Developer
+              %li= link_to "@jnchito", "https://twitter.com/jnchito"

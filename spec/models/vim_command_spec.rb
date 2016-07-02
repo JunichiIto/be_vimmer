@@ -12,7 +12,9 @@ describe VimCommand do
     }
     let(:twitter_client) { VimCommand.twitter_client("jp") }
     before do
-      stub_const('ENV', env_hash)
+      allow(Settings).to receive(:[]) do |key|
+        env_hash[key]
+      end
     end
     specify { expect(twitter_client.instance_variable_get(:@consumer_key)).to eq '123' }
     specify { expect(twitter_client.instance_variable_get(:@consumer_secret)).to eq '456' }

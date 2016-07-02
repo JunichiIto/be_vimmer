@@ -6,7 +6,7 @@ Be Vimmer is an application that tweets Vim commands and their description perio
 Vim documentation has to be stored in database in advance. (See  +db/seeds.rb+ or +lib/tasks+ )
 
 
-Tweets are pushed via cron task on server.(See +lib/tasks/cron.rb+ ) You need to register Twitter credentials in environment variables before execution.
+Tweets are pushed via cron task on server.(See +lib/tasks/cron.rb+ ) You need to register Twitter credentials in environment variables (for local `config/settings.local.yml`) before execution.
 
 
 The Web UI just display the Vim command list and the basic information about this application.
@@ -17,7 +17,7 @@ The Web UI just display the Vim command list and the basic information about thi
 The following command means "Post 3 tweets every 2 hours in Japanese. EX commands appear every 6 hours." 
 
 
-    rake cron["jp","2","3","6"]
+    rake 'cron[jp,2,3,6]'
 
 
 "en" is English, "cn" is Chinese(cn) and "tw" is Chinese(tw).
