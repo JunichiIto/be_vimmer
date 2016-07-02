@@ -17,7 +17,7 @@ The Web UI just display the Vim command list and the basic information about thi
 The following command means "Post 3 tweets every 2 hours in Japanese. EX commands appear every 6 hours." 
 
 
-    rake cron["jp","2","3","6"]
+    rake 'cron[jp,2,3,6]'
 
 
 "en" is English, "cn" is Chinese(cn) and "tw" is Chinese(tw).

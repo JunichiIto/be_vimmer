@@ -5,7 +5,7 @@ ruby "2.3.1"
 gem 'rails', '5.0.0'
 
 gem "twitter-bootstrap-rails"
-gem 'twitter', '~> 5.8.0'
+gem 'twitter', '~> 5.16.0'
 gem "puma"
 gem "haml"
 gem "haml-rails"
