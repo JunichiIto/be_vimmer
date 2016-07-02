@@ -2,18 +2,18 @@ source 'https://rubygems.org'
 
 ruby "2.3.1"
 
-gem 'rails', '4.2.4'
+gem 'rails', '5.0.0'
 
 gem "twitter-bootstrap-rails"
 gem 'twitter', '~> 5.8.0'
 gem "unicorn"
-gem "haml", ">= 3.0.0"
+gem "haml"
 gem "haml-rails"
 gem "jquery-rails"
 
-gem 'sass-rails', '~> 4.0.3'
-gem 'coffee-rails', '~> 4.0.1'
-gem 'uglifier', '>= 1.3.0'
+gem 'sass-rails'
+gem 'coffee-rails'
+gem 'uglifier'
 gem 'less-rails'
 gem 'therubyracer'
 
@@ -28,7 +28,7 @@ group :development do
 end
 
 group :development, :test do
-  gem 'sqlite3', '~> 1.3.10'
+  gem 'sqlite3'
   gem 'heroku_san'
   gem 'heroku'
 end
