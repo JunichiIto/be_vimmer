@@ -6,7 +6,7 @@ gem 'rails', '5.0.0'
 
 gem "twitter-bootstrap-rails"
 gem 'twitter', '~> 5.8.0'
-gem "unicorn"
+gem "puma"
 gem "haml"
 gem "haml-rails"
 gem "jquery-rails"
