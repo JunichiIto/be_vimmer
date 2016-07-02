@@ -58,6 +58,10 @@ GEM
     coffee-script-source (1.10.0)
     commonjs (0.2.7)
     concurrent-ruby (1.0.2)
+    config (1.2.1)
+      activesupport (>= 3.0)
+      deep_merge (~> 1.0, >= 1.0.1)
+    deep_merge (1.0.1)
     diff-lcs (1.2.5)
     equalizer (0.0.11)
     erubis (2.7.0)
@@ -255,6 +259,7 @@ PLATFORMS
 DEPENDENCIES
   capybara
   coffee-rails
+  config
   haml
   haml-rails
   heroku

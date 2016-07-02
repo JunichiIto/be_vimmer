@@ -16,6 +16,7 @@ gem 'coffee-rails'
 gem 'uglifier'
 gem 'less-rails'
 gem 'therubyracer'
+gem 'config'
 
 group :production do
   gem 'pg'

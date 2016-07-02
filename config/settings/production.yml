@@ -1,0 +1,19 @@
+twitter_consumer_key_jp: '<%= ENV["twitter_consumer_key_jp"] %>'
+twitter_consumer_secret_jp: '<%= ENV["twitter_consumer_secret_jp"] %>'
+twitter_oauth_token_jp: '<%= ENV["twitter_oauth_token_jp"] %>'
+twitter_oauth_token_secret_jp: '<%= ENV["twitter_oauth_token_secret_jp"] %>'
+
+twitter_consumer_key_en: '<%= ENV["twitter_consumer_key_en"] %>'
+twitter_consumer_secret_en: '<%= ENV["twitter_consumer_secret_en"] %>'
+twitter_oauth_token_en: '<%= ENV["twitter_oauth_token_en"] %>'
+twitter_oauth_token_secret_en: '<%= ENV["twitter_oauth_token_secret_en"] %>'
+
+twitter_consumer_key_cn: '<%= ENV["twitter_consumer_key_cn"] %>'
+twitter_consumer_secret_cn: '<%= ENV["twitter_consumer_secret_cn"] %>'
+twitter_oauth_token_cn: '<%= ENV["twitter_oauth_token_cn"] %>'
+twitter_oauth_token_secret_cn: '<%= ENV["twitter_oauth_token_secret_cn"] %>'
+
+twitter_consumer_key_tw: '<%= ENV["twitter_consumer_key_tw"] %>'
+twitter_consumer_secret_tw: '<%= ENV["twitter_consumer_secret_tw"] %>'
+twitter_oauth_token_tw: '<%= ENV["twitter_oauth_token_tw"] %>'
+twitter_oauth_token_secret_tw: '<%= ENV["twitter_oauth_token_secret_tw"] %>'
