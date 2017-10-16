@@ -1,4 +1,4 @@
-BeVimmer::Application.routes.draw do
+Rails.application.routes.draw do
   get "vim_command/index"
 
   # The priority is based upon order of creation:

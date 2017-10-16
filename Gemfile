@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.3.1'
 
-gem 'rails', '5.0.0'
+gem 'rails', '5.1.4'
 
 gem 'twitter-bootstrap-rails'
 gem 'twitter', '~> 6.1.0'
@@ -10,6 +10,7 @@ gem 'puma'
 gem 'haml'
 gem 'haml-rails'
 gem 'jquery-rails'
+gem 'listen'
 
 gem 'sass-rails'
 gem 'coffee-rails'
