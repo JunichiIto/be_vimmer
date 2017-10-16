@@ -1,15 +1,15 @@
 source 'https://rubygems.org'
 
-ruby "2.3.1"
+ruby '2.3.1'
 
 gem 'rails', '5.0.0'
 
-gem "twitter-bootstrap-rails"
+gem 'twitter-bootstrap-rails'
 gem 'twitter', '~> 5.16.0'
-gem "puma"
-gem "haml"
-gem "haml-rails"
-gem "jquery-rails"
+gem 'puma'
+gem 'haml'
+gem 'haml-rails'
+gem 'jquery-rails'
 
 gem 'sass-rails'
 gem 'coffee-rails'
@@ -20,7 +20,6 @@ gem 'config'
 
 group :production do
   gem 'pg'
-  gem 'rails_12factor'
 end
 
 group :development do
@@ -30,11 +29,9 @@ end
 
 group :development, :test do
   gem 'sqlite3'
-  gem 'heroku_san'
-  gem 'heroku'
 end
 
 group :test do
-  gem "rspec-rails", "~> 3.5.0"
+  gem 'rspec-rails'
   gem 'capybara'
 end
