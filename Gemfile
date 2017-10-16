@@ -11,6 +11,7 @@ gem 'haml'
 gem 'haml-rails'
 gem 'jquery-rails'
 gem 'listen'
+gem 'pg'
 
 gem 'sass-rails'
 gem 'coffee-rails'
@@ -18,10 +19,6 @@ gem 'uglifier'
 gem 'less-rails'
 gem 'therubyracer'
 gem 'config'
-
-group :production do
-  gem 'pg'
-end
 
 group :development do
   gem 'spring'
