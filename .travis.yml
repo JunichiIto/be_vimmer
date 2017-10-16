@@ -1,0 +1,13 @@
+language: ruby
+rvm:
+  - 2.4.2
+cache: bundler
+bundler_args: --without production --deployment
+addons:
+  postgresql: "9.3"
+before_install:
+  - gem install bundler --pre
+before_script:
+  - psql -c 'create database travis_ci_test;' -U postgres
+  - cp config/database.yml.travis config/database.yml
+script: bundle exec rspec
