@@ -10,7 +10,6 @@ gem 'puma'
 gem 'haml'
 gem 'haml-rails'
 gem 'jquery-rails'
-gem 'listen'
 gem 'pg'
 
 gem 'sass-rails'
@@ -27,6 +26,7 @@ end
 
 group :development, :test do
   gem 'sqlite3'
+  gem 'listen'
 end
 
 group :test do
