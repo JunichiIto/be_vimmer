@@ -41,6 +41,6 @@ gem 'haml-rails'
 gem 'jquery-rails'
 gem 'pg'
 
-gem 'less-rails'
+gem 'less-rails', '~> 3.0.0'
 gem 'therubyracer'
 gem 'config'
