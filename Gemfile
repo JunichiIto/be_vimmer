@@ -20,7 +20,6 @@ group :development do
   gem 'web-console', '>= 4.1.0'
   gem 'rack-mini-profiler', '~> 2.0'
   gem 'listen', '~> 3.3'
-  gem 'sqlite3'
   gem 'spring'
 end
 
@@ -35,6 +34,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'twitter'
 gem 'haml-rails'
 gem 'jquery-rails'
-gem 'pg'
 
 gem 'config'
