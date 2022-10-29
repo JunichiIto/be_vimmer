@@ -73,7 +73,7 @@ class VimCommand
     def post(tweet, lang)
       puts tweet
       begin
-        # twitter_client(lang).update tweet.chomp
+        twitter_client(lang).update tweet.chomp
       rescue => ex
         p ex
         puts ex.backtrace.join("\n")
