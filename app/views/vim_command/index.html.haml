@@ -3,14 +3,12 @@
 %table.table.table-bordered.table-condensed
   %thead
     %tr
-      %th ID
       %th MODE
       %th COMMAND
       %th DESCRIPTION
   %tbody
     - @vim_commands.each do |command|
       %tr
-        %td= command.id
-        %td= command.mode.label
+        %td= command.mode
         %td= command.command
         %td= command.description

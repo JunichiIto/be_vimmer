@@ -1,10 +1,25 @@
-# coding: utf-8
+require 'csv'
 require 'twitter'
 
 class VimCommand < ActiveRecord::Base
-  belongs_to :mode
+  attr_accessor :mode
   default_scope -> { order(:id) }
-  
+
+  LANGUAGES = %w(cn en jp tw).freeze
+
+  def self.load_from_csv(lang)
+    raise ArgumentError.new(lang) unless LANGUAGES.include?(lang)
+    path = Rails.root.join("doc/csv/#{lang}.csv")
+    CSV.foreach(path, headers: true).map do |row|
+      params = {
+        mode: row['mode'],
+        command: row['command'],
+        description: row['description'],
+      }
+      new(params)
+    end
+  end
+
   def self.update_tweets(lang, skip_interval, tweets_per_exec, ex_show_interval)
     if execute_this_time? skip_interval.to_i
       execute lang, tweets_per_exec.to_i, ex_show_interval.to_i
