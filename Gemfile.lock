@@ -82,7 +82,6 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.12.2)
-    commonjs (0.2.7)
     concurrent-ruby (1.1.8)
     config (2.2.3)
       deep_merge (~> 1.2, >= 1.2.1)
@@ -169,13 +168,6 @@ GEM
       rails-dom-testing (>= 1, < 3)
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
-    less (2.6.0)
-      commonjs (~> 0.2.7)
-    less-rails (5.0.0)
-      actionpack (>= 5.0)
-      less (~> 2.6.0)
-      sprockets (~> 3.0)
-    libv8 (3.16.14.19)
     listen (3.4.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -239,7 +231,6 @@ GEM
     rb-fsevent (0.10.4)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
-    ref (2.0.0)
     regexp_parser (2.0.3)
     rspec-core (3.10.1)
       rspec-support (~> 3.10.0)
@@ -287,9 +278,6 @@ GEM
       sprockets (>= 3.0.0)
     sqlite3 (1.4.2)
     temple (0.8.2)
-    therubyracer (0.12.3)
-      libv8 (~> 3.16.14.15)
-      ref
     thor (1.1.0)
     thread_safe (0.3.6)
     tilt (2.0.10)
@@ -307,11 +295,6 @@ GEM
       multipart-post (~> 2.0)
       naught (~> 1.0)
       simple_oauth (~> 0.3.0)
-    twitter-bootstrap-rails (3.2.2)
-      actionpack (>= 3.1)
-      execjs (>= 2.2.2, >= 2.2)
-      less-rails (>= 2.5.0)
-      railties (>= 3.1)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
     uglifier (4.2.0)
@@ -343,7 +326,6 @@ DEPENDENCIES
   haml-rails
   jbuilder (~> 2.7)
   jquery-rails
-  less-rails
   listen (~> 3.3)
   pg
   puma
@@ -354,10 +336,8 @@ DEPENDENCIES
   selenium-webdriver
   spring
   sqlite3
-  therubyracer
   turbolinks (~> 5)
   twitter
-  twitter-bootstrap-rails (< 4.0)
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console (>= 4.1.0)
