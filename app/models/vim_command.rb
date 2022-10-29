@@ -1,9 +1,16 @@
 require 'csv'
 require 'twitter'
 
-class VimCommand < ActiveRecord::Base
-  attr_accessor :mode
-  default_scope -> { order(:id) }
+class VimCommand
+  include ActiveModel::Model
+  include ActiveModel::Attributes
+  include ActiveModel::Validations
+  include ActiveModel::Validations::Callbacks
+
+  attribute :mode, :string
+  attribute :language, :string
+  attribute :command, :string
+  attribute :description, :string
 
   LANGUAGES = %w(cn en jp tw).freeze
 
@@ -66,7 +73,7 @@ class VimCommand < ActiveRecord::Base
     def post(tweet, lang)
       puts tweet
       begin
-        twitter_client(lang).update tweet.chomp
+        # twitter_client(lang).update tweet.chomp
       rescue => ex
         p ex
         puts ex.backtrace.join("\n")
