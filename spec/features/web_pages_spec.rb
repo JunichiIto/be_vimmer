@@ -2,43 +2,28 @@
 require 'spec_helper'
 
 feature 'web pages' do
-  background do
-    mode = Mode.create(label: "test")
-    jp = VimCommand.new(command: ":w", description: "保存", language: "jp")
-    jp.mode = mode
-    jp.save!
-    en = VimCommand.new(command: ":w", description: "Save", language: "en")
-    en.mode = mode
-    en.save!
-    cn = VimCommand.new(command: ":w", description: "你好", language: "cn")
-    cn.mode = mode
-    cn.save!
-    tw = VimCommand.new(command: ":w", description: "你好台湾", language: "tw")
-    tw.mode = mode
-    tw.save!
-  end
   scenario "access pages" do
     visit root_path
-    expect(page).to have_content "保存"
+    expect(page).to have_content "左に N 桁移動"
 
     within ".navbar" do
       click_link "English"
     end
-    expect(page).to have_content "Save"
+    expect(page).to have_content "insert previously inserted text and stop insert"
 
     within ".navbar" do
       click_link "Chinese(cn)"
     end
-    expect(page).to have_content "你好"
+    expect(page).to have_content "插入最近插入的文本并停止插入"
 
     within ".navbar" do
       click_link "Chinese(tw)"
     end
-    expect(page).to have_content "你好台湾"
+    expect(page).to have_content "插入最近插入的文字並停止插入。"
 
     within ".navbar" do
       click_link "Japanese"
     end
-    expect(page).to have_content "保存"
+    expect(page).to have_content "左に N 桁移動"
   end
 end

@@ -10,7 +10,7 @@ describe VimCommand do
           "twitter_oauth_token_secret_jp" => "abc",
       }
     }
-    let(:twitter_client) { VimCommand.twitter_client("jp") }
+    let(:twitter_client) { VimCommand.send(:twitter_client, "jp") }
     before do
       allow(Settings).to receive(:[]) do |key|
         env_hash[key]
@@ -26,14 +26,6 @@ describe VimCommand do
   end
 
   describe "::update_tweets" do
-    let(:mode) { Mode.create(label: "test") }
-    let!(:vim_command) do
-      VimCommand.new(command: "test command", description: "test desc", language: "jp").tap do |command|
-        command.mode = mode
-        command.save!
-      end
-    end
-
     it "updates tweet" do
       twitter = double(:twitter)
       expect(twitter).to receive(:update).once
